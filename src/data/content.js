@@ -1,8 +1,10 @@
 // Central content store for the Fridge Repairs Near Me homepage.
 // Keeping copy here mirrors the SEO content brief and keeps components lean.
 
-export const enquiryEmail = "hello@fridgerepairsnearme.com.au";
+export const enquiryEmail = "info@fridgerepairsnearme.com.au";
 export const enquiryEmailHref = `mailto:${enquiryEmail}`;
+export const businessAddress = "Sydney, NSW";
+export const businessHours = "Open 24/7";
 
 export const navLinks = [
   { label: "Domestic", href: "#domestic" },
@@ -10,6 +12,8 @@ export const navLinks = [
   { label: "Locations", href: "#locations" },
   { label: "How It Works", href: "#process" },
   { label: "FAQ", href: "#faq" },
+  { label: "Blog", href: "#blog" },
+  { label: "Contact", href: "#contact-us" },
 ];
 
 export const trustBar = [
@@ -476,4 +480,25 @@ export const applianceOptions = [
   "Commercial Freezer",
   "Coolroom / Walk-In",
   "Other",
+];
+
+export const blogPosts = [
+  {
+    category: "Maintenance Tips",
+    title: "5 Signs Your Fridge Needs Professional Repair",
+    excerpt:
+      "From warm spots to unusual noises, some symptoms are easy to dismiss. Here's what generally warrants a proper inspection rather than a wait-and-see approach.",
+  },
+  {
+    category: "Troubleshooting",
+    title: "Fridge Not Cooling? Here's What Could Be Wrong",
+    excerpt:
+      "A warm fridge doesn't always mean a dead compressor. We walk through the more common causes technicians check first, and why diagnosis comes before parts.",
+  },
+  {
+    category: "Buying Guide",
+    title: "Is It Time to Repair or Replace Your Fridge?",
+    excerpt:
+      "Age isn't the only factor. A look at how fault type, repair cost and appliance condition weigh into a sensible repair-or-replace decision.",
+  },
 ];

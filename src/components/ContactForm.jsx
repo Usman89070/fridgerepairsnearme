@@ -12,7 +12,24 @@ const initialState = {
   website: "", // honeypot
 };
 
-export default function ContactForm({ variant = "hero" }) {
+const copyByVariant = {
+  hero: {
+    heading: "Check Fridge Repairs Near Me",
+    subheading: "Tell us your suburb and the fault — we'll confirm local service availability.",
+    submitLabel: "Check Availability Near Me",
+    submitLabelBusy: "Checking availability…",
+  },
+  section: {
+    heading: "Send Us a Message",
+    subheading: "Include your suburb and a short description of the fault and we'll get back to you.",
+    submitLabel: "Send Message",
+    submitLabelBusy: "Sending…",
+  },
+};
+
+export default function ContactForm({ variant = "hero", idPrefix = "cf" }) {
+  const id = (field) => `${idPrefix}-${field}`;
+  const copy = copyByVariant[variant] ?? copyByVariant.hero;
   const [values, setValues] = useState(initialState);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle"); // idle | submitting | success
@@ -73,8 +90,8 @@ export default function ContactForm({ variant = "hero" }) {
   return (
     <form className={`contact-form contact-form--${variant}`} onSubmit={handleSubmit} noValidate>
       <div className="contact-form__head">
-        <h3>Check Fridge Repairs Near Me</h3>
-        <p>Tell us your suburb and the fault — we'll confirm local service availability.</p>
+        <h3>{copy.heading}</h3>
+        <p>{copy.subheading}</p>
       </div>
 
       <input
@@ -90,26 +107,26 @@ export default function ContactForm({ variant = "hero" }) {
 
       <div className="field-row">
         <div className="field">
-          <label htmlFor="cf-name">Full Name</label>
-          <input id="cf-name" type="text" value={values.name} onChange={update("name")} placeholder="Jane Smith" />
+          <label htmlFor={id("name")}>Full Name</label>
+          <input id={id("name")} type="text" value={values.name} onChange={update("name")} placeholder="Jane Smith" />
           {errors.name && <span className="field-error">{errors.name}</span>}
         </div>
         <div className="field">
-          <label htmlFor="cf-email">Email Address</label>
-          <input id="cf-email" type="email" value={values.email} onChange={update("email")} placeholder="you@email.com" />
+          <label htmlFor={id("email")}>Email Address</label>
+          <input id={id("email")} type="email" value={values.email} onChange={update("email")} placeholder="you@email.com" />
           {errors.email && <span className="field-error">{errors.email}</span>}
         </div>
       </div>
 
       <div className="field-row">
         <div className="field">
-          <label htmlFor="cf-suburb">Suburb or Postcode</label>
-          <input id="cf-suburb" type="text" value={values.suburb} onChange={update("suburb")} placeholder="e.g. Parramatta, 2150" />
+          <label htmlFor={id("suburb")}>Suburb or Postcode</label>
+          <input id={id("suburb")} type="text" value={values.suburb} onChange={update("suburb")} placeholder="e.g. Parramatta, 2150" />
           {errors.suburb && <span className="field-error">{errors.suburb}</span>}
         </div>
         <div className="field">
-          <label htmlFor="cf-appliance">Appliance Type</label>
-          <select id="cf-appliance" value={values.appliance} onChange={update("appliance")}>
+          <label htmlFor={id("appliance")}>Appliance Type</label>
+          <select id={id("appliance")} value={values.appliance} onChange={update("appliance")}>
             {applianceOptions.map((opt) => (
               <option key={opt} value={opt}>{opt}</option>
             ))}
@@ -118,14 +135,14 @@ export default function ContactForm({ variant = "hero" }) {
       </div>
 
       <div className="field">
-        <label htmlFor="cf-brand">Fridge Brand (optional)</label>
-        <input id="cf-brand" type="text" value={values.brand} onChange={update("brand")} placeholder="e.g. Samsung" />
+        <label htmlFor={id("brand")}>Fridge Brand (optional)</label>
+        <input id={id("brand")} type="text" value={values.brand} onChange={update("brand")} placeholder="e.g. Samsung" />
       </div>
 
       <div className="field">
-        <label htmlFor="cf-message">What's happening with the fridge?</label>
+        <label htmlFor={id("message")}>What's happening with the fridge?</label>
         <textarea
-          id="cf-message"
+          id={id("message")}
           rows={3}
           value={values.message}
           onChange={update("message")}
@@ -135,7 +152,7 @@ export default function ContactForm({ variant = "hero" }) {
       </div>
 
       <button type="submit" className="btn btn-primary btn-block" disabled={status === "submitting"}>
-        {status === "submitting" ? "Checking availability…" : "Check Availability Near Me"}
+        {status === "submitting" ? copy.submitLabelBusy : copy.submitLabel}
       </button>
 
       <p className="contact-form__note">

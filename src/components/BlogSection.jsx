@@ -1,0 +1,38 @@
+import { blogPosts } from "../data/content";
+import { ArticleIcon } from "./Icons";
+
+export default function BlogSection() {
+  return (
+    <section id="blog" className="section section--alt blog">
+      <div className="container">
+        <div className="section-head section-head--center">
+          <p className="eyebrow" style={{ justifyContent: "center" }}>From the Blog</p>
+          <h2>Fridge Care Guides &amp; Advice</h2>
+          <p>
+            Practical, no-nonsense reading on keeping fridges and freezers running well —
+            new articles are added regularly.
+          </p>
+        </div>
+
+        <div className="grid grid-3 blog__grid">
+          {blogPosts.map((post) => (
+            <article className="card blog__card" key={post.title}>
+              <div className="blog__card-top">
+                <span className="icon-badge"><ArticleIcon /></span>
+                <span className="blog__badge">Coming Soon</span>
+              </div>
+              <span className="pill blog__category">{post.category}</span>
+              <h3>{post.title}</h3>
+              <p>{post.excerpt}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="blog__cta">
+          <p>Have a fridge question we haven't covered yet?</p>
+          <a href="#contact-us" className="btn btn-outline">Ask Us a Question</a>
+        </div>
+      </div>
+    </section>
+  );
+}

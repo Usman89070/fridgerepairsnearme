@@ -20,6 +20,8 @@ import TestimonialsSection from "./components/TestimonialsSection";
 import ServiceAreasSection from "./components/ServiceAreasSection";
 import CostSection from "./components/CostSection";
 import FAQSection from "./components/FAQSection";
+import BlogSection from "./components/BlogSection";
+import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 
 export default function App() {
@@ -45,6 +47,8 @@ export default function App() {
         <ServiceAreasSection />
         <CostSection />
         <FAQSection />
+        <BlogSection />
+        <ContactSection />
       </main>
       <Footer />
     </>

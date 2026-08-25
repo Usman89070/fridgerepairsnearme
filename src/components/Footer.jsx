@@ -28,7 +28,6 @@ export default function Footer() {
             {navLinks.map((link) => (
               <li key={link.href}><a href={link.href}>{link.label}</a></li>
             ))}
-            <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
 

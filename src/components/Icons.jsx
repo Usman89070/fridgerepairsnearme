@@ -88,6 +88,19 @@ export const DropletIcon = (props) => (
   </svg>
 );
 
+export const ArticleIcon = (props) => (
+  <svg viewBox="0 0 24 24" width="20" height="20" {...base} {...props}>
+    <rect x="4" y="3" width="16" height="18" rx="2" />
+    <path d="M8 8h8M8 12h8M8 16h5" />
+  </svg>
+);
+
+export const ArrowRightIcon = (props) => (
+  <svg viewBox="0 0 24 24" width="18" height="18" {...base} {...props}>
+    <path d="M5 12h14M13 6l6 6-6 6" />
+  </svg>
+);
+
 export const MenuIcon = (props) => (
   <svg viewBox="0 0 24 24" width="24" height="24" {...base} {...props}>
     <path d="M4 7h16M4 12h16M4 17h16" />
