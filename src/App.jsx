@@ -5,6 +5,7 @@ import "./styles/sections.css";
 import "./styles/blog-pages.css";
 
 import useScrollReveal from "./hooks/useScrollReveal";
+import useHashScroll from "./hooks/useHashScroll";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
@@ -15,6 +16,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 export default function App() {
   const location = useLocation();
   useScrollReveal(location.pathname);
+  useHashScroll(location.pathname, location.hash);
 
   return (
     <>

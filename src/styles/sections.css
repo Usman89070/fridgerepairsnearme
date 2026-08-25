@@ -376,14 +376,18 @@
 .brand--footer { color: var(--white); margin-bottom: 16px; }
 .footer__brand p { font-size: 0.92rem; color: var(--slate-300); max-width: 320px; margin-bottom: 20px; }
 .footer__contact { display: flex; flex-direction: column; gap: 10px; }
-.footer__contact a { display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--white); font-size: 0.94rem; }
-.footer__contact svg { color: var(--sky-400); }
+.footer__contact a,
+.footer__contact span { display: flex; align-items: center; gap: 8px; font-size: 0.94rem; }
+.footer__contact a { font-weight: 600; color: var(--white); }
+.footer__contact span { color: var(--slate-300); }
+.footer__contact svg { color: var(--sky-400); flex-shrink: 0; }
 
 .footer__col h4 { color: var(--white); font-size: 0.95rem; margin-bottom: 18px; }
 .footer__col ul { display: flex; flex-direction: column; gap: 12px; }
-.footer__col li { font-size: 0.9rem; color: var(--slate-300); display: flex; align-items: center; gap: 8px; }
+.footer__col li { font-size: 0.9rem; color: var(--slate-300); }
 .footer__col svg { color: var(--sky-400); flex-shrink: 0; }
 .footer__col a { font-size: 0.9rem; color: var(--slate-300); transition: color 0.15s ease; }
+.footer__col li a { display: flex; align-items: center; gap: 8px; }
 .footer__col a:hover { color: var(--sky-300); }
 .footer__col p { font-size: 0.88rem; color: var(--slate-300); margin-bottom: 16px; }
 

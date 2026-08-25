@@ -1,7 +1,5 @@
-import { navLinks, enquiryEmail, enquiryEmailHref } from "../data/content";
-import { MailIcon, PinIcon } from "./Icons";
-
-const footerLocations = ["Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "Canberra"];
+import { navLinks, enquiryEmail, enquiryEmailHref, businessAddress, businessHours, cityLocations } from "../data/content";
+import { MailIcon, PinIcon, ClockIcon } from "./Icons";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -19,6 +17,8 @@ export default function Footer() {
           </p>
           <div className="footer__contact">
             <a href={enquiryEmailHref}><MailIcon /> {enquiryEmail}</a>
+            <span><PinIcon /> {businessAddress}</span>
+            <span><ClockIcon /> {businessHours}</span>
           </div>
         </div>
 
@@ -34,8 +34,12 @@ export default function Footer() {
         <div className="footer__col">
           <h4>Service Areas</h4>
           <ul>
-            {footerLocations.map((loc) => (
-              <li key={loc}><PinIcon /> Fridge Repairs in {loc}</li>
+            {cityLocations.map((loc) => (
+              <li key={loc.city}>
+                <a href={`/#location-${loc.city.toLowerCase()}`}>
+                  <PinIcon /> Fridge Repairs in {loc.city}
+                </a>
+              </li>
             ))}
           </ul>
         </div>

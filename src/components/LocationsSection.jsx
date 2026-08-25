@@ -16,7 +16,7 @@ export default function LocationsSection() {
 
         <div className="grid grid-3 locations__grid">
           {cityLocations.map((loc) => (
-            <div className="card locations__card" key={loc.city}>
+            <div className="card locations__card" id={`location-${loc.city.toLowerCase()}`} key={loc.city}>
               <span className="icon-badge"><PinIcon /></span>
               <h3>Fridge Repairs Near Me in {loc.city}</h3>
               <p>{loc.blurb}</p>
