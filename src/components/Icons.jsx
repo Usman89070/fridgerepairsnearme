@@ -2,9 +2,10 @@
 
 const base = { fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round" };
 
-export const PhoneIcon = (props) => (
+export const MailIcon = (props) => (
   <svg viewBox="0 0 24 24" width="20" height="20" {...base} {...props}>
-    <path d="M4.5 4h3.2l1.5 4-2 1.4a11 11 0 0 0 6.4 6.4l1.4-2 4 1.5v3.2a1.5 1.5 0 0 1-1.6 1.5A17 17 0 0 1 3 5.6 1.5 1.5 0 0 1 4.5 4Z" />
+    <rect x="3" y="5" width="18" height="14" rx="2.5" />
+    <path d="m4 7 8 6 8-6" />
   </svg>
 );
 

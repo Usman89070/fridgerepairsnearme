@@ -67,7 +67,7 @@
   flex-shrink: 0;
 }
 
-.header-phone {
+.header-contact {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -76,7 +76,7 @@
   white-space: nowrap;
 }
 
-.header-phone svg { color: var(--amber-500); }
+.header-contact svg { color: var(--amber-500); }
 
 .menu-toggle {
   display: none;
@@ -111,7 +111,7 @@
     font-size: 1.02rem;
     color: var(--slate-700);
   }
-  .header-phone--mobile { font-size: 1.05rem; }
+  .header-contact--mobile { font-size: 1.05rem; }
 }
 
 /* ===================== Hero ===================== */

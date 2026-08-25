@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { navLinks, phoneNumber, phoneHref } from "../data/content";
-import { PhoneIcon, SnowflakeIcon, MenuIcon, CloseIcon } from "./Icons";
+import { navLinks, enquiryEmail, enquiryEmailHref } from "../data/content";
+import { MailIcon, SnowflakeIcon, MenuIcon, CloseIcon } from "./Icons";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -35,9 +35,9 @@ export default function Header() {
         </nav>
 
         <div className="site-header__actions">
-          <a href={phoneHref} className="header-phone">
-            <PhoneIcon />
-            <span>{phoneNumber}</span>
+          <a href={enquiryEmailHref} className="header-contact" title={enquiryEmail}>
+            <MailIcon />
+            <span>Email Us</span>
           </a>
           <a href="#contact" className="btn btn-primary btn-sm">Find Fridge Repairs Near Me</a>
         </div>
@@ -59,8 +59,8 @@ export default function Header() {
               <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a>
             ))}
           </nav>
-          <a href={phoneHref} className="header-phone header-phone--mobile">
-            <PhoneIcon /> <span>{phoneNumber}</span>
+          <a href={enquiryEmailHref} className="header-contact header-contact--mobile">
+            <MailIcon /> <span>{enquiryEmail}</span>
           </a>
           <a href="#contact" className="btn btn-primary btn-block" onClick={() => setMenuOpen(false)}>
             Find Fridge Repairs Near Me

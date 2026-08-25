@@ -1,9 +1,8 @@
 // Central content store for the Fridge Repairs Near Me homepage.
 // Keeping copy here mirrors the SEO content brief and keeps components lean.
 
-export const phoneNumber = "1300 000 000";
-export const phoneHref = "tel:+611300000000";
 export const enquiryEmail = "hello@fridgerepairsnearme.com.au";
+export const enquiryEmailHref = `mailto:${enquiryEmail}`;
 
 export const navLinks = [
   { label: "Domestic", href: "#domestic" },

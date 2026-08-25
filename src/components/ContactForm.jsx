@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { applianceOptions, phoneNumber, phoneHref } from "../data/content";
+import { applianceOptions, enquiryEmail, enquiryEmailHref } from "../data/content";
 import { CheckIcon } from "./Icons";
 
 const initialState = {
   name: "",
-  phone: "",
   email: "",
   suburb: "",
   appliance: applianceOptions[0],
@@ -24,11 +23,12 @@ export default function ContactForm({ variant = "hero" }) {
   const validate = () => {
     const next = {};
     if (!values.name.trim()) next.name = "Please enter your name.";
-    if (!values.phone.trim()) next.phone = "Please enter a contact number.";
-    if (!values.suburb.trim()) next.suburb = "Please enter your suburb or postcode.";
-    if (values.email && !/^\S+@\S+\.\S+$/.test(values.email)) {
+    if (!values.email.trim()) {
+      next.email = "Please enter your email address.";
+    } else if (!/^\S+@\S+\.\S+$/.test(values.email)) {
       next.email = "Please enter a valid email address.";
     }
+    if (!values.suburb.trim()) next.suburb = "Please enter your suburb or postcode.";
     if (!values.message.trim()) next.message = "Briefly describe the fault.";
     return next;
   };
@@ -59,8 +59,8 @@ export default function ContactForm({ variant = "hero" }) {
           <h3>Enquiry Received</h3>
           <p>
             Thanks — your details have been submitted. Local fridge repair availability for
-            your suburb will be confirmed shortly. For urgent faults, you can also call{" "}
-            <a href={phoneHref}>{phoneNumber}</a>.
+            your suburb will be confirmed shortly by email. For urgent faults, you can also
+            email us directly at <a href={enquiryEmailHref}>{enquiryEmail}</a>.
           </p>
           <button type="button" className="btn btn-outline btn-sm" onClick={() => setStatus("idle")}>
             Submit another enquiry
@@ -95,9 +95,9 @@ export default function ContactForm({ variant = "hero" }) {
           {errors.name && <span className="field-error">{errors.name}</span>}
         </div>
         <div className="field">
-          <label htmlFor="cf-phone">Phone Number</label>
-          <input id="cf-phone" type="tel" value={values.phone} onChange={update("phone")} placeholder="04xx xxx xxx" />
-          {errors.phone && <span className="field-error">{errors.phone}</span>}
+          <label htmlFor="cf-email">Email Address</label>
+          <input id="cf-email" type="email" value={values.email} onChange={update("email")} placeholder="you@email.com" />
+          {errors.email && <span className="field-error">{errors.email}</span>}
         </div>
       </div>
 
@@ -117,16 +117,9 @@ export default function ContactForm({ variant = "hero" }) {
         </div>
       </div>
 
-      <div className="field-row">
-        <div className="field">
-          <label htmlFor="cf-email">Email (optional)</label>
-          <input id="cf-email" type="email" value={values.email} onChange={update("email")} placeholder="you@email.com" />
-          {errors.email && <span className="field-error">{errors.email}</span>}
-        </div>
-        <div className="field">
-          <label htmlFor="cf-brand">Fridge Brand (optional)</label>
-          <input id="cf-brand" type="text" value={values.brand} onChange={update("brand")} placeholder="e.g. Samsung" />
-        </div>
+      <div className="field">
+        <label htmlFor="cf-brand">Fridge Brand (optional)</label>
+        <input id="cf-brand" type="text" value={values.brand} onChange={update("brand")} placeholder="e.g. Samsung" />
       </div>
 
       <div className="field">
@@ -146,7 +139,7 @@ export default function ContactForm({ variant = "hero" }) {
       </button>
 
       <p className="contact-form__note">
-        Prefer to talk? Call <a href={phoneHref}>{phoneNumber}</a> for urgent fridge faults.
+        Prefer email? Reach us directly at <a href={enquiryEmailHref}>{enquiryEmail}</a>.
       </p>
     </form>
   );

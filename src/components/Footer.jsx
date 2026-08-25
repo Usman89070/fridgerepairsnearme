@@ -1,5 +1,5 @@
-import { navLinks, phoneNumber, phoneHref, enquiryEmail } from "../data/content";
-import { SnowflakeIcon, PhoneIcon, PinIcon } from "./Icons";
+import { navLinks, enquiryEmail, enquiryEmailHref } from "../data/content";
+import { SnowflakeIcon, MailIcon, PinIcon } from "./Icons";
 
 const footerLocations = ["Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "Canberra"];
 
@@ -19,8 +19,7 @@ export default function Footer() {
             fridges, freezers and commercial refrigeration equipment.
           </p>
           <div className="footer__contact">
-            <a href={phoneHref}><PhoneIcon /> {phoneNumber}</a>
-            <a href={`mailto:${enquiryEmail}`}>{enquiryEmail}</a>
+            <a href={enquiryEmailHref}><MailIcon /> {enquiryEmail}</a>
           </div>
         </div>
 

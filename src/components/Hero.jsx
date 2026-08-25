@@ -1,5 +1,5 @@
-import { phoneNumber, phoneHref } from "../data/content";
-import { CheckIcon } from "./Icons";
+import { enquiryEmailHref } from "../data/content";
+import { CheckIcon, MailIcon } from "./Icons";
 import ContactForm from "./ContactForm";
 
 const heroPoints = [
@@ -32,7 +32,7 @@ export default function Hero() {
 
           <div className="hero__actions">
             <a href="#contact" className="btn btn-primary">Find Fridge Repairs Near Me</a>
-            <a href={phoneHref} className="btn btn-secondary">Call: {phoneNumber}</a>
+            <a href={enquiryEmailHref} className="btn btn-secondary"><MailIcon /> Email Us</a>
           </div>
 
           <ul className="hero__points">

@@ -23,8 +23,8 @@ npm run lint     # oxlint
 
 A few things are placeholders and need real business details:
 
-- **Phone number** — currently `1300 000 000` in `src/data/content.js`
-- **Email** — currently `hello@fridgerepairsnearme.com.au`
+- **Email** — currently `hello@fridgerepairsnearme.com.au` in `src/data/content.js` (the site
+  is email-only — no phone number is displayed anywhere)
 - **ABN** — footer currently shows `[Insert ABN]`
 - **Testimonials** — `src/data/content.js` `testimonials` array has placeholder quotes
 - **Service areas** — confirm which suburbs/regions in `serviceAreas` are genuinely covered
