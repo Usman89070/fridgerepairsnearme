@@ -1,16 +1,21 @@
+import { useEffect } from "react";
 import { blogPosts } from "../data/content";
-import { ArticleIcon, ArrowRightIcon } from "./Icons";
+import { ArticleIcon, ArrowRightIcon } from "../components/Icons";
 
-export default function BlogSection() {
+export default function BlogIndexPage() {
+  useEffect(() => {
+    document.title = "Fridge Care Guides & Advice | Fridge Repairs Near Me";
+  }, []);
+
   return (
-    <section id="blog" className="section section--alt blog">
+    <section className="section blog-page">
       <div className="container">
         <div className="section-head section-head--center">
           <p className="eyebrow" style={{ justifyContent: "center" }}>From the Blog</p>
-          <h2>Fridge Care Guides &amp; Advice</h2>
+          <h1>Fridge Care Guides &amp; Advice</h1>
           <p>
-            Practical, no-nonsense reading on keeping fridges and freezers running well —
-            new articles are added regularly.
+            Practical, no-nonsense reading on fridge and freezer faults, maintenance and
+            repair-or-replace decisions — new articles are added regularly.
           </p>
         </div>
 
@@ -21,7 +26,7 @@ export default function BlogSection() {
                 <span className="icon-badge"><ArticleIcon /></span>
               </div>
               <span className="pill blog__category">{post.category}</span>
-              <h3>{post.title}</h3>
+              <h2>{post.title}</h2>
               <p>{post.excerpt}</p>
               <a href={`/blog/${post.slug}`} className="blog__read-more">
                 Read Article <ArrowRightIcon />
@@ -31,8 +36,8 @@ export default function BlogSection() {
         </div>
 
         <div className="blog__cta">
-          <a href="/blog" className="btn btn-outline">View All Articles</a>
           <a href="/#contact-us" className="btn btn-primary">Ask Us a Question</a>
+          <a href="/" className="btn btn-outline">Back to Home</a>
         </div>
       </div>
     </section>

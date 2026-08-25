@@ -14,16 +14,24 @@ npm run lint     # oxlint
 
 ## Project structure
 
-- `src/data/content.js` — all page copy in one place (locations, brands, FAQs, etc.)
-- `src/components/` — one component per homepage section
-- `src/styles/` — global design tokens (`index.css`) plus section styles
+- `src/data/content.js` — all page copy in one place (locations, brands, FAQs, blog posts, etc.)
+- `src/pages/` — routed pages: `HomePage` (`/`), `BlogIndexPage` (`/blog`),
+  `BlogPostPage` (`/blog/:slug`), `NotFoundPage` (anything else)
+- `src/components/` — one component per homepage section, shared across pages
+- `src/styles/` — global design tokens (`index.css`) plus section/page styles
 - `index.html` — meta tags, Open Graph, and JSON-LD structured data
+
+Routing is client-side (`react-router-dom`, `BrowserRouter`). Header/Footer nav links to
+in-page sections (e.g. `/#domestic`) are always prefixed with `/` so they resolve correctly
+from any route, not just the homepage. Blog posts live in `blogPosts` in `content.js` — add a
+new entry with a unique `slug` and `sections` array to publish a new article; it appears
+automatically in both the homepage teaser and `/blog`.
 
 ## Before going live
 
 A few things are placeholders and need real business details:
 
-- **Email** — currently `hello@fridgerepairsnearme.com.au` in `src/data/content.js` (the site
+- **Email** — currently `info@fridgerepairsnearme.com.au` in `src/data/content.js` (the site
   is email-only — no phone number is displayed anywhere)
 - **ABN** — footer currently shows `[Insert ABN]`
 - **Testimonials** — `src/data/content.js` `testimonials` array has placeholder quotes

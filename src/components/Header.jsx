@@ -21,7 +21,7 @@ export default function Header() {
   return (
     <header className={`site-header ${scrolled ? "site-header--scrolled" : ""}`}>
       <div className="container site-header__row">
-        <a href="#home" className="brand" onClick={() => setMenuOpen(false)}>
+        <a href="/#home" className="brand" onClick={() => setMenuOpen(false)}>
           <img src="/logo.webp" alt="Fridge Repairs Near Me" className="brand__logo" width="200" height="200" />
         </a>
 
@@ -36,7 +36,7 @@ export default function Header() {
             <MailIcon />
             <span>Email Us</span>
           </a>
-          <a href="#contact" className="btn btn-primary btn-sm">Find Fridge Repairs Near Me</a>
+          <a href="/#contact" className="btn btn-primary btn-sm">Find Fridge Repairs Near Me</a>
         </div>
 
         <button
@@ -59,7 +59,7 @@ export default function Header() {
           <a href={enquiryEmailHref} className="header-contact header-contact--mobile">
             <MailIcon /> <span>{enquiryEmail}</span>
           </a>
-          <a href="#contact" className="btn btn-primary btn-block" onClick={() => setMenuOpen(false)}>
+          <a href="/#contact" className="btn btn-primary btn-block" onClick={() => setMenuOpen(false)}>
             Find Fridge Repairs Near Me
           </a>
         </div>

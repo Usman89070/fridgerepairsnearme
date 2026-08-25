@@ -24,7 +24,7 @@ const REVEAL_SELECTORS = [
 const STAGGER_MS = 70;
 const MAX_STAGGER_STEPS = 6;
 
-export default function useScrollReveal() {
+export default function useScrollReveal(routeKey) {
   useEffect(() => {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const els = Array.from(document.querySelectorAll(REVEAL_SELECTORS));
@@ -83,5 +83,6 @@ export default function useScrollReveal() {
 
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [routeKey]);
 }

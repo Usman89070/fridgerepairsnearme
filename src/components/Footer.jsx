@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer__grid">
         <div className="footer__brand">
-          <a href="#home" className="brand brand--footer">
+          <a href="/#home" className="brand brand--footer">
             <img src="/logo.webp" alt="Fridge Repairs Near Me" className="brand__logo brand__logo--footer" width="200" height="200" />
           </a>
           <p>
@@ -43,7 +43,7 @@ export default function Footer() {
         <div className="footer__col">
           <h4>Get a Quote</h4>
           <p>Provide your suburb, appliance and fault to check local availability.</p>
-          <a href="#contact" className="btn btn-primary btn-sm">Find Fridge Repairs Near Me</a>
+          <a href="/#contact" className="btn btn-primary btn-sm">Find Fridge Repairs Near Me</a>
         </div>
       </div>
 
