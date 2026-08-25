@@ -19,8 +19,6 @@ const REVEAL_SELECTORS = [
   ".regas__copy",
   ".worth__copy",
   ".cost__copy",
-  ".contact-us__copy",
-  ".contact-us__form-wrap",
 ].join(",");
 
 const STAGGER_MS = 70;

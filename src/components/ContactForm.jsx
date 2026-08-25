@@ -12,24 +12,8 @@ const initialState = {
   website: "", // honeypot
 };
 
-const copyByVariant = {
-  hero: {
-    heading: "Check Fridge Repairs Near Me",
-    subheading: "Tell us your suburb and the fault — we'll confirm local service availability.",
-    submitLabel: "Check Availability Near Me",
-    submitLabelBusy: "Checking availability…",
-  },
-  section: {
-    heading: "Send Us a Message",
-    subheading: "Include your suburb and a short description of the fault and we'll get back to you.",
-    submitLabel: "Send Message",
-    submitLabelBusy: "Sending…",
-  },
-};
-
-export default function ContactForm({ variant = "hero", idPrefix = "cf" }) {
-  const id = (field) => `${idPrefix}-${field}`;
-  const copy = copyByVariant[variant] ?? copyByVariant.hero;
+export default function ContactForm() {
+  const id = (field) => `cf-${field}`;
   const [values, setValues] = useState(initialState);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle"); // idle | submitting | success
@@ -70,7 +54,7 @@ export default function ContactForm({ variant = "hero", idPrefix = "cf" }) {
 
   if (status === "success") {
     return (
-      <div className={`contact-form contact-form--${variant} contact-form--success`}>
+      <div className="contact-form contact-form--hero contact-form--success">
         <div className="contact-form__success">
           <span className="contact-form__success-icon"><CheckIcon /></span>
           <h3>Enquiry Received</h3>
@@ -88,10 +72,10 @@ export default function ContactForm({ variant = "hero", idPrefix = "cf" }) {
   }
 
   return (
-    <form className={`contact-form contact-form--${variant}`} onSubmit={handleSubmit} noValidate>
+    <form className="contact-form contact-form--hero" onSubmit={handleSubmit} noValidate>
       <div className="contact-form__head">
-        <h3>{copy.heading}</h3>
-        <p>{copy.subheading}</p>
+        <h3>Check Fridge Repairs Near Me</h3>
+        <p>Tell us your suburb and the fault — we'll confirm local service availability.</p>
       </div>
 
       <input
@@ -152,7 +136,7 @@ export default function ContactForm({ variant = "hero", idPrefix = "cf" }) {
       </div>
 
       <button type="submit" className="btn btn-primary btn-block" disabled={status === "submitting"}>
-        {status === "submitting" ? copy.submitLabelBusy : copy.submitLabel}
+        {status === "submitting" ? "Checking availability…" : "Check Availability Near Me"}
       </button>
 
       <p className="contact-form__note">

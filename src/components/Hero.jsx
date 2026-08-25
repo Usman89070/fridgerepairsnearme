@@ -45,7 +45,7 @@ export default function Hero() {
         </div>
 
         <div id="contact" className="hero__form-wrap">
-          <ContactForm variant="hero" />
+          <ContactForm />
         </div>
       </div>
     </section>

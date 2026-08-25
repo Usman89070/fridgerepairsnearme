@@ -451,46 +451,57 @@
 .blog__cta p { color: var(--slate-600); font-size: 0.98rem; }
 
 /* ===================== Contact Us ===================== */
-.contact-us__grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 56px;
-  align-items: start;
-}
+.contact-us__grid { margin-top: 8px; }
 
-.contact-us__copy p { color: var(--slate-600); margin-bottom: 28px; }
-.contact-us__copy h2 { margin-bottom: 14px; }
-
-.contact-us__details {
+.contact-us__card {
+  padding: 36px 28px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-
-.contact-us__detail {
-  display: flex;
   align-items: center;
-  gap: 16px;
+  text-align: center;
+  gap: 6px;
 }
 
-.contact-us__detail-label {
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 600;
+.contact-us__card .icon-badge {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  margin-bottom: 8px;
+}
+
+.contact-us__label {
+  font-family: var(--font-head);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--slate-500);
-  margin-bottom: 2px;
 }
 
-.contact-us__detail-value {
-  display: block;
+.contact-us__value {
   font-family: var(--font-head);
   font-weight: 700;
-  font-size: 1.02rem;
+  font-size: 1.15rem;
   color: var(--navy-900);
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
 }
 
-a.contact-us__detail-value:hover { color: var(--ice-600); }
+a.contact-us__value {
+  transition: color 0.2s ease;
+}
 
-@media (max-width: 980px) {
-  .contact-us__grid { grid-template-columns: 1fr; }
+a.contact-us__value:hover { color: var(--ice-600); }
+
+.contact-us__cta {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 44px;
+}
+
+@media (max-width: 560px) {
+  .contact-us__cta { flex-direction: column; align-items: stretch; }
 }

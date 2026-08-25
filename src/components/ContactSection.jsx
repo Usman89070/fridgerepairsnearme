@@ -1,6 +1,5 @@
 import { enquiryEmail, enquiryEmailHref, businessAddress, businessHours } from "../data/content";
 import { MailIcon, PinIcon, ClockIcon } from "./Icons";
-import ContactForm from "./ContactForm";
 
 const details = [
   { icon: MailIcon, label: "Email", value: enquiryEmail, href: enquiryEmailHref },
@@ -11,34 +10,33 @@ const details = [
 export default function ContactSection() {
   return (
     <section id="contact-us" className="section contact-us">
-      <div className="container contact-us__grid">
-        <div className="contact-us__copy">
-          <p className="eyebrow">Get In Touch</p>
+      <div className="container">
+        <div className="section-head section-head--center">
+          <p className="eyebrow" style={{ justifyContent: "center" }}>Get In Touch</p>
           <h2>Contact Us</h2>
           <p>
             Questions about fridge repairs near you, service availability or an existing
-            enquiry? Reach out using the details below, or send us a message directly.
+            enquiry? Reach out using the details below.
           </p>
-
-          <div className="contact-us__details">
-            {details.map(({ icon: Icon, label, value, href }) => (
-              <div className="contact-us__detail" key={label}>
-                <span className="icon-badge"><Icon /></span>
-                <div>
-                  <span className="contact-us__detail-label">{label}</span>
-                  {href ? (
-                    <a href={href} className="contact-us__detail-value">{value}</a>
-                  ) : (
-                    <span className="contact-us__detail-value">{value}</span>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
 
-        <div className="contact-us__form-wrap">
-          <ContactForm variant="section" idPrefix="section" />
+        <div className="grid grid-3 contact-us__grid">
+          {details.map(({ icon: Icon, label, value, href }) => (
+            <div className="card contact-us__card" key={label}>
+              <span className="icon-badge"><Icon /></span>
+              <span className="contact-us__label">{label}</span>
+              {href ? (
+                <a href={href} className="contact-us__value">{value}</a>
+              ) : (
+                <span className="contact-us__value">{value}</span>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="contact-us__cta">
+          <a href={enquiryEmailHref} className="btn btn-primary">Email Us</a>
+          <a href="#contact" className="btn btn-outline">Check Availability Near Me</a>
         </div>
       </div>
     </section>
