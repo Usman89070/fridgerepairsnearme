@@ -1,5 +1,5 @@
 import { navLinks, enquiryEmail, enquiryEmailHref } from "../data/content";
-import { SnowflakeIcon, MailIcon, PinIcon } from "./Icons";
+import { MailIcon, PinIcon } from "./Icons";
 
 const footerLocations = ["Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "Canberra"];
 
@@ -11,8 +11,7 @@ export default function Footer() {
       <div className="container footer__grid">
         <div className="footer__brand">
           <a href="#home" className="brand brand--footer">
-            <span className="brand__mark"><SnowflakeIcon /></span>
-            <span className="brand__text">Fridge Repairs<span className="brand__accent"> Near Me</span></span>
+            <img src="/logo.webp" alt="Fridge Repairs Near Me" className="brand__logo brand__logo--footer" width="200" height="200" />
           </a>
           <p>
             Local fridge repair services across supported Australian locations for domestic

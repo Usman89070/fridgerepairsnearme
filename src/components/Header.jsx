@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { navLinks, enquiryEmail, enquiryEmailHref } from "../data/content";
-import { MailIcon, SnowflakeIcon, MenuIcon, CloseIcon } from "./Icons";
+import { MailIcon, MenuIcon, CloseIcon } from "./Icons";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -22,10 +22,7 @@ export default function Header() {
     <header className={`site-header ${scrolled ? "site-header--scrolled" : ""}`}>
       <div className="container site-header__row">
         <a href="#home" className="brand" onClick={() => setMenuOpen(false)}>
-          <span className="brand__mark"><SnowflakeIcon /></span>
-          <span className="brand__text">
-            Fridge Repairs<span className="brand__accent"> Near Me</span>
-          </span>
+          <img src="/logo.webp" alt="Fridge Repairs Near Me" className="brand__logo" width="200" height="200" />
         </a>
 
         <nav className="site-nav" aria-label="Primary">
