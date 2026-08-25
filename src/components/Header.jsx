@@ -1,0 +1,72 @@
+import { useEffect, useState } from "react";
+import { navLinks, phoneNumber, phoneHref } from "../data/content";
+import { PhoneIcon, SnowflakeIcon, MenuIcon, CloseIcon } from "./Icons";
+
+export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  return (
+    <header className={`site-header ${scrolled ? "site-header--scrolled" : ""}`}>
+      <div className="container site-header__row">
+        <a href="#home" className="brand" onClick={() => setMenuOpen(false)}>
+          <span className="brand__mark"><SnowflakeIcon /></span>
+          <span className="brand__text">
+            Fridge Repairs<span className="brand__accent"> Near Me</span>
+          </span>
+        </a>
+
+        <nav className="site-nav" aria-label="Primary">
+          {navLinks.map((link) => (
+            <a key={link.href} href={link.href}>{link.label}</a>
+          ))}
+        </nav>
+
+        <div className="site-header__actions">
+          <a href={phoneHref} className="header-phone">
+            <PhoneIcon />
+            <span>{phoneNumber}</span>
+          </a>
+          <a href="#contact" className="btn btn-primary btn-sm">Find Fridge Repairs Near Me</a>
+        </div>
+
+        <button
+          className="menu-toggle"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((v) => !v)}
+        >
+          {menuOpen ? <CloseIcon /> : <MenuIcon />}
+        </button>
+      </div>
+
+      {menuOpen && (
+        <div className="mobile-menu">
+          <nav className="mobile-menu__nav" aria-label="Mobile">
+            {navLinks.map((link) => (
+              <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a>
+            ))}
+          </nav>
+          <a href={phoneHref} className="header-phone header-phone--mobile">
+            <PhoneIcon /> <span>{phoneNumber}</span>
+          </a>
+          <a href="#contact" className="btn btn-primary btn-block" onClick={() => setMenuOpen(false)}>
+            Find Fridge Repairs Near Me
+          </a>
+        </div>
+      )}
+    </header>
+  );
+}
