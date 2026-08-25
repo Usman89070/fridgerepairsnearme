@@ -22,6 +22,12 @@
   border-radius: var(--radius-lg);
   padding: 22px 26px;
   box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.intro__panel-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: perspective(900px) translateY(-6px) rotateX(3deg);
 }
 
 .intro__panel-card--offset { margin-left: 40px; }
@@ -83,6 +89,13 @@
   border: 1px solid var(--slate-100);
   border-radius: var(--radius-md);
   padding: 24px;
+  transition: box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease;
+}
+
+.commercial__segment:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--slate-300);
+  transform: perspective(900px) translateY(-5px) rotateX(2deg);
 }
 .commercial__segment h4 { font-size: 1.02rem; margin-bottom: 8px; }
 .commercial__segment p { color: var(--slate-600); font-size: 0.92rem; }
@@ -131,9 +144,14 @@
   font-size: 0.92rem;
   color: var(--navy-900);
   box-shadow: var(--shadow-sm);
-  transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
 }
-.brands__chip:hover { border-color: var(--ice-500); color: var(--ice-600); transform: translateY(-2px); }
+.brands__chip:hover {
+  border-color: var(--ice-500);
+  color: var(--ice-600);
+  box-shadow: var(--shadow-md);
+  transform: perspective(600px) translateY(-4px) rotateX(6deg) scale(1.03);
+}
 .brands__note { text-align: center; color: var(--slate-500); font-size: 0.92rem; max-width: 560px; margin: 0 auto; }
 
 /* ===================== Process ===================== */
@@ -155,6 +173,11 @@
   box-shadow: var(--shadow-sm);
   position: relative;
   z-index: 1;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+}
+.process__step:hover .process__step-num {
+  transform: perspective(600px) translateY(-4px) rotateY(12deg) scale(1.08);
+  box-shadow: var(--shadow-md);
 }
 .process__step-body h3 { font-size: 1rem; margin-bottom: 8px; }
 .process__step-body p { font-size: 0.87rem; color: var(--slate-600); }
@@ -181,10 +204,23 @@
   border: 1px solid var(--slate-100);
   border-radius: var(--radius-md);
   padding: 22px;
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition: box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease;
 }
-.diagnosis__card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
-.icon-badge--sm { width: 40px; height: 40px; border-radius: 10px; margin-bottom: 12px; }
+.diagnosis__card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--slate-300);
+  transform: perspective(900px) translateY(-6px) rotateX(3deg);
+}
+.icon-badge--sm {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.diagnosis__card:hover .icon-badge--sm {
+  transform: translateY(-2px) scale(1.1) rotate(-4deg);
+}
 .diagnosis__card h4 { font-size: 0.98rem; margin-bottom: 8px; }
 .diagnosis__card p { font-size: 0.86rem; color: var(--slate-600); }
 
@@ -266,7 +302,13 @@
   border: 1px solid var(--slate-100);
   border-radius: var(--radius-md);
   overflow: hidden;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.accordion-item:hover {
+  border-color: var(--slate-300);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
 }
 
 .accordion-item--open { border-color: var(--slate-300); box-shadow: var(--shadow-sm); }

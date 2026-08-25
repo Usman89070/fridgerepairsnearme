@@ -183,12 +183,14 @@ h1, h2, h3, h4 {
   border-radius: 999px;
   border: none;
   cursor: pointer;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.28s ease, background 0.2s ease, color 0.2s ease;
   white-space: nowrap;
+  transform: perspective(600px) translateZ(0);
 }
 
 .btn:active {
-  transform: translateY(1px);
+  transform: perspective(600px) translateY(1px) scale(0.97);
+  transition-duration: 0.1s;
 }
 
 .btn-primary {
@@ -198,8 +200,8 @@ h1, h2, h3, h4 {
 }
 
 .btn-primary:hover {
-  box-shadow: 0 14px 32px rgba(234, 124, 14, 0.45);
-  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(234, 124, 14, 0.42);
+  transform: perspective(600px) translateY(-3px) rotateX(4deg) scale(1.015);
 }
 
 .btn-secondary {
@@ -211,7 +213,7 @@ h1, h2, h3, h4 {
 
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.16);
-  transform: translateY(-2px);
+  transform: perspective(600px) translateY(-3px) rotateX(4deg);
 }
 
 .btn-outline {
@@ -223,7 +225,8 @@ h1, h2, h3, h4 {
 .btn-outline:hover {
   border-color: var(--ice-500);
   color: var(--ice-600);
-  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+  transform: perspective(600px) translateY(-3px) rotateX(4deg);
 }
 
 .btn-block {
@@ -262,12 +265,14 @@ h1, h2, h3, h4 {
   border-radius: var(--radius-lg);
   border: 1px solid var(--slate-100);
   box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  transition: box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease;
+  transform: perspective(1000px) translateZ(0);
+  will-change: transform;
 }
 
 .card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  transform: perspective(1000px) translateY(-8px) rotateX(3deg) scale(1.012);
   border-color: var(--slate-300);
 }
 
@@ -281,6 +286,12 @@ h1, h2, h3, h4 {
   background: linear-gradient(135deg, var(--frost-100), var(--frost-200));
   color: var(--ice-600);
   flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+}
+
+.card:hover .icon-badge {
+  transform: translateY(-3px) scale(1.08) rotate(-4deg);
+  box-shadow: var(--shadow-sm);
 }
 
 .tag-list li {
@@ -326,4 +337,38 @@ h1, h2, h3, h4 {
 ::selection {
   background: var(--sky-300);
   color: var(--navy-900);
+}
+
+/* ============================================================
+   Scroll reveal — subtle 3D fade + rise as content enters view.
+   Applied via useScrollReveal(); staggered per-sibling with an
+   inline transition-delay set in JS.
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: perspective(1000px) translateY(28px) rotateX(8deg);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .card:hover, .btn:hover, .btn:active {
+    transform: none !important;
+  }
 }

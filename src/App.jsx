@@ -1,6 +1,7 @@
 import "./styles/header-hero.css";
 import "./styles/sections.css";
 
+import useScrollReveal from "./hooks/useScrollReveal";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import TrustBar from "./components/TrustBar";
@@ -25,6 +26,8 @@ import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
 
 export default function App() {
+  useScrollReveal();
+
   return (
     <>
       <Header />
