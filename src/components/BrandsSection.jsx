@@ -6,11 +6,11 @@ export default function BrandsSection() {
       <div className="container">
         <div className="section-head section-head--center">
           <p className="eyebrow" style={{ justifyContent: "center" }}>Brand Coverage</p>
-          <h2>Fridge Repairs Near Me for Major Brands</h2>
+          <h2>Fridge Brands We Service Across Sydney</h2>
           <p>
-            Local fridge repair services may be available for many refrigerator brands
-            commonly used in Australian homes and businesses. Repair availability can vary by
-            brand, model and location.
+            Fridge repair services may be available for many refrigerator brands commonly used
+            in Sydney homes and businesses. Repair availability can vary by brand, model and
+            required service.
           </p>
         </div>
 

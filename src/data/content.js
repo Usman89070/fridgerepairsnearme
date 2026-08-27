@@ -22,42 +22,9 @@ export const trustBar = [
   "Domestic Fridge Repairs",
   "Commercial Refrigeration Repairs",
   "Major Fridge Brands Covered",
-  "Local Service Availability",
+  "Sydney-Wide Service Coverage",
   "Fault Diagnosis & Repair",
   "Urgent Appointments Where Available",
-];
-
-export const cityLocations = [
-  {
-    city: "Sydney",
-    blurb:
-      "Need local fridge repair help in Sydney? Service may be available across supported Greater Sydney locations for domestic refrigerators, household freezers and commercial refrigeration equipment. Customers commonly request help for fridges that are no longer cooling correctly, freezers developing heavy frost, water leaks, unusual noises and commercial units that cannot maintain temperature.",
-  },
-  {
-    city: "Melbourne",
-    blurb:
-      "Find fridge repair services near you across supported Melbourne suburbs for cooling faults, leaks, frost problems, noisy refrigerators and other common appliance issues. Residential and commercial service availability depends on your suburb, appliance type and technician scheduling.",
-  },
-  {
-    city: "Brisbane",
-    blurb:
-      "Looking for a fridge technician near you in Brisbane? Domestic and commercial refrigeration service may be available for cooling faults, electrical problems, defrost issues, fan failures and refrigeration system concerns.",
-  },
-  {
-    city: "Perth",
-    blurb:
-      "Find local fridge repair service across supported Perth locations for household refrigerators, freezers and selected commercial refrigeration equipment. Provide your suburb, appliance type, brand and symptoms when enquiring so service options can be checked.",
-  },
-  {
-    city: "Adelaide",
-    blurb:
-      "Need fridge repairs near you in Adelaide? Enter your suburb and appliance details to check available fridge repair services for warm fridges, water leaks, frost build-up, noisy operation and other common faults.",
-  },
-  {
-    city: "Canberra",
-    blurb:
-      "Fridge and freezer repair support may be available across supported Canberra suburbs. Tell us what the appliance is doing, the brand and model if known, and your suburb or postcode so the appropriate service availability can be confirmed.",
-  },
 ];
 
 export const problems = [
@@ -188,7 +155,7 @@ export const domesticTypes = [
   },
   {
     title: "Top-Mount and Bottom-Mount Fridges",
-    text: "Traditional top-mount and bottom-mount refrigerators remain common throughout Australian homes. Typical repairs may involve thermostat problems, fan motors, door seals, defrost faults, temperature sensors, compressor start components or refrigeration system faults.",
+    text: "Traditional top-mount and bottom-mount refrigerators remain common throughout Sydney homes. Typical repairs may involve thermostat problems, fan motors, door seals, defrost faults, temperature sensors, compressor start components or refrigeration system faults.",
   },
   {
     title: "Integrated Fridges",
@@ -312,7 +279,7 @@ export const worthRepairingFactors = [
 export const whyChoose = [
   {
     title: "Local Service Availability",
-    text: "Start with your suburb or postcode so the relevant service coverage can be checked before you book.",
+    text: "Start with your Sydney suburb or postcode so the relevant service coverage can be checked before you book.",
   },
   {
     title: "Domestic and Commercial Refrigeration",
@@ -324,7 +291,7 @@ export const whyChoose = [
   },
   {
     title: "Major Refrigerator Brands",
-    text: "Service availability can be checked for many refrigerator brands commonly used across Australia.",
+    text: "Service availability can be checked for many refrigerator brands commonly used across Sydney.",
   },
   {
     title: "Clear Repair Information",
@@ -332,7 +299,7 @@ export const whyChoose = [
   },
   {
     title: "Urgent Appointments Where Available",
-    text: "Cooling failures and commercial breakdowns may require priority service. Availability depends on technician scheduling and location.",
+    text: "Cooling failures and commercial breakdowns may require priority service. Availability depends on technician scheduling and your Sydney suburb.",
   },
 ];
 
@@ -344,43 +311,63 @@ export const testimonials = [
 
 export const serviceAreas = [
   {
-    state: "New South Wales",
-    region: "Sydney & Greater Sydney",
+    region: "Inner West & Western Sydney",
     suburbs: [
-      "Sydney CBD", "Western Sydney", "Inner West", "Hills District", "North Shore",
-      "Northern Beaches", "Eastern Suburbs", "South Sydney", "South West Sydney",
+      "Abbotsford", "Alexandria", "Annandale", "Ashbury", "Ashfield", "Auburn", "Balmain",
+      "Bardwell Park", "Bankstown", "Bass Hill", "Baulkham Hills", "Belfield", "Belmore",
+      "Berala", "Birchgrove", "Birrong", "Breakfast Point", "Burwood", "Cabarita", "Concord",
+      "Croydon", "Croydon Park", "Drummoyne", "Dulwich Hill", "Earlwood", "Enfield", "Enmore",
+      "Erskineville", "Five Dock", "Forest Lodge", "Glebe", "Granville", "Haberfield",
+      "Homebush", "Lakemba", "Leichhardt", "Lewisham", "Liberty Grove", "Lilyfield",
+      "Marrickville", "Merrylands", "Newington", "Newtown", "Parramatta", "Petersham",
+      "Punchbowl", "Regents Park", "Rhodes", "Rodd Point", "Rosehill", "Rozelle",
+      "Russell Lea", "Rydalmere", "Sefton", "Silverwater", "St Peters", "Stanmore",
+      "Strathfield", "Summer Hill", "Sydenham", "Telopea", "Tempe", "Wareemba", "Waverton",
+      "West Pymble", "West Ryde", "Willoughby", "Wollstonecraft", "Yagoona",
     ],
   },
   {
-    state: "Victoria",
-    region: "Melbourne",
+    region: "Northern Suburbs, North Shore & Northern Beaches",
     suburbs: [
-      "Melbourne CBD", "Inner Melbourne", "Northern suburbs", "Eastern suburbs",
-      "South-eastern suburbs", "Western suburbs",
+      "Allambie Heights", "Artarmon", "Balgowlah", "Balgowlah Heights", "Beacon Hill",
+      "Beecroft", "Belrose", "Brookvale", "Cremorne", "Cromer", "Crows Nest", "Denistone",
+      "Dundas", "East Killara", "East Lindfield", "East Ryde", "Eastwood", "Epping",
+      "Ermington", "Fairlight", "Forestville", "Frenchs Forest", "Freshwater (Harbord)",
+      "Gladesville", "Gordon", "Greenwich", "Henley", "Hunters Hill", "Huntleys Point",
+      "Killara", "Killarney Heights", "Kirribilli", "Lane Cove", "Lavender Bay", "Lindfield",
+      "Linley Point", "Longueville", "Macquarie Park", "Manly", "Manly Vale", "Marsfield",
+      "McMahons Point", "Meadowbank", "Melrose Park", "Middle Cove", "Milsons Point",
+      "Mortlake", "Mosman", "Naremburn", "North Balgowlah", "North Epping", "North Ryde",
+      "North Sydney", "Northbridge", "Northwood", "Oatlands", "Putney", "Pymble",
+      "Queenscliff", "Riverview", "Roseville", "Ryde", "Seaforth", "St Ives", "Tennyson",
     ],
   },
   {
-    state: "Queensland",
-    region: "Brisbane & Surrounding Areas",
+    region: "Southern Sydney, St George & Surrounding Areas",
     suburbs: [
-      "Brisbane Northside", "Brisbane Southside", "Western Brisbane", "Bayside",
-      "Logan", "Ipswich", "Moreton Bay",
+      "Alfords Point", "Allawah", "Arncliffe", "Banksia", "Banksmeadow", "Beverley Park",
+      "Beverly Hills", "Bexley", "Blakehurst", "Botany", "Brighton-Le-Sands", "Connells Point",
+      "Cronulla", "Dolls Point", "East Hills", "Eastlakes", "Hillsdale", "Hurlstone Park",
+      "Hurstville", "Illawong", "Kangaroo Point", "Kareela", "Kensington", "Kingsford",
+      "Kingsgrove", "Kogarah", "Kyeemagh", "Kyle Bay", "Little Bay", "Lugarno", "Malabar",
+      "Maroubra", "Mascot", "Matraville", "Menai", "Miranda", "Monterey", "Mortdale",
+      "Narwee", "Oatley", "Padstow", "Pagewood", "Panania", "Peakhurst", "Penshurst",
+      "Port Botany", "Port Hacking", "Ramsgate", "Revesby", "Riverwood", "Rockdale",
+      "Roselands", "Sandringham", "Sans Souci", "South Hurstville", "Sylvania",
+      "Taren Point", "Turrella", "Undercliffe", "Wiley Park", "Wolli Creek",
     ],
   },
   {
-    state: "Western Australia",
-    region: "Perth",
-    suburbs: ["Supported Perth metropolitan locations"],
-  },
-  {
-    state: "South Australia",
-    region: "Adelaide",
-    suburbs: ["Supported Adelaide metropolitan locations"],
-  },
-  {
-    state: "ACT",
-    region: "Canberra",
-    suburbs: ["Supported Canberra suburbs"],
+    region: "Sydney CBD, City & Eastern Suburbs",
+    suburbs: [
+      "Balmoral", "Beaconsfield", "Bellevue Hill", "Bondi", "Bronte", "Coogee", "Daceyville",
+      "Darling Point", "Darlinghurst", "Darlington", "Double Bay", "Dover Heights",
+      "Eastgardens", "Edgecliff", "Elizabeth Bay", "Millers Point", "Moore Park",
+      "Paddington", "Point Piper", "Potts Point", "Pyrmont", "Queens Park", "Randwick",
+      "Redfern", "Rose Bay", "Rosebery", "Rushcutters Bay", "South Coogee", "Surry Hills",
+      "Tamarama", "Ultimo", "Vaucluse", "Waterloo", "Watsons Bay", "Waverley", "Woollahra",
+      "Woolloomooloo", "Zetland",
+    ],
   },
 ];
 
@@ -398,24 +385,24 @@ export const costFactors = [
 
 export const faqs = [
   {
-    q: "How do I find fridge repairs near me?",
-    a: "Enter your suburb or postcode along with the fridge brand, model if available and a short description of the problem. This information helps determine whether a suitable fridge repair service is available near you. For urgent faults, mention if the appliance has completely stopped cooling or if food or commercial stock is at risk.",
+    q: "How do I find fridge repairs near you in Sydney?",
+    a: "Enter your Sydney suburb or postcode along with the fridge brand, model if available and a short description of the problem. This helps determine whether a suitable fridge repair service is available near you. For urgent faults, mention if the appliance has completely stopped cooling or if food or commercial stock is at risk.",
   },
   {
-    q: "Are there fridge repair technicians near me?",
-    a: "Technician availability depends on your suburb, appliance type and required service. Enter your location and appliance details to check whether fridge repair help is available in your area.",
+    q: "Are there fridge repair technicians near you in Sydney?",
+    a: "Technician availability depends on your Sydney suburb, appliance type and required service. Enter your location and appliance details to check whether fridge repair help is available near you.",
   },
   {
-    q: "Do you provide fridge repairs across Australia?",
-    a: "Fridge repair services can be arranged in supported Australian locations. Coverage varies by city, suburb, appliance type and technician availability. Use the suburb or postcode checker to confirm whether residential or commercial fridge repair service is available in your area.",
+    q: "Which Sydney suburbs do you service?",
+    a: "Coverage includes supported suburbs across Sydney's Inner West, Western Sydney, Northern Suburbs, North Shore, Northern Beaches, southern suburbs, Sydney CBD and eastern suburbs. Use your suburb or postcode to confirm current domestic or commercial fridge repair availability near you.",
   },
   {
-    q: "Can I get same-day fridge repairs near me?",
-    a: "Same-day fridge repairs may be available depending on your location, when you enquire and technician scheduling. If your fridge has completely stopped cooling or commercial stock is at risk, mention this when booking.",
+    q: "Can I get same-day fridge repairs near you?",
+    a: "Same-day fridge repairs may be available depending on your Sydney suburb, when you enquire and technician scheduling. If your fridge has completely stopped cooling or commercial stock is at risk, mention this when booking.",
   },
   {
-    q: "How much do fridge repairs near me cost?",
-    a: "Fridge repair costs vary depending on the brand, model, fault, required parts, labour and service location. Some issues can be discussed initially over the phone, while others require diagnosis before an accurate repair price can be confirmed.",
+    q: "How much do fridge repairs near you cost?",
+    a: "Fridge repair costs in Sydney vary depending on the brand, model, fault, required parts, labour and service location. Some issues can be discussed initially over the phone, while others require diagnosis before an accurate repair price can be confirmed.",
   },
   {
     q: "Is my fridge worth repairing?",
@@ -446,16 +433,16 @@ export const faqs = [
     a: "Not necessarily. Poor cooling can result from fan problems, sensors, thermostats, defrost faults, airflow restrictions, start components or other issues. If the refrigerant level is low, the sealed system should also be investigated for the underlying cause.",
   },
   {
-    q: "Do you provide commercial fridge repairs near me?",
-    a: "Commercial refrigeration support may be available in supported locations for equipment such as upright fridges, display units, underbench fridges, prep units, commercial freezers and coolrooms. Provide your postcode and equipment details to check local availability.",
+    q: "Do you provide commercial fridge repairs near you?",
+    a: "Commercial refrigeration support may be available across supported Sydney suburbs for equipment such as upright fridges, display units, underbench fridges, prep units, commercial freezers and coolrooms. Provide your postcode and equipment details to check availability near you.",
   },
   {
-    q: "Can I find freezer repairs near me?",
-    a: "Yes, freezer repair services may be available for upright freezers, chest freezers, fridge-freezer combinations and selected commercial freezer equipment depending on your location.",
+    q: "Can I find freezer repairs near you?",
+    a: "Yes, freezer repair services may be available across supported Sydney suburbs for upright freezers, chest freezers, fridge-freezer combinations and selected commercial freezer equipment.",
   },
   {
     q: "What fridge brands can be repaired?",
-    a: "Service may be available for many major refrigerator brands sold in Australia, including Samsung, LG, Fisher & Paykel, Westinghouse, Electrolux, Kelvinator, Hisense, Haier, Bosch, Miele, Whirlpool and others. Provide the exact make and model so availability can be confirmed.",
+    a: "Service may be available for many major refrigerator brands used across Sydney, including Samsung, LG, Fisher & Paykel, Westinghouse, Electrolux, Kelvinator, Hisense, Haier, Bosch, Miele, Whirlpool and others. Provide the exact make and model so availability can be confirmed.",
   },
   {
     q: "Can my fridge be repaired at home?",

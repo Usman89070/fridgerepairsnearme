@@ -7,17 +7,17 @@ export default function CostSection() {
       <div className="container cost__grid">
         <div className="cost__copy">
           <p className="eyebrow">Pricing</p>
-          <h2>How Much Does Fridge Repair Cost?</h2>
+          <h2>How Much Does Fridge Repair Cost in Sydney?</h2>
           <p>
-            There is no single repair price that accurately applies to every refrigerator. A
-            faulty door seal, fan motor or sensor involves very different work from a
+            There is no single repair price that accurately applies to every refrigerator in
+            Sydney. A faulty door seal, fan motor or sensor involves very different work from a
             compressor or sealed refrigeration system repair.
           </p>
           <p>
             The most useful starting point is to provide the fridge make, model number,
-            symptoms and suburb or postcode. Some faults may be discussed initially from the
-            information provided, while others require an onsite diagnosis before the repair
-            cost can be confirmed.
+            symptoms and Sydney suburb or postcode. Some faults may be discussed initially from
+            the information provided, while others require an onsite diagnosis before the
+            repair cost can be confirmed.
           </p>
           <a href="#contact" className="btn btn-primary">Request a Repair Assessment</a>
         </div>

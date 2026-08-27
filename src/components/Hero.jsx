@@ -18,16 +18,17 @@ export default function Hero() {
 
       <div className="container hero__grid">
         <div className="hero__content">
-          <p className="eyebrow eyebrow--light">Local Fridge Repair Services Across Australia</p>
-          <h1>Fridge Repairs Near Me</h1>
+          <p className="eyebrow eyebrow--light">Local Fridge Repair Services Across Sydney</p>
+          <h1>Fridge Repairs Near Me Sydney</h1>
           <p className="hero__lede">
             Fridge not cooling, leaking, icing up or making unusual noises? Find fridge repair
-            services near you across supported Australian locations for domestic fridges,
-            freezers and commercial refrigeration equipment.
+            services near you across Sydney for domestic fridges, freezers and commercial
+            refrigeration equipment.
           </p>
           <p className="hero__sub">
-            From a household refrigerator that has stopped cooling to urgent commercial
-            refrigeration faults, service availability can be checked using your suburb or postcode.
+            From a household refrigerator that has stopped cooling to an urgent commercial
+            refrigeration fault, tell us your Sydney suburb or postcode to check local service
+            availability.
           </p>
 
           <div className="hero__actions">

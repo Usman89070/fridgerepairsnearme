@@ -8,7 +8,7 @@ export default function TestimonialsSection() {
         <div className="section-head section-head--center">
           <p className="eyebrow" style={{ justifyContent: "center" }}>Reviews</p>
           <h2>What Customers Say</h2>
-          <p>Genuine reviews from real customers across Australian service areas.</p>
+          <p>Genuine reviews from real customers across Sydney service areas.</p>
         </div>
 
         <div className="grid grid-3 testimonials__grid">

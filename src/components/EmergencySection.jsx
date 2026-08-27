@@ -15,16 +15,17 @@ export default function EmergencySection() {
       <div className="container emergency__grid">
         <div className="emergency__copy">
           <p className="eyebrow"><AlertIcon /> Urgent Faults</p>
-          <h2>Emergency Fridge Repairs Near Me</h2>
+          <h2>Emergency Fridge Repairs Near You</h2>
           <p>
             A complete cooling failure can quickly become urgent, particularly when food,
-            frozen goods or commercial stock are at risk. If you are searching for emergency
-            fridge repairs near me, provide your suburb or postcode, appliance type and
-            symptoms so urgent service availability can be checked.
+            frozen goods or commercial stock are at risk. Provide your Sydney suburb or
+            postcode, appliance type and symptoms so urgent fridge repair availability near you
+            can be checked.
           </p>
           <p>
-            Same-day or urgent appointments may be available depending on your location, the
-            type of equipment and technician scheduling.
+            Same-day or urgent appointments may be available depending on your Sydney suburb,
+            the type of equipment and technician scheduling. Avoid promising a fixed response
+            time unless it is genuinely supported across the service area.
           </p>
           <a href="#contact" className="btn btn-primary">Check Emergency Fridge Repair Availability</a>
         </div>

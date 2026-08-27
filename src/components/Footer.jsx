@@ -1,5 +1,9 @@
-import { navLinks, enquiryEmail, enquiryEmailHref, businessAddress, businessHours, cityLocations } from "../data/content";
+import { navLinks, enquiryEmail, enquiryEmailHref, businessAddress, businessHours, serviceAreas } from "../data/content";
 import { MailIcon, PinIcon, ClockIcon } from "./Icons";
+
+function slugify(text) {
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -12,8 +16,8 @@ export default function Footer() {
             <img src="/logo.webp" alt="Fridge Repairs Near Me" className="brand__logo brand__logo--footer" width="200" height="200" />
           </a>
           <p>
-            Local fridge repair services across supported Australian locations for domestic
-            fridges, freezers and commercial refrigeration equipment.
+            Local fridge repair services across supported Sydney suburbs for domestic fridges,
+            freezers and commercial refrigeration equipment.
           </p>
           <div className="footer__contact">
             <a href={enquiryEmailHref}><MailIcon /> {enquiryEmail}</a>
@@ -34,10 +38,10 @@ export default function Footer() {
         <div className="footer__col">
           <h4>Service Areas</h4>
           <ul>
-            {cityLocations.map((loc) => (
-              <li key={loc.city}>
-                <a href={`/#location-${loc.city.toLowerCase()}`}>
-                  <PinIcon /> Fridge Repairs in {loc.city}
+            {serviceAreas.map((area) => (
+              <li key={area.region}>
+                <a href={`/#region-${slugify(area.region)}`}>
+                  <PinIcon /> {area.region}
                 </a>
               </li>
             ))}

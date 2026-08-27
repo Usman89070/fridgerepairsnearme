@@ -1,7 +1,6 @@
 import Hero from "../components/Hero";
 import TrustBar from "../components/TrustBar";
 import Intro from "../components/Intro";
-import LocationsSection from "../components/LocationsSection";
 import ProblemsSection from "../components/ProblemsSection";
 import DomesticSection from "../components/DomesticSection";
 import CommercialSection from "../components/CommercialSection";
@@ -25,7 +24,6 @@ export default function HomePage() {
       <Hero />
       <TrustBar />
       <Intro />
-      <LocationsSection />
       <ProblemsSection />
       <DomesticSection />
       <CommercialSection />
