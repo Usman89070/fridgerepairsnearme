@@ -1,7 +1,0 @@
-# Admin API — block directory listing and any non-PHP files
-# (e.g. if a .sql or .log file is ever dropped in here by mistake)
-Options -Indexes
-
-<FilesMatch "\.(sql|log|md|env)$">
-  Require all denied
-</FilesMatch>

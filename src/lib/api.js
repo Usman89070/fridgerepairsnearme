@@ -21,15 +21,15 @@ async function request(path, options = {}) {
 }
 
 export const api = {
-  listPosts: () => request("/posts.php"),
-  getPost: (slug) => request(`/posts.php?slug=${encodeURIComponent(slug)}`),
-  createPost: (payload) => request("/posts.php", { method: "POST", body: JSON.stringify(payload) }),
-  updatePost: (id, payload) => request(`/posts.php?id=${encodeURIComponent(id)}`, { method: "PUT", body: JSON.stringify(payload) }),
-  deletePost: (id) => request(`/posts.php?id=${encodeURIComponent(id)}`, { method: "DELETE" }),
+  listPosts: () => request("/posts"),
+  getPost: (slug) => request(`/posts/${encodeURIComponent(slug)}`),
+  createPost: (payload) => request("/posts", { method: "POST", body: JSON.stringify(payload) }),
+  updatePost: (id, payload) => request(`/posts/${encodeURIComponent(id)}`, { method: "PUT", body: JSON.stringify(payload) }),
+  deletePost: (id) => request(`/posts/${encodeURIComponent(id)}`, { method: "DELETE" }),
 
-  login: (username, password) => request("/login.php", { method: "POST", body: JSON.stringify({ username, password }) }),
-  logout: () => request("/logout.php", { method: "POST" }),
-  me: () => request("/me.php"),
+  login: (username, password) => request("/login", { method: "POST", body: JSON.stringify({ username, password }) }),
+  logout: () => request("/logout", { method: "POST" }),
+  me: () => request("/me"),
   changePassword: (currentPassword, newPassword) =>
-    request("/change_password.php", { method: "POST", body: JSON.stringify({ currentPassword, newPassword }) }),
+    request("/change-password", { method: "POST", body: JSON.stringify({ currentPassword, newPassword }) }),
 };
