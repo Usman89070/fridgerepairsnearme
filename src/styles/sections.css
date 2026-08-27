@@ -423,7 +423,7 @@
   .footer__grid { grid-template-columns: minmax(0, 1fr); }
   .problems__causes { grid-template-columns: minmax(0, 1fr); }
   .worth__list { grid-template-columns: minmax(0, 1fr); }
-  .diagnosis__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .diagnosis__grid { grid-template-columns: minmax(0, 1fr); }
   .intro__panel { flex-direction: column; }
 }
 
