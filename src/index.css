@@ -3,7 +3,8 @@
    ============================================================ */
 
 :root {
-  /* Brand palette — sampled directly from the logo's navy/blue/cyan, + warm CTA amber */
+  /* Brand palette — sampled directly from the logo's navy/blue/cyan.
+     Amber is kept only for star-rating icons (a universal review convention). */
   --navy-950: #002045;
   --navy-900: #002e63;
   --navy-800: #003b7f;
@@ -138,7 +139,7 @@ h1, h2, h3, h4 {
   content: "";
   width: 22px;
   height: 2px;
-  background: var(--amber-500);
+  background: var(--sky-400);
   border-radius: 2px;
 }
 
@@ -201,13 +202,14 @@ h1, h2, h3, h4 {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--amber-500), var(--amber-600));
+  background: linear-gradient(135deg, var(--ice-500), var(--ice-600));
   color: var(--white);
-  box-shadow: 0 10px 24px rgba(234, 124, 14, 0.35);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 26px rgba(0, 105, 211, 0.45), 0 0 0 1px rgba(0, 46, 99, 0.1);
 }
 
 .btn-primary:hover {
-  box-shadow: 0 18px 36px rgba(234, 124, 14, 0.42);
+  box-shadow: 0 18px 40px rgba(0, 124, 249, 0.55), 0 0 0 1px rgba(0, 46, 99, 0.12);
   transform: perspective(600px) translateY(-3px) rotateX(4deg) scale(1.015);
 }
 

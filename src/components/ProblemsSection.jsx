@@ -21,7 +21,7 @@ export default function ProblemsSection() {
           {problems.map((p) => (
             <div className="card problems__card" key={p.title}>
               <div className="problems__card-head">
-                <span className="icon-badge icon-badge--amber"><AlertIcon /></span>
+                <span className="icon-badge icon-badge--accent"><AlertIcon /></span>
                 <h3>{p.title}</h3>
               </div>
               <p>{p.summary}</p>

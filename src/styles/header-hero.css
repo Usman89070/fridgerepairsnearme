@@ -72,7 +72,7 @@
   white-space: nowrap;
 }
 
-.header-contact svg { color: var(--amber-500); }
+.header-contact svg { color: var(--ice-600); }
 
 .menu-toggle {
   display: none;
@@ -193,7 +193,7 @@
   content: "";
   width: 22px;
   height: 2px;
-  background: var(--amber-500);
+  background: var(--sky-400);
   border-radius: 2px;
 }
 

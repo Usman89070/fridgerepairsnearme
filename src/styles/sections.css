@@ -58,7 +58,7 @@
 .problems__card-head { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
 .problems__card-head h3 { font-size: 1.1rem; }
 .problems__card > p { color: var(--slate-600); font-size: 0.94rem; margin-bottom: 6px; }
-.icon-badge--amber { background: linear-gradient(135deg, var(--amber-50), #ffe6c4); color: var(--amber-600); }
+.icon-badge--accent { background: linear-gradient(135deg, var(--frost-100), var(--sky-300)); color: var(--navy-900); }
 .problems__causes { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 12px; }
 
 /* ===================== Domestic ===================== */
@@ -124,7 +124,7 @@
 .emergency__panel-head h3 { color: var(--white); font-size: 1.05rem; }
 .emergency__list { display: flex; flex-direction: column; gap: 12px; }
 .emergency__list li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.94rem; color: var(--slate-100); }
-.emergency__list svg { color: var(--amber-500); flex-shrink: 0; margin-top: 2px; }
+.emergency__list svg { color: var(--ice-600); flex-shrink: 0; margin-top: 2px; }
 
 /* ===================== Brands ===================== */
 .brands__grid {
