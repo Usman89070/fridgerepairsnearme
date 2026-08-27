@@ -3,16 +3,16 @@
    ============================================================ */
 
 :root {
-  /* Brand palette — cool refrigeration blues + warm CTA amber */
-  --navy-950: #050f1f;
-  --navy-900: #0a1e38;
-  --navy-800: #0f2b4f;
-  --navy-700: #163a67;
-  --ice-600: #1d5fd6;
-  --ice-500: #2f6fea;
-  --ice-400: #4d9bf5;
-  --sky-400: #38bdf8;
-  --sky-300: #7dd3fc;
+  /* Brand palette — sampled directly from the logo's navy/blue/cyan, + warm CTA amber */
+  --navy-950: #002045;
+  --navy-900: #002e63;
+  --navy-800: #003b7f;
+  --navy-700: #00499e;
+  --ice-600: #0069d3;
+  --ice-500: #007cf9;
+  --ice-400: #2390ff;
+  --sky-400: #00bdfd;
+  --sky-300: #47d0ff;
   --frost-50: #f5f9ff;
   --frost-100: #eaf3fd;
   --frost-200: #dbe9fb;
@@ -36,10 +36,10 @@
   --radius-lg: 24px;
   --radius-xl: 32px;
 
-  --shadow-sm: 0 2px 8px rgba(10, 30, 56, 0.08);
-  --shadow-md: 0 12px 32px rgba(10, 30, 56, 0.12);
-  --shadow-lg: 0 24px 64px rgba(10, 30, 56, 0.18);
-  --shadow-glow: 0 0 0 1px rgba(56, 189, 248, 0.15), 0 20px 60px rgba(15, 43, 79, 0.35);
+  --shadow-sm: 0 2px 8px rgba(0, 46, 99, 0.08);
+  --shadow-md: 0 12px 32px rgba(0, 46, 99, 0.12);
+  --shadow-lg: 0 24px 64px rgba(0, 46, 99, 0.18);
+  --shadow-glow: 0 0 0 1px rgba(0, 189, 253, 0.15), 0 20px 60px rgba(0, 59, 127, 0.35);
 
   --container: 1240px;
 }
