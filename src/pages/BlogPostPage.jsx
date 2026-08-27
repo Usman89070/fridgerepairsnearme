@@ -1,42 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { api } from "../lib/api";
-import { parsePostContent } from "../lib/postContent";
+import { blogPosts } from "../data/content";
 import { ArticleIcon, ArrowRightIcon } from "../components/Icons";
 
 export default function BlogPostPage() {
   const { slug } = useParams();
-  const [post, setPost] = useState(null);
-  const [otherPosts, setOtherPosts] = useState([]);
-  const [status, setStatus] = useState("loading");
-
-  useEffect(() => {
-    let cancelled = false;
-    setStatus("loading");
-    setPost(null);
-
-    api
-      .getPost(slug)
-      .then((data) => {
-        if (cancelled) return;
-        setPost(data);
-        setStatus("ready");
-      })
-      .catch(() => {
-        if (!cancelled) setStatus("notfound");
-      });
-
-    api
-      .listPosts()
-      .then((list) => {
-        if (!cancelled) setOtherPosts(list.filter((p) => p.slug !== slug).slice(0, 2));
-      })
-      .catch(() => {});
-
-    return () => {
-      cancelled = true;
-    };
-  }, [slug]);
+  const post = blogPosts.find((p) => p.slug === slug);
+  const otherPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 2);
 
   useEffect(() => {
     document.title = post
@@ -44,17 +14,7 @@ export default function BlogPostPage() {
       : "Article Not Found | Fridge Repairs Near Me";
   }, [post]);
 
-  if (status === "loading") {
-    return (
-      <section className="section blog-post">
-        <div className="container blog-post__notfound">
-          <p>Loading article…</p>
-        </div>
-      </section>
-    );
-  }
-
-  if (status !== "ready" || !post) {
+  if (!post) {
     return (
       <section className="section blog-post">
         <div className="container blog-post__notfound">
@@ -65,8 +25,6 @@ export default function BlogPostPage() {
       </section>
     );
   }
-
-  const sections = parsePostContent(post.content);
 
   return (
     <>
@@ -79,7 +37,7 @@ export default function BlogPostPage() {
           <p className="blog-post__lede">{post.excerpt}</p>
 
           <div className="blog-post__body">
-            {sections.map((block, i) => (
+            {post.sections.map((block, i) => (
               <div className="blog-post__block" key={block.heading || i}>
                 {block.heading && <h2>{block.heading}</h2>}
                 {block.body.map((paragraph, j) => (

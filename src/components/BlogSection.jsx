@@ -1,19 +1,7 @@
-import { useEffect, useState } from "react";
-import { api } from "../lib/api";
+import { blogPosts } from "../data/content";
 import { ArticleIcon, ArrowRightIcon } from "./Icons";
 
 export default function BlogSection() {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    api
-      .listPosts()
-      .then((data) => setPosts(data.slice(0, 3)))
-      .catch(() => setPosts([]));
-  }, []);
-
-  if (posts.length === 0) return null;
-
   return (
     <section id="blog" className="section section--alt blog">
       <div className="container">
@@ -27,7 +15,7 @@ export default function BlogSection() {
         </div>
 
         <div className="grid grid-3 blog__grid">
-          {posts.map((post) => (
+          {blogPosts.map((post) => (
             <article className="card blog__card" key={post.slug}>
               <div className="blog__card-top">
                 <span className="icon-badge"><ArticleIcon /></span>
