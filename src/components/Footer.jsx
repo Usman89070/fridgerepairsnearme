@@ -58,7 +58,7 @@ export default function Footer() {
       <div className="footer__bottom">
         <div className="container footer__bottom-row">
           <span>&copy; {year} Fridge Repairs Near Me. All rights reserved.</span>
-          <span>ABN: [Insert ABN] · fridgerepairsnearme.com.au</span>
+          <span>fridgerepairsnearme.com.au</span>
         </div>
       </div>
     </footer>
