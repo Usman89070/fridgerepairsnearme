@@ -32,14 +32,14 @@ function unique_slug($pdo, $base, $excludeId = null) {
 // ---- Public reads: list all posts, or a single post by slug ----
 if ($method === 'GET') {
     if (isset($_GET['slug'])) {
-        $stmt = $pdo->prepare('SELECT id, slug, category, title, excerpt, content, created_at, updated_at FROM posts WHERE slug = ? LIMIT 1');
+        $stmt = $pdo->prepare('SELECT id, slug, category, title, excerpt, content, featured_image, created_at, updated_at FROM posts WHERE slug = ? LIMIT 1');
         $stmt->execute([$_GET['slug']]);
         $post = $stmt->fetch();
         if (!$post) json_out(['error' => 'Not found'], 404);
         json_out($post);
     }
 
-    $stmt = $pdo->query('SELECT id, slug, category, title, excerpt, created_at, updated_at FROM posts ORDER BY created_at DESC');
+    $stmt = $pdo->query('SELECT id, slug, category, title, excerpt, featured_image, created_at, updated_at FROM posts ORDER BY created_at DESC');
     json_out($stmt->fetchAll());
 }
 
@@ -60,9 +60,11 @@ if ($method === 'POST') {
     $requestedSlug = trim((string)($input['slug'] ?? ''));
     $baseSlug = slugify($requestedSlug !== '' ? $requestedSlug : $title);
     $slug = unique_slug($pdo, $baseSlug);
+    $featuredImage = trim((string)($input['featured_image'] ?? ''));
+    $featuredImage = $featuredImage !== '' ? $featuredImage : null;
 
-    $stmt = $pdo->prepare('INSERT INTO posts (slug, category, title, excerpt, content) VALUES (?, ?, ?, ?, ?)');
-    $stmt->execute([$slug, $category, $title, $excerpt, $content]);
+    $stmt = $pdo->prepare('INSERT INTO posts (slug, category, title, excerpt, content, featured_image) VALUES (?, ?, ?, ?, ?, ?)');
+    $stmt->execute([$slug, $category, $title, $excerpt, $content, $featuredImage]);
 
     json_out(['ok' => true, 'id' => (int)$pdo->lastInsertId(), 'slug' => $slug], 201);
 }
@@ -88,9 +90,11 @@ if ($method === 'PUT') {
     $requestedSlug = trim((string)($input['slug'] ?? ''));
     $baseSlug = slugify($requestedSlug !== '' ? $requestedSlug : $title);
     $slug = unique_slug($pdo, $baseSlug, $id);
+    $featuredImage = trim((string)($input['featured_image'] ?? ''));
+    $featuredImage = $featuredImage !== '' ? $featuredImage : null;
 
-    $stmt = $pdo->prepare('UPDATE posts SET slug = ?, category = ?, title = ?, excerpt = ?, content = ? WHERE id = ?');
-    $stmt->execute([$slug, $category, $title, $excerpt, $content, $id]);
+    $stmt = $pdo->prepare('UPDATE posts SET slug = ?, category = ?, title = ?, excerpt = ?, content = ?, featured_image = ? WHERE id = ?');
+    $stmt->execute([$slug, $category, $title, $excerpt, $content, $featuredImage, $id]);
 
     json_out(['ok' => true, 'slug' => $slug]);
 }
