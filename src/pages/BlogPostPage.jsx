@@ -97,7 +97,7 @@ export default function BlogPostPage() {
           <div className="blog-post__cta">
             <p>Have a fridge question of your own?</p>
             <div className="blog__cta">
-              <a href="/#contact" className="btn btn-primary">Check Availability Near Me</a>
+              <a href="/#contact" className="btn btn-primary">Request a Free Quote</a>
             </div>
           </div>
         </div>

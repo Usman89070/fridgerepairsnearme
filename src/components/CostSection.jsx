@@ -19,7 +19,7 @@ export default function CostSection() {
             the information provided, while others require an onsite diagnosis before the
             repair cost can be confirmed.
           </p>
-          <a href="#contact" className="btn btn-primary">Request a Repair Assessment</a>
+          <a href="#contact" className="btn btn-primary">Request a Free Quote</a>
         </div>
 
         <div className="cost__panel card">

@@ -56,24 +56,6 @@
 .site-nav a { transition: color 0.15s ease; position: relative; }
 .site-nav a:hover { color: var(--ice-600); }
 
-.site-header__actions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-shrink: 0;
-}
-
-.header-contact {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  color: var(--navy-900);
-  white-space: nowrap;
-}
-
-.header-contact svg { color: var(--ice-600); }
-
 .menu-toggle {
   display: none;
   background: none;
@@ -88,7 +70,7 @@
 }
 
 @media (max-width: 1200px) {
-  .site-nav, .site-header__actions { display: none; }
+  .site-nav { display: none; }
   .menu-toggle { display: flex; }
   .mobile-menu {
     display: flex;
@@ -107,7 +89,6 @@
     font-size: 1.02rem;
     color: var(--slate-700);
   }
-  .header-contact--mobile { font-size: 1.05rem; }
 }
 
 /* ===================== Mobile Sticky CTA ===================== */

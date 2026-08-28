@@ -136,7 +136,7 @@ export default function ContactForm() {
       </div>
 
       <button type="submit" className="btn btn-primary btn-block" disabled={status === "submitting"}>
-        {status === "submitting" ? "Checking availability…" : "Check Availability Near Me"}
+        {status === "submitting" ? "Sending…" : "Request a Free Quote"}
       </button>
 
       <p className="contact-form__note">

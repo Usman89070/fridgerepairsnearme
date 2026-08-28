@@ -26,7 +26,7 @@ export default function Intro() {
             Simply provide your Sydney suburb or postcode, appliance brand and a description of
             the fault to check fridge repairs near you.
           </p>
-          <a href="#contact" className="btn btn-primary">Check Fridge Repairs Near You</a>
+          <a href="#contact" className="btn btn-primary">Request a Free Quote</a>
         </div>
 
         <div className="intro__panel" aria-hidden="true">

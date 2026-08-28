@@ -35,7 +35,7 @@ export default function ContactSection() {
         </div>
 
         <div className="contact-us__cta">
-          <a href={enquiryEmailHref} className="btn btn-primary">Email Us</a>
+          <a href="#contact" className="btn btn-primary">Request a Free Quote</a>
           <a href="#contact" className="btn btn-outline">Check Availability Near Me</a>
         </div>
       </div>

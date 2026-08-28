@@ -28,7 +28,7 @@ export default function WorthRepairingSection() {
             should not be to repair every appliance at any cost. It should be to understand the
             fault and determine whether repair represents a sensible option.
           </p>
-          <a href="#contact" className="btn btn-primary">Arrange a Fridge Assessment</a>
+          <a href="#contact" className="btn btn-primary">Request a Free Quote</a>
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { navLinks, enquiryEmail, enquiryEmailHref } from "../data/content";
-import { MailIcon, MenuIcon, CloseIcon } from "./Icons";
+import { navLinks } from "../data/content";
+import { MenuIcon, CloseIcon } from "./Icons";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -31,13 +31,6 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="site-header__actions">
-          <a href={enquiryEmailHref} className="header-contact" title={enquiryEmail}>
-            <MailIcon />
-            <span>Email Us</span>
-          </a>
-        </div>
-
         <button
           className="menu-toggle"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -55,9 +48,6 @@ export default function Header() {
               <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a>
             ))}
           </nav>
-          <a href={enquiryEmailHref} className="header-contact header-contact--mobile">
-            <MailIcon /> <span>{enquiryEmail}</span>
-          </a>
         </div>
       )}
     </header>

@@ -27,7 +27,7 @@ export default function EmergencySection() {
             the type of equipment and technician scheduling. Avoid promising a fixed response
             time unless it is genuinely supported across the service area.
           </p>
-          <a href="#contact" className="btn btn-primary">Check Emergency Fridge Repair Availability</a>
+          <a href="#contact" className="btn btn-primary">Request a Free Quote</a>
         </div>
 
         <div className="emergency__panel">

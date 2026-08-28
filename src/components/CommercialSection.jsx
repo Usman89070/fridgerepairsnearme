@@ -41,7 +41,7 @@ export default function CommercialSection() {
         </div>
 
         <div className="commercial__cta">
-          <a href="#contact" className="btn btn-primary">Find Commercial Fridge Repairs Near You</a>
+          <a href="#contact" className="btn btn-primary">Request a Free Quote</a>
         </div>
       </div>
     </section>
