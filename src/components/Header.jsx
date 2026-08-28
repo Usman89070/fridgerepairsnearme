@@ -36,7 +36,6 @@ export default function Header() {
             <MailIcon />
             <span>Email Us</span>
           </a>
-          <a href="/#contact" className="btn btn-primary btn-sm">Request a Free Quote</a>
         </div>
 
         <button
@@ -58,9 +57,6 @@ export default function Header() {
           </nav>
           <a href={enquiryEmailHref} className="header-contact header-contact--mobile">
             <MailIcon /> <span>{enquiryEmail}</span>
-          </a>
-          <a href="/#contact" className="btn btn-primary btn-block" onClick={() => setMenuOpen(false)}>
-            Request a Free Quote
           </a>
         </div>
       )}
