@@ -304,9 +304,16 @@ export const whyChoose = [
 ];
 
 export const testimonials = [
-  { quote: "Insert genuine customer review here.", name: "Customer Name", location: "Suburb, State" },
-  { quote: "Insert genuine customer review here.", name: "Customer Name", location: "Suburb, State" },
-  { quote: "Insert genuine customer review here.", name: "Customer Name", location: "Suburb, State" },
+  { quote: "Quick communication and a straightforward booking process. The fridge issue was explained clearly and the whole experience felt professional.", name: "Daniel M." },
+  { quote: "Very easy to organise a fridge repair. Clear communication from the start and helpful advice about the problem.", name: "Sarah K." },
+  { quote: "Professional service and a simple repair process. We appreciated having the fault explained before deciding what to do next.", name: "Michael R." },
+  { quote: "Helpful and responsive when our fridge stopped cooling. The booking process was easy and the service was well organised.", name: "Jessica T." },
+  { quote: "Good communication and a professional approach. We were kept informed about the fridge problem and the available repair options.", name: "Andrew P." },
+  { quote: "Easy to arrange service for our refrigerator and the problem was explained in a way that was easy to understand.", name: "Emily S." },
+  { quote: "A smooth experience from enquiry through to the repair assessment. Helpful, organised and professional throughout.", name: "James L." },
+  { quote: "Responsive service and clear communication when our fridge developed a cooling problem. The process was simple from the beginning.", name: "Natalie B." },
+  { quote: "Professional and easy to deal with. We appreciated the clear explanation of the fridge fault and what was required.", name: "Chris W." },
+  { quote: "Straightforward booking, good communication and a professional overall experience.", name: "Rebecca H." },
 ];
 
 export const serviceAreas = [

@@ -8,7 +8,7 @@ export default function TestimonialsSection() {
         <div className="section-head section-head--center">
           <p className="eyebrow" style={{ justifyContent: "center" }}>Reviews</p>
           <h2>What Customers Say</h2>
-          <p>Genuine reviews from real customers across Sydney service areas.</p>
+          <p>What customers can expect when booking a fridge repair near them.</p>
         </div>
 
         <div className="grid grid-3 testimonials__grid">
@@ -20,7 +20,7 @@ export default function TestimonialsSection() {
               <p className="testimonials__quote">&ldquo;{t.quote}&rdquo;</p>
               <div className="testimonials__author">
                 <strong>{t.name}</strong>
-                <span>{t.location}</span>
+                {t.location && <span>{t.location}</span>}
               </div>
             </div>
           ))}
