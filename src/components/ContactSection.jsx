@@ -34,6 +34,16 @@ export default function ContactSection() {
           ))}
         </div>
 
+        <div className="contact-us__map">
+          <iframe
+            title="Satellite map of Sydney"
+            src="https://www.google.com/maps?q=Sydney,+NSW,+Australia&t=k&z=10&output=embed"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+        </div>
+
         <div className="contact-us__cta">
           <a href="#contact" className="btn btn-primary">Request a Free Quote</a>
           <a href="#contact" className="btn btn-outline">Check Availability Near Me</a>
