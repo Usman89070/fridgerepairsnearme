@@ -42,11 +42,19 @@ export default function ContactSection() {
             referrerPolicy="no-referrer-when-downgrade"
             allowFullScreen
           />
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Sydney,+NSW,+Australia"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-us__map-link"
+          >
+            Open in Google Maps ↗
+          </a>
         </div>
 
         <div className="contact-us__cta">
           <a href="#contact" className="btn btn-primary">Request a Free Quote</a>
-          <a href="#contact" className="btn btn-outline">Check Availability Near Me</a>
+          <a href={enquiryEmailHref} className="btn btn-outline">Email Us</a>
         </div>
       </div>
     </section>
