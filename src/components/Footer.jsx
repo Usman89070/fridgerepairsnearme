@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="container footer__grid">
         <div className="footer__brand">
           <a href="/#home" className="brand brand--footer">
-            <img src="/logo.webp" alt="Fridge Repairs Near Me" className="brand__logo brand__logo--footer" width="200" height="200" />
+            <img src="/logo-192.webp" alt="Fridge Repairs Near Me" className="brand__logo brand__logo--footer" width="72" height="72" loading="lazy" />
           </a>
           <p>
             Local fridge repair services across supported Sydney suburbs for domestic fridges,

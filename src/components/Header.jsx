@@ -22,7 +22,7 @@ export default function Header() {
     <header className={`site-header ${scrolled ? "site-header--scrolled" : ""}`}>
       <div className="container site-header__row">
         <a href="/#home" className="brand" onClick={() => setMenuOpen(false)}>
-          <img src="/logo.webp" alt="Fridge Repairs Near Me" className="brand__logo" width="200" height="200" />
+          <img src="/logo-192.webp" alt="Fridge Repairs Near Me" className="brand__logo" width="56" height="56" fetchpriority="high" />
         </a>
 
         <nav className="site-nav" aria-label="Primary">

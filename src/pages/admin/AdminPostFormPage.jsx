@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useAdminAuth from "../../hooks/useAdminAuth";
 import { api } from "../../lib/api";
+import "../../styles/admin.css";
 
 export default function AdminPostFormPage() {
   const { slug } = useParams();

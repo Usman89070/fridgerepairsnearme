@@ -37,6 +37,7 @@
 
 .blog-post__featured-image {
   width: 100%;
+  aspect-ratio: 16 / 9;
   max-height: 420px;
   object-fit: cover;
   border-radius: var(--radius-lg);

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAdminAuth from "../../hooks/useAdminAuth";
 import { api } from "../../lib/api";
 import ChangePasswordForm from "../../components/admin/ChangePasswordForm";
+import "../../styles/admin.css";
 
 export default function AdminDashboardPage() {
   const navigate = useNavigate();
