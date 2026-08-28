@@ -7,7 +7,7 @@ export default function DomesticSection() {
       <div className="container">
         <div className="section-head">
           <p className="eyebrow">Household Appliances</p>
-          <h2>Domestic Fridge Repairs Near You</h2>
+          <h2>Request a Domestic Fridge Repairs</h2>
           <p>
             Household refrigerators have become increasingly complex, with multiple cooling
             zones, electronic controls, sensors, inverter compressors and automated defrost

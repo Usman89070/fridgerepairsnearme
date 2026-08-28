@@ -9,6 +9,7 @@ import useScrollReveal from "./hooks/useScrollReveal";
 import useHashScroll from "./hooks/useHashScroll";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import MobileStickyCTA from "./components/MobileStickyCTA";
 import HomePage from "./pages/HomePage";
 import BlogIndexPage from "./pages/BlogIndexPage";
 import BlogPostPage from "./pages/BlogPostPage";
@@ -39,6 +40,7 @@ export default function App() {
         </Routes>
       </main>
       {!isAdminRoute && <Footer />}
+      {!isAdminRoute && <MobileStickyCTA />}
     </>
   );
 }

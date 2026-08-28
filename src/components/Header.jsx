@@ -36,7 +36,7 @@ export default function Header() {
             <MailIcon />
             <span>Email Us</span>
           </a>
-          <a href="/#contact" className="btn btn-primary btn-sm">Find Fridge Repairs Near Me</a>
+          <a href="/#contact" className="btn btn-primary btn-sm">Request a Free Quote</a>
         </div>
 
         <button
@@ -60,7 +60,7 @@ export default function Header() {
             <MailIcon /> <span>{enquiryEmail}</span>
           </a>
           <a href="/#contact" className="btn btn-primary btn-block" onClick={() => setMenuOpen(false)}>
-            Find Fridge Repairs Near Me
+            Request a Free Quote
           </a>
         </div>
       )}

@@ -51,7 +51,7 @@ export default function Footer() {
         <div className="footer__col">
           <h4>Get a Quote</h4>
           <p>Provide your suburb, appliance and fault to check local availability.</p>
-          <a href="/#contact" className="btn btn-primary btn-sm">Find Fridge Repairs Near Me</a>
+          <a href="/#contact" className="btn btn-primary btn-sm">Request a Free Quote</a>
         </div>
       </div>
 

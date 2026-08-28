@@ -7,7 +7,7 @@ export default function CommercialSection() {
       <div className="container">
         <div className="section-head">
           <p className="eyebrow">Business & Hospitality</p>
-          <h2>Commercial Fridge Repairs Near You</h2>
+          <h2>Request a Commercial Fridge Repairs</h2>
           <p>
             Commercial refrigeration problems can affect stock, food safety and day-to-day
             business operations. If refrigeration is critical to your business, finding a

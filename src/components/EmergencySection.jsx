@@ -15,7 +15,7 @@ export default function EmergencySection() {
       <div className="container emergency__grid">
         <div className="emergency__copy">
           <p className="eyebrow"><AlertIcon /> Urgent Faults</p>
-          <h2>Emergency Fridge Repairs Near You</h2>
+          <h2>Request an Emergency Fridge Repairs</h2>
           <p>
             A complete cooling failure can quickly become urgent, particularly when food,
             frozen goods or commercial stock are at risk. Provide your Sydney suburb or

@@ -32,7 +32,7 @@ export default function Hero() {
           </p>
 
           <div className="hero__actions">
-            <a href="#contact" className="btn btn-primary">Find Fridge Repairs Near Me</a>
+            <a href="#contact" className="btn btn-primary">Request a Free Quote</a>
             <a href={enquiryEmailHref} className="btn btn-secondary"><MailIcon /> Email Us</a>
           </div>
 

@@ -110,6 +110,26 @@
   .header-contact--mobile { font-size: 1.05rem; }
 }
 
+/* ===================== Mobile Sticky CTA ===================== */
+.mobile-sticky-cta {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-sticky-cta {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 -4px 20px rgba(0, 46, 99, 0.14);
+  }
+}
+
 /* ===================== Hero ===================== */
 .hero {
   position: relative;
