@@ -49,7 +49,6 @@ export default function BlogIndexPage() {
         )}
 
         <div className="blog__cta">
-          <a href="/#contact-us" className="btn btn-primary">Ask Us a Question</a>
           <a href="/" className="btn btn-outline">Back to Home</a>
         </div>
       </div>

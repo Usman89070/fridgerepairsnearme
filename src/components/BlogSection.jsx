@@ -34,7 +34,6 @@ export default function BlogSection() {
 
         <div className="blog__cta">
           <a href="/blog" className="btn btn-outline">View All Articles</a>
-          <a href="/#contact-us" className="btn btn-primary">Ask Us a Question</a>
         </div>
       </div>
     </section>
