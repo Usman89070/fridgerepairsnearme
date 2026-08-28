@@ -19,6 +19,16 @@ export default function ServiceAreasSection() {
           </p>
         </div>
 
+        <div className="service-areas__map">
+          <iframe
+            title="Satellite map of Sydney service area"
+            src="https://www.google.com/maps?q=Sydney,+NSW,+Australia&t=k&z=10&output=embed"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+        </div>
+
         <div className="accordion service-areas__accordion">
           {serviceAreas.map((area, i) => (
             <AccordionItem
