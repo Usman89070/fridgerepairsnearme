@@ -23,7 +23,7 @@ export const trustBar = [
   "Commercial Refrigeration Repairs",
   "Major Fridge Brands Covered",
   "Sydney-Wide Service Coverage",
-  "Fault Diagnosis & Repair",
+  "Licensed Technician",
   "Urgent Appointments Where Available",
 ];
 

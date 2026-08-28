@@ -10,6 +10,7 @@ const REVEAL_SELECTORS = [
   ".brands__chip",
   ".process__step",
   ".accordion-item",
+  ".service-areas__region",
   ".section-head",
   ".trust-bar__item",
   ".intro__panel-card",

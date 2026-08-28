@@ -1,5 +1,4 @@
 import { serviceAreas } from "../data/content";
-import AccordionItem from "./Accordion";
 
 function slugify(text) {
   return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
@@ -19,14 +18,10 @@ export default function ServiceAreasSection() {
           </p>
         </div>
 
-        <div className="accordion service-areas__accordion">
-          {serviceAreas.map((area, i) => (
-            <AccordionItem
-              key={area.region}
-              id={`region-${slugify(area.region)}`}
-              title={area.region}
-              defaultOpen={i === 0}
-            >
+        <div className="service-areas__list">
+          {serviceAreas.map((area) => (
+            <div className="service-areas__region" key={area.region} id={`region-${slugify(area.region)}`}>
+              <h3 className="service-areas__region-title">{area.region}</h3>
               <div className="service-areas__suburbs">
                 {area.suburbs.map((s) => (
                   <span className="pill" key={s}>{s}</span>
@@ -35,7 +30,7 @@ export default function ServiceAreasSection() {
               <p className="service-areas__note">
                 Only genuine, currently supported service areas are published on the live site.
               </p>
-            </AccordionItem>
+            </div>
           ))}
         </div>
 

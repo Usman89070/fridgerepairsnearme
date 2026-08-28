@@ -339,6 +339,23 @@
 .accordion-item__panel-inner > * { padding: 0 24px 22px; }
 .accordion-item__panel-inner p { color: var(--slate-600); font-size: 0.95rem; }
 
+.service-areas__list { display: flex; flex-direction: column; gap: 14px; max-width: 860px; margin: 0 auto; }
+
+.service-areas__region {
+  background: var(--white);
+  border: 1px solid var(--slate-100);
+  border-radius: var(--radius-md);
+  padding: 20px 24px 22px;
+}
+
+.service-areas__region-title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--navy-900);
+  margin-bottom: 14px;
+}
+
 .service-areas__suburbs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
 .service-areas__note { color: var(--slate-500) !important; font-size: 0.82rem !important; }
 .service-areas__closing { text-align: center; margin-top: 36px; color: var(--slate-500); font-size: 0.88rem; }
