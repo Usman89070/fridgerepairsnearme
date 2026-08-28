@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { api } from "../lib/api";
-import { ArticleIcon, ArrowRightIcon } from "./Icons";
+import BlogCard from "./BlogCard";
 
 export default function BlogSection() {
   const [posts, setPosts] = useState([]);
@@ -28,17 +28,7 @@ export default function BlogSection() {
 
         <div className="grid grid-3 blog__grid">
           {posts.map((post) => (
-            <article className="card blog__card" key={post.slug}>
-              <div className="blog__card-top">
-                <span className="icon-badge"><ArticleIcon /></span>
-              </div>
-              <span className="pill blog__category">{post.category}</span>
-              <h3>{post.title}</h3>
-              <p>{post.excerpt}</p>
-              <a href={`/blog/${post.slug}`} className="blog__read-more">
-                Read Article <ArrowRightIcon />
-              </a>
-            </article>
+            <BlogCard post={post} headingTag="h3" key={post.slug} />
           ))}
         </div>
 

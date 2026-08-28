@@ -422,11 +422,23 @@
 
 /* ===================== Blog ===================== */
 .blog__card {
-  padding: 28px;
   position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow: hidden;
+}
+.blog__card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+.blog__card-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .blog__card-top { margin-bottom: 14px; }
 .blog__category {

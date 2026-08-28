@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { api } from "../lib/api";
-import { ArticleIcon, ArrowRightIcon } from "../components/Icons";
+import BlogCard from "../components/BlogCard";
 
 export default function BlogIndexPage() {
   const [posts, setPosts] = useState([]);
@@ -43,17 +43,7 @@ export default function BlogIndexPage() {
         {status === "ready" && posts.length > 0 && (
           <div className="grid grid-3 blog__grid">
             {posts.map((post) => (
-              <article className="card blog__card" key={post.slug}>
-                <div className="blog__card-top">
-                  <span className="icon-badge"><ArticleIcon /></span>
-                </div>
-                <span className="pill blog__category">{post.category}</span>
-                <h2>{post.title}</h2>
-                <p>{post.excerpt}</p>
-                <a href={`/blog/${post.slug}`} className="blog__read-more">
-                  Read Article <ArrowRightIcon />
-                </a>
-              </article>
+              <BlogCard post={post} headingTag="h2" key={post.slug} />
             ))}
           </div>
         )}

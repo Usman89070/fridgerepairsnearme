@@ -16,9 +16,14 @@ CREATE TABLE IF NOT EXISTS posts (
   title VARCHAR(255) NOT NULL,
   excerpt TEXT NOT NULL,
   content LONGTEXT NOT NULL,
+  featured_image VARCHAR(500) DEFAULT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- If you're updating an existing database instead of importing this file
+-- fresh, run this one line instead to add the new column:
+-- ALTER TABLE posts ADD COLUMN featured_image VARCHAR(500) DEFAULT NULL;
 
 -- Default admin login. Username: admin  /  Password: 9144a2bf2ceb
 -- CHANGE THIS PASSWORD after your first login (Admin Dashboard -> Change Password).

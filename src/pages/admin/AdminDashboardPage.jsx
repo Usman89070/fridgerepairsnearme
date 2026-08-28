@@ -77,6 +77,7 @@ export default function AdminDashboardPage() {
             <table className="admin-table">
               <thead>
                 <tr>
+                  <th></th>
                   <th>Title</th>
                   <th>Category</th>
                   <th>Updated</th>
@@ -86,6 +87,13 @@ export default function AdminDashboardPage() {
               <tbody>
                 {posts.map((post) => (
                   <tr key={post.id}>
+                    <td>
+                      {post.featured_image ? (
+                        <img src={post.featured_image} alt="" className="admin-table__thumb" />
+                      ) : (
+                        <span className="admin-table__thumb admin-table__thumb--empty" />
+                      )}
+                    </td>
                     <td>{post.title}</td>
                     <td>{post.category}</td>
                     <td>{new Date(post.updated_at).toLocaleDateString()}</td>

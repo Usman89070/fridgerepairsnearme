@@ -15,6 +15,9 @@ export default function AdminPostFormPage() {
   const [excerpt, setExcerpt] = useState("");
   const [content, setContent] = useState("");
   const [slugField, setSlugField] = useState("");
+  const [featuredImage, setFeaturedImage] = useState("");
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const [imageError, setImageError] = useState("");
   const [loading, setLoading] = useState(isEditing);
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -34,6 +37,7 @@ export default function AdminPostFormPage() {
         setExcerpt(post.excerpt);
         setContent(post.content);
         setSlugField(post.slug);
+        setFeaturedImage(post.featured_image || "");
         setLoading(false);
       })
       .catch(() => {
@@ -42,11 +46,28 @@ export default function AdminPostFormPage() {
       });
   }, [status, isEditing, slug]);
 
+  const handleImageChange = async (e) => {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+
+    setImageError("");
+    setUploadingImage(true);
+    try {
+      const result = await api.uploadImage(file);
+      setFeaturedImage(result.url);
+    } catch (err) {
+      setImageError(err.message);
+    } finally {
+      setUploadingImage(false);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setSubmitting(true);
-    const payload = { title, category, excerpt, content, slug: slugField };
+    const payload = { title, category, excerpt, content, slug: slugField, featured_image: featuredImage };
     try {
       if (isEditing) {
         await api.updatePost(postId, payload);
@@ -79,6 +100,21 @@ export default function AdminPostFormPage() {
           <span>Title</span>
           <input value={title} onChange={(e) => setTitle(e.target.value)} required />
         </label>
+
+        <div className="admin-field">
+          <span>Featured Image</span>
+          {featuredImage && (
+            <div className="admin-featured-image">
+              <img src={featuredImage} alt="Featured" />
+              <button type="button" className="btn btn-outline btn-sm" onClick={() => setFeaturedImage("")}>
+                Remove Image
+              </button>
+            </div>
+          )}
+          <input type="file" accept="image/jpeg,image/png,image/webp,image/gif" onChange={handleImageChange} disabled={uploadingImage} />
+          {uploadingImage && <p className="admin-field__hint">Uploading…</p>}
+          {imageError && <p className="admin-error">{imageError}</p>}
+        </div>
 
         <div className="admin-field-row">
           <label className="admin-field">
@@ -118,7 +154,7 @@ export default function AdminPostFormPage() {
         {error && <p className="admin-error">{error}</p>}
 
         <div className="admin-form__actions">
-          <button type="submit" className="btn btn-primary" disabled={submitting}>
+          <button type="submit" className="btn btn-primary" disabled={submitting || uploadingImage}>
             {submitting ? "Saving…" : isEditing ? "Save Changes" : "Publish Post"}
           </button>
           <button type="button" className="btn btn-outline" onClick={() => navigate("/admin")}>Cancel</button>

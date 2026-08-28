@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../lib/api";
 import { parsePostContent } from "../lib/postContent";
-import { ArticleIcon, ArrowRightIcon } from "../components/Icons";
+import BlogCard from "../components/BlogCard";
 
 export default function BlogPostPage() {
   const { slug } = useParams();
@@ -76,6 +76,11 @@ export default function BlogPostPage() {
 
           <span className="pill blog__category">{post.category}</span>
           <h1>{post.title}</h1>
+
+          {post.featured_image && (
+            <img src={post.featured_image} alt={post.title} className="blog-post__featured-image" />
+          )}
+
           <p className="blog-post__lede">{post.excerpt}</p>
 
           <div className="blog-post__body">
@@ -108,17 +113,7 @@ export default function BlogPostPage() {
             </div>
             <div className="grid grid-2 blog__grid">
               {otherPosts.map((p) => (
-                <article className="card blog__card" key={p.slug}>
-                  <div className="blog__card-top">
-                    <span className="icon-badge"><ArticleIcon /></span>
-                  </div>
-                  <span className="pill blog__category">{p.category}</span>
-                  <h3>{p.title}</h3>
-                  <p>{p.excerpt}</p>
-                  <a href={`/blog/${p.slug}`} className="blog__read-more">
-                    Read Article <ArrowRightIcon />
-                  </a>
-                </article>
+                <BlogCard post={p} headingTag="h3" key={p.slug} />
               ))}
             </div>
           </div>
