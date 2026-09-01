@@ -316,6 +316,13 @@ export const testimonials = [
   { quote: "Straightforward booking, good communication and a professional overall experience.", name: "Rebecca H." },
 ];
 
+export const galleryItems = [
+  { type: "image", src: "/gallery/nearme.webp", alt: "Commercial beverage fridges serviced across three glass doors" },
+  { type: "image", src: "/gallery/nearme2.webp", alt: "Stocked commercial display fridge after a service call" },
+  { type: "image", src: "/gallery/nearme3.webp", alt: "Refrigeration compressor and condenser coil during a repair" },
+  { type: "video", src: "/gallery/nearme4.mp4", alt: "On-site fridge repair in progress" },
+];
+
 export const serviceAreas = [
   {
     region: "Inner West & Western Sydney",

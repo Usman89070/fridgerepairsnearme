@@ -11,6 +11,7 @@ import DiagnosisSection from "../components/DiagnosisSection";
 import RegasSection from "../components/RegasSection";
 import WorthRepairingSection from "../components/WorthRepairingSection";
 import WhyChooseSection from "../components/WhyChooseSection";
+import GallerySection from "../components/GallerySection";
 import TestimonialsSection from "../components/TestimonialsSection";
 import ServiceAreasSection from "../components/ServiceAreasSection";
 import CostSection from "../components/CostSection";
@@ -34,6 +35,7 @@ export default function HomePage() {
       <RegasSection />
       <WorthRepairingSection />
       <WhyChooseSection />
+      <GallerySection />
       <TestimonialsSection />
       <ServiceAreasSection />
       <CostSection />
