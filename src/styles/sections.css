@@ -677,6 +677,31 @@ a.contact-us__value:hover { color: var(--ice-600); }
   padding: 6px;
 }
 
+.gallery__lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  color: var(--white);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.gallery__lightbox-nav:hover { background: rgba(255, 255, 255, 0.22); }
+.gallery__lightbox-nav--prev { left: 16px; }
+.gallery__lightbox-nav--prev svg { transform: rotate(180deg); }
+.gallery__lightbox-nav--next { right: 16px; }
+
 @media (max-width: 560px) {
   .gallery__lightbox-close { top: -40px; right: -6px; }
+  .gallery__lightbox-nav { width: 40px; height: 40px; }
+  .gallery__lightbox-nav--prev { left: 6px; }
+  .gallery__lightbox-nav--next { right: 6px; }
 }

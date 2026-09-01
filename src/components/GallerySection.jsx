@@ -1,15 +1,26 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { galleryItems } from "../data/content";
-import { CloseIcon, PlayIcon } from "./Icons";
+import { ArrowRightIcon, CloseIcon, PlayIcon } from "./Icons";
 
 export default function GallerySection() {
   const [activeIndex, setActiveIndex] = useState(null);
   const active = activeIndex === null ? null : galleryItems[activeIndex];
+  const count = galleryItems.length;
+
+  const showPrev = useCallback(() => {
+    setActiveIndex((i) => (i === null ? null : (i - 1 + count) % count));
+  }, [count]);
+
+  const showNext = useCallback(() => {
+    setActiveIndex((i) => (i === null ? null : (i + 1) % count));
+  }, [count]);
 
   useEffect(() => {
     if (active === null) return;
     const onKeyDown = (e) => {
       if (e.key === "Escape") setActiveIndex(null);
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "ArrowRight") showNext();
     };
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", onKeyDown);
@@ -17,7 +28,7 @@ export default function GallerySection() {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKeyDown);
     };
-  }, [active]);
+  }, [active, showPrev, showNext]);
 
   return (
     <section id="gallery" className="section gallery">
@@ -56,6 +67,18 @@ export default function GallerySection() {
       {active && (
         <div className="gallery__lightbox" role="dialog" aria-modal="true" aria-label={active.alt}>
           <div className="gallery__lightbox-backdrop" onClick={() => setActiveIndex(null)} />
+
+          {count > 1 && (
+            <button
+              type="button"
+              className="gallery__lightbox-nav gallery__lightbox-nav--prev"
+              onClick={showPrev}
+              aria-label="Previous"
+            >
+              <ArrowRightIcon />
+            </button>
+          )}
+
           <div className="gallery__lightbox-content">
             <button
               type="button"
@@ -66,11 +89,22 @@ export default function GallerySection() {
               <CloseIcon />
             </button>
             {active.type === "video" ? (
-              <video src={active.src} controls autoPlay playsInline preload="auto" />
+              <video key={active.src} src={active.src} controls autoPlay playsInline preload="auto" />
             ) : (
               <img src={active.src} alt={active.alt} />
             )}
           </div>
+
+          {count > 1 && (
+            <button
+              type="button"
+              className="gallery__lightbox-nav gallery__lightbox-nav--next"
+              onClick={showNext}
+              aria-label="Next"
+            >
+              <ArrowRightIcon />
+            </button>
+          )}
         </div>
       )}
     </section>

@@ -13,6 +13,7 @@ export const navLinks = [
   { label: "Commercial", href: "/#commercial" },
   { label: "Locations", href: "/#locations" },
   { label: "How It Works", href: "/#process" },
+  { label: "Gallery", href: "/#gallery" },
   { label: "FAQ", href: "/#faq" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/#contact-us" },
