@@ -22,8 +22,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-# Secrets — never tracked. The DKIM private key is generated once and
-# delivered directly, not through git (same trust model as the real
-# values in api/config.php, which also never get committed).
-public/api/dkim/private.pem
