@@ -1,4 +1,10 @@
 <?php
+require_once __DIR__ . '/lib/PHPMailer/Exception.php';
+require_once __DIR__ . '/lib/PHPMailer/PHPMailer.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception as PHPMailerException;
+
 set_exception_handler(function ($e) {
     http_response_code(500);
     header('Content-Type: application/json; charset=utf-8');
@@ -18,6 +24,19 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     json_out(['error' => 'Method not allowed'], 405);
 }
 
+// Light per-IP throttle: a form hit hard by bots sends a burst of mail
+// from the same domain in a short window, which is exactly the pattern
+// spam filters flag — this keeps sending volume looking human even
+// before any individual message is judged on its own content.
+$ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+$rateDir = sys_get_temp_dir() . '/frn_enquiry_rate';
+if (!is_dir($rateDir)) @mkdir($rateDir, 0700, true);
+$rateFile = $rateDir . '/' . md5($ip);
+if (file_exists($rateFile) && (time() - filemtime($rateFile)) < 20) {
+    json_out(['error' => 'Please wait a few seconds before sending another enquiry.'], 429);
+}
+@touch($rateFile);
+
 $raw = file_get_contents('php://input');
 $body = json_decode($raw, true);
 $body = is_array($body) ? $body : [];
@@ -31,7 +50,7 @@ if (!empty($body['website'])) {
 function clean_line($value, $maxLength) {
     $value = trim((string)$value);
     // Strip newlines so a field can never be used to inject extra mail
-    // headers (classic mail() header-injection vector).
+    // headers (classic mail header-injection vector).
     $value = preg_replace('/[\r\n]+/', ' ', $value);
     return mb_substr($value, 0, $maxLength);
 }
@@ -51,13 +70,9 @@ if ($suburb === '') $errors[] = 'Suburb or postcode is required.';
 if ($message === '') $errors[] = 'A description of the fault is required.';
 if ($errors) json_out(['error' => implode(' ', $errors)], 422);
 
-$to = 'info@fridgerepairsnearme.com.au';
-// Sending "from" an address on the site's own domain (rather than an
-// external one, or the visitor's own address) is what lets the
-// receiving mail server's SPF check for fridgerepairsnearme.com.au
-// pass — the single biggest factor in whether this lands in spam
-// without authenticated SMTP.
-$fromAddress = 'no-reply@fridgerepairsnearme.com.au';
+$domain = 'fridgerepairsnearme.com.au';
+$to = 'info@' . $domain;
+$fromAddress = 'no-reply@' . $domain;
 
 $subject = 'New enquiry: ' . $suburb . ' — ' . $appliance;
 $lines = [
@@ -74,19 +89,33 @@ $lines = [
 ];
 $textBody = implode("\n", $lines);
 
-$headers = [
-    'From: Fridge Repairs Near Me <' . $fromAddress . '>',
-    'Reply-To: ' . $name . ' <' . $email . '>',
-    'MIME-Version: 1.0',
-    'Content-Type: text/plain; charset=UTF-8',
-    'X-Mailer: PHP/' . phpversion(),
-];
+$mail = new PHPMailer(true);
+try {
+    // Plain PHP mail() under the hood — no SMTP credentials needed —
+    // but every other lever available without a password is pulled:
+    // DKIM-signed (proves cryptographically that this domain sent it,
+    // works with mail() same as it would with SMTP), From/envelope
+    // sender matching the domain for SPF alignment, and clean,
+    // complete headers.
+    $mail->isMail();
+    $mail->CharSet = PHPMailer::CHARSET_UTF8;
 
-// The envelope sender (-f) matching the From domain matters as much as
-// the From header itself for SPF alignment on most mail servers.
-$sent = @mail($to, $subject, $textBody, implode("\r\n", $headers), '-f' . $fromAddress);
+    $mail->DKIM_domain = $domain;
+    $mail->DKIM_private = __DIR__ . '/dkim/private.pem';
+    $mail->DKIM_selector = 'frn1';
+    $mail->DKIM_identity = $fromAddress;
 
-if (!$sent) {
+    $mail->setFrom($fromAddress, 'Fridge Repairs Near Me — Website');
+    $mail->Sender = $fromAddress; // envelope sender / Return-Path
+    $mail->addAddress($to);
+    $mail->addReplyTo($email, $name);
+
+    $mail->Subject = $subject;
+    $mail->Body = $textBody;
+    $mail->isHTML(false);
+
+    $mail->send();
+} catch (PHPMailerException $e) {
     json_out(['error' => 'Your enquiry could not be sent right now. Please email us directly instead.'], 502);
 }
 
