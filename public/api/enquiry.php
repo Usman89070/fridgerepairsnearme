@@ -1,13 +1,4 @@
 <?php
-require_once __DIR__ . '/config.php';
-
-require_once __DIR__ . '/lib/PHPMailer/Exception.php';
-require_once __DIR__ . '/lib/PHPMailer/PHPMailer.php';
-require_once __DIR__ . '/lib/PHPMailer/SMTP.php';
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception as PHPMailerException;
-
 set_exception_handler(function ($e) {
     http_response_code(500);
     header('Content-Type: application/json; charset=utf-8');
@@ -40,7 +31,7 @@ if (!empty($body['website'])) {
 function clean_line($value, $maxLength) {
     $value = trim((string)$value);
     // Strip newlines so a field can never be used to inject extra mail
-    // headers (classic mail header-injection vector).
+    // headers (classic mail() header-injection vector).
     $value = preg_replace('/[\r\n]+/', ' ', $value);
     return mb_substr($value, 0, $maxLength);
 }
@@ -60,6 +51,14 @@ if ($suburb === '') $errors[] = 'Suburb or postcode is required.';
 if ($message === '') $errors[] = 'A description of the fault is required.';
 if ($errors) json_out(['error' => implode(' ', $errors)], 422);
 
+$to = 'info@fridgerepairsnearme.com.au';
+// Sending "from" an address on the site's own domain (rather than an
+// external one, or the visitor's own address) is what lets the
+// receiving mail server's SPF check for fridgerepairsnearme.com.au
+// pass — the single biggest factor in whether this lands in spam
+// without authenticated SMTP.
+$fromAddress = 'no-reply@fridgerepairsnearme.com.au';
+
 $subject = 'New enquiry: ' . $suburb . ' — ' . $appliance;
 $lines = [
     "New enquiry from the website contact form.",
@@ -75,27 +74,19 @@ $lines = [
 ];
 $textBody = implode("\n", $lines);
 
-$mail = new PHPMailer(true);
-try {
-    $mail->CharSet = PHPMailer::CHARSET_UTF8;
-    $mail->isSMTP();
-    $mail->Host = SMTP_HOST;
-    $mail->Port = SMTP_PORT;
-    $mail->SMTPSecure = SMTP_SECURE;
-    $mail->SMTPAuth = true;
-    $mail->Username = SMTP_USER;
-    $mail->Password = SMTP_PASS;
+$headers = [
+    'From: Fridge Repairs Near Me <' . $fromAddress . '>',
+    'Reply-To: ' . $name . ' <' . $email . '>',
+    'MIME-Version: 1.0',
+    'Content-Type: text/plain; charset=UTF-8',
+    'X-Mailer: PHP/' . phpversion(),
+];
 
-    $mail->setFrom(SMTP_USER, 'Fridge Repairs Near Me — Website');
-    $mail->addAddress(SMTP_TO_EMAIL);
-    $mail->addReplyTo($email, $name);
+// The envelope sender (-f) matching the From domain matters as much as
+// the From header itself for SPF alignment on most mail servers.
+$sent = @mail($to, $subject, $textBody, implode("\r\n", $headers), '-f' . $fromAddress);
 
-    $mail->Subject = $subject;
-    $mail->Body = $textBody;
-    $mail->isHTML(false);
-
-    $mail->send();
-} catch (PHPMailerException $e) {
+if (!$sent) {
     json_out(['error' => 'Your enquiry could not be sent right now. Please email us directly instead.'], 502);
 }
 
