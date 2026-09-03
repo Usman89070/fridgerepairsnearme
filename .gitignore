@@ -1,0 +1,4 @@
+# Secrets — never tracked. Generated once and delivered directly to
+# the site owner, not through git (same trust model as the real
+# values in api/config.php, which also never get committed here).
+api/dkim/private.pem

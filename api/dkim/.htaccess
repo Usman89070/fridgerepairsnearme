@@ -1,0 +1,2 @@
+# DKIM private signing key — read by enquiry.php only, never served directly.
+Require all denied
