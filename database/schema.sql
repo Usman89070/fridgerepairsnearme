@@ -25,21 +25,6 @@ CREATE TABLE IF NOT EXISTS posts (
 -- fresh, run this one line instead to add the new column:
 -- ALTER TABLE posts ADD COLUMN featured_image VARCHAR(500) DEFAULT NULL;
 
-CREATE TABLE IF NOT EXISTS enquiries (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(150) NOT NULL,
-  email VARCHAR(255) NOT NULL,
-  suburb VARCHAR(150) NOT NULL,
-  appliance VARCHAR(100) NOT NULL,
-  brand VARCHAR(100) DEFAULT NULL,
-  message TEXT NOT NULL,
-  email_sent TINYINT(1) NOT NULL DEFAULT 0,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- If you're updating an existing database instead of importing this file
--- fresh, run just the CREATE TABLE IF NOT EXISTS enquiries block above.
-
 -- Default admin login. Username: admin  /  Password: 9144a2bf2ceb
 -- CHANGE THIS PASSWORD after your first login (Admin Dashboard -> Change Password).
 INSERT INTO admin_users (username, password_hash) VALUES

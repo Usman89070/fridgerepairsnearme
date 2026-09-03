@@ -58,6 +58,4 @@ export const api = {
     request("/change_password.php", { method: "POST", body: JSON.stringify({ currentPassword, newPassword }) }),
 
   submitEnquiry: (payload) => request("/enquiry.php", { method: "POST", body: JSON.stringify(payload) }),
-  listEnquiries: () => request("/enquiries.php"),
-  deleteEnquiry: (id) => request(`/enquiries.php?id=${encodeURIComponent(id)}`, { method: "DELETE" }),
 };
