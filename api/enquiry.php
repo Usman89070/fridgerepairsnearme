@@ -1,10 +1,4 @@
 <?php
-require_once __DIR__ . '/lib/PHPMailer/Exception.php';
-require_once __DIR__ . '/lib/PHPMailer/PHPMailer.php';
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception as PHPMailerException;
-
 set_exception_handler(function ($e) {
     http_response_code(500);
     header('Content-Type: application/json; charset=utf-8');
@@ -50,7 +44,7 @@ if (!empty($body['website'])) {
 function clean_line($value, $maxLength) {
     $value = trim((string)$value);
     // Strip newlines so a field can never be used to inject extra mail
-    // headers (classic mail header-injection vector).
+    // headers (classic mail() header-injection vector).
     $value = preg_replace('/[\r\n]+/', ' ', $value);
     return mb_substr($value, 0, $maxLength);
 }
@@ -89,33 +83,19 @@ $lines = [
 ];
 $textBody = implode("\n", $lines);
 
-$mail = new PHPMailer(true);
-try {
-    // Plain PHP mail() under the hood — no SMTP credentials needed —
-    // but every other lever available without a password is pulled:
-    // DKIM-signed (proves cryptographically that this domain sent it,
-    // works with mail() same as it would with SMTP), From/envelope
-    // sender matching the domain for SPF alignment, and clean,
-    // complete headers.
-    $mail->isMail();
-    $mail->CharSet = PHPMailer::CHARSET_UTF8;
+$headers = [
+    'From: Fridge Repairs Near Me <' . $fromAddress . '>',
+    'Reply-To: ' . $name . ' <' . $email . '>',
+    'MIME-Version: 1.0',
+    'Content-Type: text/plain; charset=UTF-8',
+    'X-Mailer: PHP/' . phpversion(),
+];
 
-    $mail->DKIM_domain = $domain;
-    $mail->DKIM_private = __DIR__ . '/dkim/private.pem';
-    $mail->DKIM_selector = 'frn2';
-    $mail->DKIM_identity = $fromAddress;
+// The envelope sender (-f) matching the From domain matters as much as
+// the From header itself for SPF alignment on most mail servers.
+$sent = @mail($to, $subject, $textBody, implode("\r\n", $headers), '-f' . $fromAddress);
 
-    $mail->setFrom($fromAddress, 'Fridge Repairs Near Me — Website');
-    $mail->Sender = $fromAddress; // envelope sender / Return-Path
-    $mail->addAddress($to);
-    $mail->addReplyTo($email, $name);
-
-    $mail->Subject = $subject;
-    $mail->Body = $textBody;
-    $mail->isHTML(false);
-
-    $mail->send();
-} catch (PHPMailerException $e) {
+if (!$sent) {
     json_out(['error' => 'Your enquiry could not be sent right now. Please email us directly instead.'], 502);
 }
 
