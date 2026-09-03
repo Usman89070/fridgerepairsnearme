@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { applianceOptions, enquiryEmail, enquiryEmailHref } from "../data/content";
 import { CheckIcon } from "./Icons";
+import { api } from "../lib/api";
 
 const initialState = {
   name: "",
@@ -17,6 +18,7 @@ export default function ContactForm() {
   const [values, setValues] = useState(initialState);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle"); // idle | submitting | success
+  const [submitError, setSubmitError] = useState("");
 
   const update = (field) => (e) =>
     setValues((v) => ({ ...v, [field]: e.target.value }));
@@ -34,7 +36,7 @@ export default function ContactForm() {
     return next;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (values.website) return; // honeypot triggered — silently drop
 
@@ -42,14 +44,16 @@ export default function ContactForm() {
     setErrors(next);
     if (Object.keys(next).length > 0) return;
 
+    setSubmitError("");
     setStatus("submitting");
-    // No backend is wired up yet — this simulates submission so the UI/UX
-    // can be validated end to end. Connect to a form endpoint (e.g. your
-    // CRM, email API or a service like Formspree) before going live.
-    setTimeout(() => {
+    try {
+      await api.submitEnquiry(values);
       setStatus("success");
       setValues(initialState);
-    }, 900);
+    } catch (err) {
+      setSubmitError(err.message || "Something went wrong. Please try again or email us directly.");
+      setStatus("idle");
+    }
   };
 
   if (status === "success") {
@@ -134,6 +138,8 @@ export default function ContactForm() {
         />
         {errors.message && <span className="field-error">{errors.message}</span>}
       </div>
+
+      {submitError && <p className="field-error contact-form__error">{submitError}</p>}
 
       <button type="submit" className="btn btn-primary btn-block" disabled={status === "submitting"}>
         {status === "submitting" ? "Sending…" : "Request a Free Quote"}

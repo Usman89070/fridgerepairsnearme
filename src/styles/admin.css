@@ -133,6 +133,22 @@
   white-space: nowrap;
 }
 
+.admin-table__message {
+  max-width: 320px;
+  white-space: normal;
+}
+
+.admin-status {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.admin-status--ok { background: #dcfce7; color: #166534; }
+.admin-status--fail { background: #fee2e2; color: #991b1b; }
+
 .admin-btn-danger {
   background: #fdecec;
   color: #b91c1c;

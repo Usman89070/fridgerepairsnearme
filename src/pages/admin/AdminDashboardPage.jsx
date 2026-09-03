@@ -10,6 +10,8 @@ export default function AdminDashboardPage() {
   const { status, username } = useAdminAuth();
   const [posts, setPosts] = useState([]);
   const [loadingPosts, setLoadingPosts] = useState(true);
+  const [enquiries, setEnquiries] = useState([]);
+  const [loadingEnquiries, setLoadingEnquiries] = useState(true);
   const [showPasswordForm, setShowPasswordForm] = useState(false);
 
   useEffect(() => {
@@ -24,14 +26,31 @@ export default function AdminDashboardPage() {
       .finally(() => setLoadingPosts(false));
   };
 
+  const loadEnquiries = () => {
+    setLoadingEnquiries(true);
+    api
+      .listEnquiries()
+      .then(setEnquiries)
+      .finally(() => setLoadingEnquiries(false));
+  };
+
   useEffect(() => {
-    if (status === "ready") loadPosts();
+    if (status === "ready") {
+      loadPosts();
+      loadEnquiries();
+    }
   }, [status]);
 
   const handleDelete = async (post) => {
     if (!window.confirm(`Delete "${post.title}"? This cannot be undone.`)) return;
     await api.deletePost(post.id);
     loadPosts();
+  };
+
+  const handleDeleteEnquiry = async (enquiry) => {
+    if (!window.confirm(`Delete the enquiry from "${enquiry.name}"? This cannot be undone.`)) return;
+    await api.deleteEnquiry(enquiry.id);
+    loadEnquiries();
   };
 
   const handleLogout = async () => {
@@ -63,6 +82,56 @@ export default function AdminDashboardPage() {
       </header>
 
       {showPasswordForm && <ChangePasswordForm onDone={() => setShowPasswordForm(false)} />}
+
+      <div className="admin-panel">
+        <div className="admin-panel__head">
+          <h2>Contact Form Enquiries</h2>
+        </div>
+
+        {loadingEnquiries && <p>Loading enquiries…</p>}
+        {!loadingEnquiries && enquiries.length === 0 && <p>No enquiries yet.</p>}
+
+        {!loadingEnquiries && enquiries.length > 0 && (
+          <div className="admin-table-wrap">
+            <table className="admin-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Name</th>
+                  <th>Contact</th>
+                  <th>Suburb</th>
+                  <th>Appliance / Brand</th>
+                  <th>Message</th>
+                  <th>Email</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {enquiries.map((enquiry) => (
+                  <tr key={enquiry.id}>
+                    <td>{new Date(enquiry.created_at).toLocaleString()}</td>
+                    <td>{enquiry.name}</td>
+                    <td><a href={`mailto:${enquiry.email}`}>{enquiry.email}</a></td>
+                    <td>{enquiry.suburb}</td>
+                    <td>{enquiry.appliance}{enquiry.brand ? ` — ${enquiry.brand}` : ""}</td>
+                    <td className="admin-table__message">{enquiry.message}</td>
+                    <td>
+                      {Number(enquiry.email_sent) === 1 ? (
+                        <span className="admin-status admin-status--ok">Sent</span>
+                      ) : (
+                        <span className="admin-status admin-status--fail">Not sent</span>
+                      )}
+                    </td>
+                    <td className="admin-table__actions">
+                      <button className="btn btn-sm admin-btn-danger" onClick={() => handleDeleteEnquiry(enquiry)}>Delete</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
 
       <div className="admin-panel">
         <div className="admin-panel__head">

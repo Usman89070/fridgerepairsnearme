@@ -343,6 +343,11 @@
   font-weight: 600;
 }
 
+.contact-form__error {
+  text-align: center;
+  margin-bottom: 4px;
+}
+
 .contact-form__note {
   text-align: center;
   font-size: 0.85rem;
