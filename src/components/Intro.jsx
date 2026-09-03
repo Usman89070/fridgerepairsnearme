@@ -3,30 +3,30 @@ export default function Intro() {
     <section className="section intro">
       <div className="container intro__grid">
         <div className="intro__copy">
-          <p className="eyebrow">Fridge Repairs Near Me</p>
-          <h2>Looking for Fridge Repairs Near Me?</h2>
+          <p className="eyebrow">Fridge Repairs Near You</p>
+          <h2>Looking for Fridge Repairs Near You in Sydney?</h2>
           <p>
             When your fridge stops cooling properly, starts leaking or develops an unusual
-            noise, you usually want one thing: a reliable fridge repair service close to you.
+            noise, you usually want one thing: a reliable fridge repair service close to home
+            or your business.
           </p>
           <p>
-            Fridge Repairs Near Me helps customers find local fridge repair services across
-            supported Australian locations. Depending on your area and the type of appliance,
-            repair support may be available for household refrigerators, freezers and
-            commercial refrigeration equipment.
+            Fridge repair services may be available across supported Sydney suburbs for
+            household refrigerators, freezers and commercial refrigeration equipment. Local
+            availability depends on your suburb, appliance type and the repair required.
           </p>
           <p>
             Common problems include fridges not cooling, freezers icing up, water leaks, noisy
             fan motors, temperature fluctuations, electrical faults and refrigeration system
-            problems. Depending on the fault, diagnosis may involve airflow, fan motors,
+            problems. Depending on the symptoms, diagnosis may involve airflow, fan motors,
             temperature sensors, thermostats, defrost components, compressor start components,
             control boards or the sealed refrigeration system.
           </p>
           <p className="intro__cta-line">
-            Simply provide your suburb or postcode, appliance brand and a description of the
-            fault to check fridge repairs near you.
+            Simply provide your Sydney suburb or postcode, appliance brand and a description of
+            the fault to check fridge repairs near you.
           </p>
-          <a href="#contact" className="btn btn-primary">Check Fridge Repairs Near You</a>
+          <a href="#contact" className="btn btn-primary">Request a Free Quote</a>
         </div>
 
         <div className="intro__panel" aria-hidden="true">

@@ -14,17 +14,25 @@ npm run lint     # oxlint
 
 ## Project structure
 
-- `src/data/content.js` — all page copy in one place (locations, brands, FAQs, etc.)
-- `src/components/` — one component per homepage section
-- `src/styles/` — global design tokens (`index.css`) plus section styles
+- `src/data/content.js` — all page copy in one place (locations, brands, FAQs, blog posts, etc.)
+- `src/pages/` — routed pages: `HomePage` (`/`), `BlogIndexPage` (`/blog`),
+  `BlogPostPage` (`/blog/:slug`), `NotFoundPage` (anything else)
+- `src/components/` — one component per homepage section, shared across pages
+- `src/styles/` — global design tokens (`index.css`) plus section/page styles
 - `index.html` — meta tags, Open Graph, and JSON-LD structured data
+
+Routing is client-side (`react-router-dom`, `BrowserRouter`). Header/Footer nav links to
+in-page sections (e.g. `/#domestic`) are always prefixed with `/` so they resolve correctly
+from any route, not just the homepage. Blog posts live in `blogPosts` in `content.js` — add a
+new entry with a unique `slug` and `sections` array to publish a new article; it appears
+automatically in both the homepage teaser and `/blog`.
 
 ## Before going live
 
 A few things are placeholders and need real business details:
 
-- **Phone number** — currently `1300 000 000` in `src/data/content.js`
-- **Email** — currently `hello@fridgerepairsnearme.com.au`
+- **Email** — currently `info@fridgerepairsnearme.com.au` in `src/data/content.js` (the site
+  is email-only — no phone number is displayed anywhere)
 - **ABN** — footer currently shows `[Insert ABN]`
 - **Testimonials** — `src/data/content.js` `testimonials` array has placeholder quotes
 - **Service areas** — confirm which suburbs/regions in `serviceAreas` are genuinely covered
@@ -35,3 +43,48 @@ A few things are placeholders and need real business details:
 
 This is a client-rendered React SPA. For best crawlability/indexing, consider adding
 prerendering or SSR (e.g. via a static-site-generation plugin) once content is finalised.
+
+## Deploying to Hostinger
+
+This project builds to plain static files (HTML/CSS/JS), so it runs on any Hostinger plan
+that serves static sites — shared hosting, Business hosting, or Cloud hosting. No Node.js
+runtime is needed on the server; Node is only used locally to build.
+
+1. **Build the site locally**
+
+   ```bash
+   npm install
+   npm run build
+   ```
+
+   This produces a `dist/` folder containing `index.html`, `assets/`, and `.htaccess`.
+
+2. **Upload `dist/` to `public_html`**
+
+   In hPanel, open **Files → File Manager** (or connect via FTP/SFTP using the credentials
+   under **Files → FTP Accounts**), go into `public_html` for your domain, and upload the
+   *contents* of `dist/` (not the `dist` folder itself) so `index.html` sits directly in
+   `public_html`. Delete Hostinger's default placeholder files first if present.
+
+   Via FTP/SFTP with `lftp` or `rsync`, for example:
+
+   ```bash
+   rsync -avz --delete dist/ your-ftp-user@your-server:/public_html/
+   ```
+
+3. **Point the domain**
+
+   If `fridgerepairsnearme.com.au` is already the primary domain on the hosting plan, no
+   further DNS changes are needed. If it's an addon domain, make sure it's mapped to the
+   `public_html` (or subfolder) you uploaded to.
+
+4. **Re-deploying after changes**
+
+   Repeat steps 1–2: run `npm run build` again and re-upload the new `dist/` contents,
+   overwriting the old files (the JS/CSS filenames are content-hashed, so browsers pick up
+   the new version automatically; `.htaccess` sets HTML to `no-cache` so updates show
+   immediately without users needing a hard refresh).
+
+`public/.htaccess` (copied into every build) enables gzip compression, long-lived caching
+for hashed assets, and an `index.html` fallback for any unmatched path — all standard for
+Apache/LiteSpeed, which is what Hostinger's shared and Business hosting run on.

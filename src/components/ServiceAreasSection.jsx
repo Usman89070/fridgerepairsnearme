@@ -1,41 +1,44 @@
 import { serviceAreas } from "../data/content";
-import AccordionItem from "./Accordion";
+
+function slugify(text) {
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
 
 export default function ServiceAreasSection() {
   return (
-    <section className="section service-areas">
+    <section id="locations" className="section service-areas">
       <div className="container">
         <div className="section-head section-head--center">
           <p className="eyebrow" style={{ justifyContent: "center" }}>Service Areas</p>
-          <h2>Fridge Repairs Near Me Across Australia</h2>
+          <h2>Fridge Repairs Near You Across Sydney</h2>
           <p>
-            Whether you are searching from Sydney, Melbourne, Brisbane, Perth, Adelaide,
-            Canberra or another supported Australian location, use your suburb or postcode to
-            check fridge repair availability near you. Service availability should always be
-            confirmed by postcode or suburb.
+            Fridge repair service is available across a wide range of supported Sydney
+            suburbs. Use your suburb or postcode when booking so local availability can be
+            confirmed.
           </p>
         </div>
 
-        <div className="accordion service-areas__accordion">
-          {serviceAreas.map((area, i) => (
-            <AccordionItem
-              key={area.state}
-              title={`${area.state} Fridge Repairs`}
-              subtitle={area.region}
-              defaultOpen={i === 0}
-            >
+        <div className="service-areas__list">
+          {serviceAreas.map((area) => (
+            <div className="service-areas__region" key={area.region} id={`region-${slugify(area.region)}`}>
+              <h3 className="service-areas__region-title">{area.region}</h3>
               <div className="service-areas__suburbs">
                 {area.suburbs.map((s) => (
                   <span className="pill" key={s}>{s}</span>
                 ))}
               </div>
               <p className="service-areas__note">
-                Only genuine locations and regions with current service coverage are retained
-                on the live website.
+                Only genuine, currently supported service areas are published on the live site.
               </p>
-            </AccordionItem>
+            </div>
           ))}
         </div>
+
+        <p className="service-areas__closing">
+          Don't see your Sydney suburb listed? Coverage can change and nearby locations may
+          also be available. Enter your suburb or postcode when enquiring to check fridge
+          repairs near you.
+        </p>
       </div>
     </section>
   );

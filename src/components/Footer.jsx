@@ -1,7 +1,9 @@
-import { navLinks, phoneNumber, phoneHref, enquiryEmail } from "../data/content";
-import { SnowflakeIcon, PhoneIcon, PinIcon } from "./Icons";
+import { navLinks, enquiryEmail, enquiryEmailHref, businessAddress, businessHours, serviceAreas } from "../data/content";
+import { MailIcon, PinIcon, ClockIcon } from "./Icons";
 
-const footerLocations = ["Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "Canberra"];
+function slugify(text) {
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -10,17 +12,17 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer__grid">
         <div className="footer__brand">
-          <a href="#home" className="brand brand--footer">
-            <span className="brand__mark"><SnowflakeIcon /></span>
-            <span className="brand__text">Fridge Repairs<span className="brand__accent"> Near Me</span></span>
+          <a href="/#home" className="brand brand--footer">
+            <img src="/logo-192.webp" alt="Fridge Repairs Near Me" className="brand__logo brand__logo--footer" width="72" height="72" loading="lazy" />
           </a>
           <p>
-            Local fridge repair services across supported Australian locations for domestic
-            fridges, freezers and commercial refrigeration equipment.
+            Local fridge repair services across supported Sydney suburbs for domestic fridges,
+            freezers and commercial refrigeration equipment.
           </p>
           <div className="footer__contact">
-            <a href={phoneHref}><PhoneIcon /> {phoneNumber}</a>
-            <a href={`mailto:${enquiryEmail}`}>{enquiryEmail}</a>
+            <a href={enquiryEmailHref}><MailIcon /> {enquiryEmail}</a>
+            <span><PinIcon /> {businessAddress}</span>
+            <span><ClockIcon /> {businessHours}</span>
           </div>
         </div>
 
@@ -30,15 +32,18 @@ export default function Footer() {
             {navLinks.map((link) => (
               <li key={link.href}><a href={link.href}>{link.label}</a></li>
             ))}
-            <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
 
         <div className="footer__col">
           <h4>Service Areas</h4>
           <ul>
-            {footerLocations.map((loc) => (
-              <li key={loc}><PinIcon /> Fridge Repairs in {loc}</li>
+            {serviceAreas.map((area) => (
+              <li key={area.region}>
+                <a href={`/#region-${slugify(area.region)}`}>
+                  <PinIcon /> {area.region}
+                </a>
+              </li>
             ))}
           </ul>
         </div>
@@ -46,14 +51,14 @@ export default function Footer() {
         <div className="footer__col">
           <h4>Get a Quote</h4>
           <p>Provide your suburb, appliance and fault to check local availability.</p>
-          <a href="#contact" className="btn btn-primary btn-sm">Find Fridge Repairs Near Me</a>
+          <a href="/#contact" className="btn btn-primary btn-sm">Request a Free Quote</a>
         </div>
       </div>
 
       <div className="footer__bottom">
         <div className="container footer__bottom-row">
           <span>&copy; {year} Fridge Repairs Near Me. All rights reserved.</span>
-          <span>ABN: [Insert ABN] · fridgerepairsnearme.com.au</span>
+          <span>fridgerepairsnearme.com.au</span>
         </div>
       </div>
     </footer>

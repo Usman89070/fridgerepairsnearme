@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { navLinks, phoneNumber, phoneHref } from "../data/content";
-import { PhoneIcon, SnowflakeIcon, MenuIcon, CloseIcon } from "./Icons";
+import { navLinks } from "../data/content";
+import { MenuIcon, CloseIcon } from "./Icons";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -21,11 +21,8 @@ export default function Header() {
   return (
     <header className={`site-header ${scrolled ? "site-header--scrolled" : ""}`}>
       <div className="container site-header__row">
-        <a href="#home" className="brand" onClick={() => setMenuOpen(false)}>
-          <span className="brand__mark"><SnowflakeIcon /></span>
-          <span className="brand__text">
-            Fridge Repairs<span className="brand__accent"> Near Me</span>
-          </span>
+        <a href="/#home" className="brand" onClick={() => setMenuOpen(false)}>
+          <img src="/logo-192.webp" alt="Fridge Repairs Near Me" className="brand__logo" width="56" height="56" fetchpriority="high" />
         </a>
 
         <nav className="site-nav" aria-label="Primary">
@@ -33,14 +30,6 @@ export default function Header() {
             <a key={link.href} href={link.href}>{link.label}</a>
           ))}
         </nav>
-
-        <div className="site-header__actions">
-          <a href={phoneHref} className="header-phone">
-            <PhoneIcon />
-            <span>{phoneNumber}</span>
-          </a>
-          <a href="#contact" className="btn btn-primary btn-sm">Find Fridge Repairs Near Me</a>
-        </div>
 
         <button
           className="menu-toggle"
@@ -59,12 +48,6 @@ export default function Header() {
               <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a>
             ))}
           </nav>
-          <a href={phoneHref} className="header-phone header-phone--mobile">
-            <PhoneIcon /> <span>{phoneNumber}</span>
-          </a>
-          <a href="#contact" className="btn btn-primary btn-block" onClick={() => setMenuOpen(false)}>
-            Find Fridge Repairs Near Me
-          </a>
         </div>
       )}
     </header>
