@@ -102,7 +102,7 @@ try {
 
     $mail->DKIM_domain = $domain;
     $mail->DKIM_private = __DIR__ . '/dkim/private.pem';
-    $mail->DKIM_selector = 'frn1';
+    $mail->DKIM_selector = 'frn2';
     $mail->DKIM_identity = $fromAddress;
 
     $mail->setFrom($fromAddress, 'Fridge Repairs Near Me — Website');
