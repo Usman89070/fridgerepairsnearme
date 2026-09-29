@@ -534,6 +534,13 @@ a.contact-us__value {
 
 a.contact-us__value:hover { color: var(--ice-600); }
 
+.contact-us__hint {
+  color: var(--slate-500) !important;
+  font-size: 0.82rem !important;
+  font-weight: 500 !important;
+  margin-top: 4px;
+}
+
 .contact-us__map {
   position: relative;
   width: 100%;

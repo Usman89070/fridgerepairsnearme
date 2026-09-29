@@ -18,7 +18,7 @@ export const navLinks = [
   { label: "Gallery", href: "/#gallery" },
   { label: "FAQ", href: "/#faq" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/#contact-us" },
+  { label: "Contact", href: "/contact/" },
 ];
 
 export const trustBar = [
