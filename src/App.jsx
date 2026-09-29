@@ -11,6 +11,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import MobileStickyCTA from "./components/MobileStickyCTA";
 import HomePage from "./pages/HomePage";
+import FridgeRepairServicesPage from "./pages/FridgeRepairServicesPage";
 import BlogIndexPage from "./pages/BlogIndexPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -35,6 +36,8 @@ export default function App() {
         <Suspense fallback={isAdminRoute ? <div className="admin-shell"><p>Loading…</p></div> : null}>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/fridge-repairs" element={<FridgeRepairServicesPage />} />
+            <Route path="/fridge-repairs/" element={<FridgeRepairServicesPage />} />
             <Route path="/blog" element={<BlogIndexPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/admin/login" element={<AdminLoginPage />} />

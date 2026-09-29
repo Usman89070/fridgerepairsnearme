@@ -37,7 +37,7 @@ export default function ServiceAreasSection() {
         <p className="service-areas__closing">
           Don't see your Sydney suburb listed? Coverage can change and nearby locations may
           also be available. Enter your suburb or postcode when enquiring to check fridge
-          repairs near you.
+          repairs near you. <a href="/fridge-repairs/">See the full list of suburbs by region →</a>
         </p>
       </div>
     </section>

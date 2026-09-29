@@ -10,6 +10,7 @@ $baseUrl = 'https://fridgerepairsnearme.com.au';
 
 $urls = [
     ['loc' => $baseUrl . '/', 'changefreq' => 'weekly', 'priority' => '1.0'],
+    ['loc' => $baseUrl . '/fridge-repairs/', 'changefreq' => 'weekly', 'priority' => '0.9'],
     ['loc' => $baseUrl . '/blog', 'changefreq' => 'weekly', 'priority' => '0.8'],
 ];
 

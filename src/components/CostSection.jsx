@@ -3,7 +3,7 @@ import { CheckIcon } from "./Icons";
 
 export default function CostSection() {
   return (
-    <section className="section section--alt cost">
+    <section id="cost" className="section section--alt cost">
       <div className="container cost__grid">
         <div className="cost__copy">
           <p className="eyebrow">Pricing</p>

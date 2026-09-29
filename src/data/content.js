@@ -12,6 +12,7 @@ export const navLinks = [
   { label: "Domestic", href: "/#domestic" },
   { label: "Commercial", href: "/#commercial" },
   { label: "Locations", href: "/#locations" },
+  { label: "Service Areas", href: "/fridge-repairs/" },
   { label: "How It Works", href: "/#process" },
   { label: "Gallery", href: "/#gallery" },
   { label: "FAQ", href: "/#faq" },
