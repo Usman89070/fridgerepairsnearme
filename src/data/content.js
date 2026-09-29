@@ -6,6 +6,7 @@ export const enquiryEmailHref = `mailto:${enquiryEmail}`;
 export const businessAddress = "Sydney, NSW";
 export const businessHours = "Open 24/7";
 export const callOutFee = "$69";
+export const warrantyPeriod = "1-year";
 
 // Home-page sections are anchors prefixed with "/" so they resolve
 // correctly from any route (e.g. clicking "Domestic" while on /blog).
@@ -236,7 +237,7 @@ export const processSteps = [
   {
     step: "05",
     title: "Repair and Test",
-    text: "Where the repair proceeds, the appliance should be tested afterwards to check that the original fault has been addressed and the system is operating correctly.",
+    text: `Where the repair proceeds, the appliance should be tested afterwards to check that the original fault has been addressed and the system is operating correctly. Every completed repair is backed by a ${warrantyPeriod} warranty on parts and workmanship.`,
   },
 ];
 
@@ -303,6 +304,10 @@ export const whyChoose = [
   {
     title: "Urgent Appointments Where Available",
     text: "Cooling failures and commercial breakdowns may require priority service. Availability depends on technician scheduling and your Sydney suburb.",
+  },
+  {
+    title: `${warrantyPeriod} Repair Warranty`,
+    text: `Every completed repair is backed by a ${warrantyPeriod} warranty on parts and workmanship, for genuine peace of mind.`,
   },
 ];
 
@@ -471,7 +476,7 @@ export const faqs = [
   },
   {
     q: "Do fridge repairs come with a warranty?",
-    a: "Warranty terms depend on the service provider, parts used and type of repair. Insert your genuine repair and parts warranty information here once confirmed. Do not advertise a warranty period unless it applies consistently to the service being offered.",
+    a: `Yes. Every repair is backed by a ${warrantyPeriod} warranty covering both parts and workmanship.`,
   },
   {
     q: "What information should I provide when booking?",

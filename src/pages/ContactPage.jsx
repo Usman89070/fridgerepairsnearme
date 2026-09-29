@@ -5,6 +5,7 @@ import {
   businessAddress,
   businessHours,
   callOutFee,
+  warrantyPeriod,
 } from "../data/content";
 import {
   MailIcon,
@@ -58,7 +59,7 @@ const afterContactSteps = [
   { step: "01", title: "We Respond", text: "We aim to get back to you quickly to confirm the fault, your suburb and a suitable time." },
   { step: "02", title: "Free Quote", text: `You'll get a free quote before any work starts. Call-out fee: ${callOutFee}.` },
   { step: "03", title: "Same-Day Visit", text: "A technician visits with a van stocked with common parts, where availability in your suburb allows." },
-  { step: "04", title: "Diagnosis & Repair", text: "Most repairs are completed on the spot once the actual fault has been diagnosed." },
+  { step: "04", title: "Diagnosis & Repair", text: `Most repairs are completed on the spot once the actual fault has been diagnosed, backed by our ${warrantyPeriod} warranty.` },
 ];
 
 const contactFaqs = [
@@ -77,6 +78,10 @@ const contactFaqs = [
   {
     q: "What should I include when I contact you?",
     a: "Your suburb or postcode, the fridge brand and model number, what the fault is and when it started. A photo of the model label and the problem area helps us bring the right parts the first time.",
+  },
+  {
+    q: "Do repairs come with a warranty?",
+    a: `Yes. Every repair is backed by a ${warrantyPeriod} warranty covering both parts and workmanship.`,
   },
 ];
 
@@ -161,7 +166,8 @@ export default function ContactPage() {
             </p>
             <p className="hero__sub">
               Our call-out fee is {callOutFee} incl. GST, and you always get a fixed quote
-              before any work starts.
+              before any work starts. Every repair comes with a {warrantyPeriod} parts and
+              workmanship warranty.
             </p>
             <div className="hero__actions">
               <a href="#book" className="btn btn-primary">Book Online</a>

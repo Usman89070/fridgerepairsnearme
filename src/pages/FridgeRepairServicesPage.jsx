@@ -1,5 +1,5 @@
 import usePageSeo from "../hooks/usePageSeo";
-import { enquiryEmail, enquiryEmailHref, processSteps, brands, callOutFee } from "../data/content";
+import { enquiryEmail, enquiryEmailHref, processSteps, brands, callOutFee, warrantyPeriod } from "../data/content";
 import {
   MailIcon,
   ShieldIcon,
@@ -178,6 +178,10 @@ const hubFaqs = [
   {
     q: "What should I have ready when I book?",
     a: "Your suburb or postcode, the fridge brand and model number, what the fault is and when it started. A photo of the model label and the problem area helps us bring the right parts the first time.",
+  },
+  {
+    q: "Do repairs come with a warranty?",
+    a: `Yes. Every repair across our Sydney service area is backed by a ${warrantyPeriod} warranty covering both parts and workmanship.`,
   },
 ];
 
