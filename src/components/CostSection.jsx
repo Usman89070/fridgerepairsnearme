@@ -1,4 +1,4 @@
-import { costFactors } from "../data/content";
+import { costFactors, callOutFee } from "../data/content";
 import { CheckIcon } from "./Icons";
 
 export default function CostSection() {
@@ -9,15 +9,16 @@ export default function CostSection() {
           <p className="eyebrow">Pricing</p>
           <h2>How Much Does Fridge Repair Cost in Sydney?</h2>
           <p>
-            There is no single repair price that accurately applies to every refrigerator in
-            Sydney. A faulty door seal, fan motor or sensor involves very different work from a
+            Our call-out fee is {callOutFee} incl. GST across our Sydney service area. There is
+            no single repair price that accurately applies to every refrigerator, though — a
+            faulty door seal, fan motor or sensor involves very different work from a
             compressor or sealed refrigeration system repair.
           </p>
           <p>
             The most useful starting point is to provide the fridge make, model number,
             symptoms and Sydney suburb or postcode. Some faults may be discussed initially from
             the information provided, while others require an onsite diagnosis before the
-            repair cost can be confirmed.
+            full repair cost can be confirmed.
           </p>
           <a href="#contact" className="btn btn-primary">Request a Free Quote</a>
         </div>

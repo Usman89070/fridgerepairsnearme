@@ -5,6 +5,7 @@ export const enquiryEmail = "info@fridgerepairsnearme.com.au";
 export const enquiryEmailHref = `mailto:${enquiryEmail}`;
 export const businessAddress = "Sydney, NSW";
 export const businessHours = "Open 24/7";
+export const callOutFee = "$69";
 
 // Home-page sections are anchors prefixed with "/" so they resolve
 // correctly from any route (e.g. clicking "Domestic" while on /blog).

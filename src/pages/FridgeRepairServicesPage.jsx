@@ -1,5 +1,5 @@
 import usePageSeo from "../hooks/usePageSeo";
-import { enquiryEmail, enquiryEmailHref, processSteps, brands } from "../data/content";
+import { enquiryEmail, enquiryEmailHref, processSteps, brands, callOutFee } from "../data/content";
 import {
   MailIcon,
   ShieldIcon,
@@ -17,7 +17,7 @@ const CANONICAL_URL = "https://fridgerepairsnearme.com.au/fridge-repairs/";
 
 const trustPoints = [
   { icon: ShieldIcon, label: "ARCtick licensed technician" },
-  { icon: WrenchIcon, label: "Fixed quote before any work begins" },
+  { icon: WrenchIcon, label: `${callOutFee} call-out, fixed quote before any work` },
   { icon: PinIcon, label: "On-site repairs at your home or business" },
   { icon: BuildingIcon, label: "Domestic, commercial & coolroom refrigeration" },
 ];
@@ -165,7 +165,7 @@ const hubFaqs = [
   },
   {
     q: "Is the call-out fee different in each suburb?",
-    a: "No, our call-out approach is the same across the Sydney service area and you always get a fixed quote before any work starts. Parking or access costs in areas like the CBD, such as a paid loading zone, are the only possible extra, and we'll flag that before booking if it applies.",
+    a: `No. The call-out fee is ${callOutFee} incl. GST across our Sydney service area, and you always get a fixed quote before any work starts. Parking or access costs in areas like the CBD, such as a paid loading zone, are the only possible extra, and we'll flag that before booking if it applies.`,
   },
   {
     q: "How quickly can a technician get to me?",
@@ -397,8 +397,8 @@ export default function FridgeRepairServicesPage() {
             <p className="eyebrow" style={{ justifyContent: "center" }}>Pricing</p>
             <h2>Fridge Repair Costs in Sydney</h2>
             <p>
-              Our call-out approach is the same across our Sydney service area — you get a
-              fixed quote after diagnosis, before any work starts.{" "}
+              Our call-out fee of {callOutFee} incl. GST is the same across our Sydney service
+              area. After diagnosis you get a fixed quote before any work starts.{" "}
               <a href="/#cost">See our fridge repair cost guide →</a>
             </p>
           </div>
