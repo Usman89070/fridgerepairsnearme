@@ -10,6 +10,7 @@ export const warrantyPeriod = "1-year";
 
 // Home-page sections are anchors prefixed with "/" so they resolve
 // correctly from any route (e.g. clicking "Domestic" while on /blog).
+// Used by the footer, which lists every page as a flat set of links.
 export const navLinks = [
   { label: "Domestic", href: "/#domestic" },
   { label: "Commercial", href: "/#commercial" },
@@ -19,6 +20,27 @@ export const navLinks = [
   { label: "Gallery", href: "/#gallery" },
   { label: "FAQ", href: "/#faq" },
   { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact/" },
+];
+
+// The header nav is shorter and groups related links under dropdowns.
+// Each entry is either a direct link ({ label, href }) or a dropdown
+// ({ label, items: [{ label, href }, ...] }).
+export const headerNavItems = [
+  {
+    label: "Fridge Repair Services",
+    items: [
+      { label: "Domestic", href: "/#domestic" },
+      { label: "Commercial", href: "/#commercial" },
+    ],
+  },
+  {
+    label: "Service Areas",
+    items: [
+      { label: "All Service Areas", href: "/fridge-repairs/" },
+    ],
+  },
+  { label: "How It Works", href: "/#process" },
   { label: "Contact", href: "/contact/" },
 ];
 
