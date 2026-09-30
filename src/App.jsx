@@ -39,8 +39,8 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/fridge-repairs" element={<FridgeRepairServicesPage />} />
             <Route path="/fridge-repairs/" element={<FridgeRepairServicesPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/contact/" element={<ContactPage />} />
+            <Route path="/contact-us" element={<ContactPage />} />
+            <Route path="/contact-us/" element={<ContactPage />} />
             <Route path="/blog" element={<BlogIndexPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/admin/login" element={<AdminLoginPage />} />

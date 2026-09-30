@@ -17,7 +17,7 @@ import {
 import AccordionItem from "../components/Accordion";
 import ContactForm from "../components/ContactForm";
 
-const CANONICAL_URL = "https://fridgerepairsnearme.com.au/contact/";
+const CANONICAL_URL = "https://fridgerepairsnearme.com.au/contact-us/";
 
 const reachUs = [
   {

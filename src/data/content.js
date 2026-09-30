@@ -20,7 +20,7 @@ export const navLinks = [
   { label: "Gallery", href: "/#gallery" },
   { label: "FAQ", href: "/#faq" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact/" },
+  { label: "Contact", href: "/contact-us/" },
 ];
 
 // The header nav is shorter and groups related links under dropdowns.
@@ -41,7 +41,7 @@ export const headerNavItems = [
     ],
   },
   { label: "How It Works", href: "/#process" },
-  { label: "Contact", href: "/contact/" },
+  { label: "Contact", href: "/contact-us/" },
 ];
 
 export const trustBar = [
