@@ -44,6 +44,13 @@
   RewriteCond %{THE_REQUEST} ^[A-Z]+\s/index\.html[?\s] [NC]
   RewriteRule ^index\.html$ / [R=301,L]
 
+  # The contact page moved from /contact/ to /contact-us/ — redirect
+  # the old URL so any existing links/bookmarks still work. Anchored
+  # to THE_REQUEST so this matches only /contact or /contact/ exactly,
+  # never /contact-us/ itself or a nested path.
+  RewriteCond %{THE_REQUEST} ^[A-Z]+\s/contact/?(\?[^\s]*)?\s [NC]
+  RewriteRule ^contact/?$ /contact-us/ [R=301,L]
+
   # Clean sitemap URL, generated dynamically (includes blog posts)
   RewriteRule ^sitemap\.xml$ /api/sitemap.php [L]
 
