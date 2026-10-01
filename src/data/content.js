@@ -14,6 +14,7 @@ export const warrantyPeriod = "1-year";
 export const navLinks = [
   { label: "Domestic", href: "/domestic-fridge-repairs-sydney/" },
   { label: "Commercial", href: "/#commercial" },
+  { label: "Same Day Repairs", href: "/same-day-fridge-repair-sydney/" },
   { label: "Locations", href: "/#locations" },
   { label: "Service Areas", href: "/fridge-repairs/" },
   { label: "How It Works", href: "/#process" },
@@ -32,6 +33,7 @@ export const headerNavItems = [
     items: [
       { label: "Domestic", href: "/domestic-fridge-repairs-sydney/" },
       { label: "Commercial", href: "/#commercial" },
+      { label: "Same Day Repairs", href: "/same-day-fridge-repair-sydney/" },
     ],
   },
   {

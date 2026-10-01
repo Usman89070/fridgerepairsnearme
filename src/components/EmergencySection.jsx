@@ -27,7 +27,10 @@ export default function EmergencySection() {
             the type of equipment and technician scheduling. Avoid promising a fixed response
             time unless it is genuinely supported across the service area.
           </p>
-          <a href="#contact" className="btn btn-primary">Request a Free Quote</a>
+          <div className="hub-cta__actions" style={{ justifyContent: "flex-start", marginTop: 0 }}>
+            <a href="#contact" className="btn btn-primary">Request a Free Quote</a>
+            <a href="/same-day-fridge-repair-sydney/" className="btn btn-secondary">Same-Day Repairs →</a>
+          </div>
         </div>
 
         <div className="emergency__panel">

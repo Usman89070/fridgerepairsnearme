@@ -68,7 +68,7 @@ const hubServices = [
     icon: AlertIcon,
     title: "Same-Day & Urgent Repairs",
     text: "Urgent appointments may be available depending on your suburb and technician scheduling — tell us if food or stock is at risk.",
-    href: "/#emergency",
+    href: "/same-day-fridge-repair-sydney/",
   },
 ];
 
