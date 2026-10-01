@@ -38,7 +38,7 @@ const hubServices = [
     icon: FridgeIcon,
     title: "Domestic Fridge Repairs",
     text: "French-door, side-by-side, top-mount, bottom-mount, integrated and bar fridges. Common faults: not cooling, leaking, noisy, iced up.",
-    href: "/#domestic",
+    href: "/domestic-fridge-repairs-sydney/",
   },
   {
     icon: BuildingIcon,

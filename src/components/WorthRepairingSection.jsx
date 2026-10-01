@@ -3,7 +3,7 @@ import { CheckIcon } from "./Icons";
 
 export default function WorthRepairingSection() {
   return (
-    <section className="section section--alt worth">
+    <section id="worth" className="section section--alt worth">
       <div className="container worth__grid">
         <div className="worth__panel card">
           <h3>Factors Worth Considering</h3>

@@ -25,6 +25,10 @@ export default function DomesticSection() {
             </div>
           ))}
         </div>
+
+        <p className="hub-suburbs__note">
+          <a href="/domestic-fridge-repairs-sydney/">See our full guide to domestic fridge repairs in Sydney →</a>
+        </p>
       </div>
     </section>
   );

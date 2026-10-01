@@ -235,7 +235,7 @@
 }
 .regas__panel { padding: 30px; }
 .regas__panel h3 { font-size: 1.1rem; margin-bottom: 18px; }
-.regas__steps { display: flex; flex-direction: column; gap: 14px; counter-reset: regas; }
+.regas__steps { display: flex; flex-direction: column; gap: 14px; counter-reset: regas; list-style: none; }
 .regas__steps li {
   position: relative;
   padding-left: 38px;
@@ -737,3 +737,64 @@ a.contact-us__value:hover { color: var(--ice-600); }
 @media (max-width: 560px) {
   .hub-cta__actions { flex-direction: column; align-items: stretch; }
 }
+
+/* ===================== Domestic Fridge Repairs Page ===================== */
+.highlight-card {
+  padding: 32px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.data-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--slate-100);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.data-table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.data-table th {
+  text-align: left;
+  padding: 14px 16px;
+  background: var(--frost-50);
+  color: var(--navy-900);
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--slate-100);
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--slate-100);
+  color: var(--slate-700);
+  vertical-align: top;
+}
+
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: var(--frost-50); }
+.data-table td strong { color: var(--navy-900); }
+
+.page-subsection { margin-top: 40px; }
+.page-subsection h3 { font-size: 1.15rem; margin-bottom: 10px; }
+.page-subsection p { color: var(--slate-600); }
+
+.worked-example {
+  background: var(--frost-100);
+  border-left: 3px solid var(--ice-500);
+  border-radius: var(--radius-sm);
+  padding: 18px 22px;
+  margin: 20px 0;
+  color: var(--navy-900);
+  font-size: 0.95rem;
+}
+.worked-example strong { font-family: var(--font-head); }

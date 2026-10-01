@@ -12,7 +12,7 @@ export const warrantyPeriod = "1-year";
 // correctly from any route (e.g. clicking "Domestic" while on /blog).
 // Used by the footer, which lists every page as a flat set of links.
 export const navLinks = [
-  { label: "Domestic", href: "/#domestic" },
+  { label: "Domestic", href: "/domestic-fridge-repairs-sydney/" },
   { label: "Commercial", href: "/#commercial" },
   { label: "Locations", href: "/#locations" },
   { label: "Service Areas", href: "/fridge-repairs/" },
@@ -30,7 +30,7 @@ export const headerNavItems = [
   {
     label: "Fridge Repair Services",
     items: [
-      { label: "Domestic", href: "/#domestic" },
+      { label: "Domestic", href: "/domestic-fridge-repairs-sydney/" },
       { label: "Commercial", href: "/#commercial" },
     ],
   },

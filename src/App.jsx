@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import MobileStickyCTA from "./components/MobileStickyCTA";
 import HomePage from "./pages/HomePage";
 import FridgeRepairServicesPage from "./pages/FridgeRepairServicesPage";
+import DomesticFridgeRepairsPage from "./pages/DomesticFridgeRepairsPage";
 import ContactPage from "./pages/ContactPage";
 import BlogIndexPage from "./pages/BlogIndexPage";
 import BlogPostPage from "./pages/BlogPostPage";
@@ -41,6 +42,8 @@ export default function App() {
             <Route path="/fridge-repairs/" element={<FridgeRepairServicesPage />} />
             <Route path="/contact-us" element={<ContactPage />} />
             <Route path="/contact-us/" element={<ContactPage />} />
+            <Route path="/domestic-fridge-repairs-sydney" element={<DomesticFridgeRepairsPage />} />
+            <Route path="/domestic-fridge-repairs-sydney/" element={<DomesticFridgeRepairsPage />} />
             <Route path="/blog" element={<BlogIndexPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/admin/login" element={<AdminLoginPage />} />
