@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { api } from "../lib/api";
 import { parsePostContent } from "../lib/postContent";
 import BlogCard from "../components/BlogCard";
+import usePageSeo from "../hooks/usePageSeo";
 
 export default function BlogPostPage() {
   const { slug } = useParams();
@@ -38,11 +39,14 @@ export default function BlogPostPage() {
     };
   }, [slug]);
 
-  useEffect(() => {
-    document.title = post
+  usePageSeo({
+    title: post
       ? `${post.title} | Fridge Repairs Near Me`
-      : "Article Not Found | Fridge Repairs Near Me";
-  }, [post]);
+      : "Article Not Found | Fridge Repairs Near Me",
+    description: post ? post.excerpt : undefined,
+    canonical: post ? `https://fridgerepairsnearme.com.au/blog/${encodeURIComponent(post.slug)}` : undefined,
+    noindex: status === "notfound",
+  });
 
   if (status === "loading") {
     return (

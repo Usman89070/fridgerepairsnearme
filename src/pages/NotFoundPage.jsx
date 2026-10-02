@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import usePageSeo from "../hooks/usePageSeo";
 
 export default function NotFoundPage() {
-  useEffect(() => {
-    document.title = "Page Not Found | Fridge Repairs Near Me";
-  }, []);
+  usePageSeo({
+    title: "Page Not Found | Fridge Repairs Near Me",
+    noindex: true,
+  });
 
   return (
     <section className="section blog-post">

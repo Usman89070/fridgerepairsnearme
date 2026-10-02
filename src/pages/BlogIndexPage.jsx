@@ -1,20 +1,23 @@
 import { useEffect, useState } from "react";
 import { api } from "../lib/api";
 import BlogCard from "../components/BlogCard";
+import usePageSeo from "../hooks/usePageSeo";
 
 export default function BlogIndexPage() {
   const [posts, setPosts] = useState([]);
   const [status, setStatus] = useState("loading");
 
-  useEffect(() => {
-    document.title = "Fridge Care Guides & Advice | Fridge Repairs Near Me";
-  }, []);
+  usePageSeo({
+    title: "Fridge Care Guides & Advice | Fridge Repairs Near Me",
+    description: "Practical, no-nonsense reading on fridge and freezer faults, maintenance and repair-or-replace decisions from Fridge Repairs Near Me.",
+    canonical: "https://fridgerepairsnearme.com.au/blog",
+  });
 
   useEffect(() => {
     api
       .listPosts()
       .then((data) => {
-        setPosts(data);
+        setPosts(Array.isArray(data) ? data : []);
         setStatus("ready");
       })
       .catch(() => setStatus("error"));

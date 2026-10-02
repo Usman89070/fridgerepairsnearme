@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAdminAuth from "../../hooks/useAdminAuth";
 import { api } from "../../lib/api";
 import ChangePasswordForm from "../../components/admin/ChangePasswordForm";
+import usePageSeo from "../../hooks/usePageSeo";
 import "../../styles/admin.css";
 
 export default function AdminDashboardPage() {
@@ -11,6 +12,8 @@ export default function AdminDashboardPage() {
   const [posts, setPosts] = useState([]);
   const [loadingPosts, setLoadingPosts] = useState(true);
   const [showPasswordForm, setShowPasswordForm] = useState(false);
+
+  usePageSeo({ noindex: true });
 
   useEffect(() => {
     document.title = "Blog Admin | Fridge Repairs Near Me";

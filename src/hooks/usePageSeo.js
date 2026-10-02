@@ -14,7 +14,7 @@ function setMetaContent(selector, attr, value) {
   return prev;
 }
 
-export default function usePageSeo({ title, description, canonical, schema }) {
+export default function usePageSeo({ title, description, canonical, schema, noindex }) {
   useEffect(() => {
     const prevTitle = document.title;
     if (title) document.title = title;
@@ -24,6 +24,9 @@ export default function usePageSeo({ title, description, canonical, schema }) {
     const prevOgTitle = setMetaContent('meta[property="og:title"]', "content", title);
     const prevOgDescription = setMetaContent('meta[property="og:description"]', "content", description);
     const prevOgUrl = setMetaContent('meta[property="og:url"]', "content", canonical);
+    const prevRobots = noindex
+      ? setMetaContent('meta[name="robots"]', "content", "noindex, nofollow")
+      : null;
 
     const schemaList = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
     const scripts = schemaList.map((entry) => {
@@ -41,8 +44,9 @@ export default function usePageSeo({ title, description, canonical, schema }) {
       if (title !== undefined) setMetaContent('meta[property="og:title"]', "content", prevOgTitle);
       if (description !== undefined) setMetaContent('meta[property="og:description"]', "content", prevOgDescription);
       if (canonical !== undefined) setMetaContent('meta[property="og:url"]', "content", prevOgUrl);
+      if (noindex) setMetaContent('meta[name="robots"]', "content", prevRobots);
       scripts.forEach((script) => script.remove());
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [title, description, canonical, schema]);
+  }, [title, description, canonical, schema, noindex]);
 }

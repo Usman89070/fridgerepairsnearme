@@ -7,15 +7,26 @@ async function request(path, options = {}) {
     ...options,
   });
 
+  const text = await res.text();
   let data = null;
-  try {
-    data = await res.json();
-  } catch {
-    data = null;
+  let parseFailed = false;
+  if (text) {
+    try {
+      data = JSON.parse(text);
+    } catch {
+      parseFailed = true;
+    }
   }
 
   if (!res.ok) {
     throw new Error((data && data.error) || `Request failed (${res.status})`);
+  }
+  // A 200 that isn't valid JSON means the request never actually reached
+  // the PHP endpoint (e.g. it fell through to the SPA's catch-all and
+  // got index.html back) — treat that as a failure rather than silently
+  // resolving with null, which crashes callers that expect an array/object.
+  if (parseFailed) {
+    throw new Error("Unexpected response from server.");
   }
   return data;
 }

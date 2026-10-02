@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../../lib/api";
+import usePageSeo from "../../hooks/usePageSeo";
 import "../../styles/admin.css";
 
 export default function AdminLoginPage() {
@@ -9,6 +10,8 @@ export default function AdminLoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
+
+  usePageSeo({ noindex: true });
 
   useEffect(() => {
     document.title = "Admin Login | Fridge Repairs Near Me";

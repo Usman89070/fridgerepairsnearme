@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useAdminAuth from "../../hooks/useAdminAuth";
 import { api } from "../../lib/api";
+import usePageSeo from "../../hooks/usePageSeo";
 import "../../styles/admin.css";
 
 export default function AdminPostFormPage() {
@@ -9,6 +10,8 @@ export default function AdminPostFormPage() {
   const isEditing = Boolean(slug);
   const navigate = useNavigate();
   const { status } = useAdminAuth();
+
+  usePageSeo({ noindex: true });
 
   const [postId, setPostId] = useState(null);
   const [title, setTitle] = useState("");
