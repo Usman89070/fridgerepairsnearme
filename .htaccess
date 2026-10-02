@@ -30,7 +30,7 @@
   </FilesMatch>
 </IfModule>
 
-# Fallback any unknown path to index.html (single-page app safety net)
+# Fallback any unknown path to app-shell.html (single-page app safety net)
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
@@ -44,6 +44,11 @@
   RewriteCond %{THE_REQUEST} ^[A-Z]+\s/index\.html[?\s] [NC]
   RewriteRule ^index\.html$ / [R=301,L]
 
+  # app-shell.html is the SPA-fallback's internal target (see below), not
+  # a real page — redirect a direct hit to the homepage the same way.
+  RewriteCond %{THE_REQUEST} ^[A-Z]+\s/app-shell\.html[?\s] [NC]
+  RewriteRule ^app-shell\.html$ / [R=301,L]
+
   # The contact page moved from /contact/ to /contact-us/ — redirect
   # the old URL so any existing links/bookmarks still work. Anchored
   # to THE_REQUEST so this matches only /contact or /contact/ exactly,
@@ -54,9 +59,18 @@
   # Clean sitemap URL, generated dynamically (includes blog posts)
   RewriteRule ^sitemap\.xml$ /api/sitemap.php [L]
 
+  # Several pages are prerendered static HTML at build time (see
+  # scripts/prerender.mjs) for crawlers that don't run JavaScript —
+  # index.html (this route's homepage) and other routes each already
+  # exist as a real file/directory, so the !-f/!-d conditions below skip
+  # this rule for them and Apache serves that prerendered file directly.
+  # Routes with no prerendered file of their own (the blog, admin, a
+  # typo'd URL) fall back to app-shell.html, the original near-empty
+  # shell, so they never show the homepage's title/content in raw HTML
+  # before React corrects it client-side.
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  RewriteRule . /app-shell.html [L]
 </IfModule>
 
-ErrorDocument 404 /index.html
+ErrorDocument 404 /app-shell.html
