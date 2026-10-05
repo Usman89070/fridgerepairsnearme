@@ -14,6 +14,7 @@ import HomePage from "./pages/HomePage";
 import FridgeRepairServicesPage from "./pages/FridgeRepairServicesPage";
 import DomesticFridgeRepairsPage from "./pages/DomesticFridgeRepairsPage";
 import SameDayFridgeRepairPage from "./pages/SameDayFridgeRepairPage";
+import AreasWeServicePage from "./pages/AreasWeServicePage";
 import ContactPage from "./pages/ContactPage";
 import BlogIndexPage from "./pages/BlogIndexPage";
 import BlogPostPage from "./pages/BlogPostPage";
@@ -47,6 +48,8 @@ export default function App() {
             <Route path="/domestic-fridge-repairs-sydney/" element={<DomesticFridgeRepairsPage />} />
             <Route path="/same-day-fridge-repair-sydney" element={<SameDayFridgeRepairPage />} />
             <Route path="/same-day-fridge-repair-sydney/" element={<SameDayFridgeRepairPage />} />
+            <Route path="/areas-we-service" element={<AreasWeServicePage />} />
+            <Route path="/areas-we-service/" element={<AreasWeServicePage />} />
             <Route path="/blog" element={<BlogIndexPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/admin/login" element={<AdminLoginPage />} />
