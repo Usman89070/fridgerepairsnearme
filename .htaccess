@@ -68,9 +68,19 @@
   # typo'd URL) fall back to app-shell.html, the original near-empty
   # shell, so they never show the homepage's title/content in raw HTML
   # before React corrects it client-side.
+  #
+  # The extra DOCUMENT_ROOT condition only fires this rule if
+  # app-shell.html genuinely exists on disk. Without it, an incomplete
+  # upload that's missing app-shell.html turns every route except "/"
+  # into a 500 instead of a plain 404: the rule would rewrite to a
+  # file that isn't there, Apache 404s, that 404 re-triggers this same
+  # rule (still no file), and most hosts (LiteSpeed included) fail the
+  # request outright once that repeats rather than loop forever. If
+  # the file is missing, skipping this rule lets the request fall
+  # through to the host's default 404 page instead — degraded, but
+  # never a site-wide outage over one missing file.
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond "%{DOCUMENT_ROOT}/app-shell.html" -f
   RewriteRule . /app-shell.html [L]
 </IfModule>
-
-ErrorDocument 404 /app-shell.html
