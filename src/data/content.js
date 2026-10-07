@@ -17,6 +17,7 @@ export const navLinks = [
   { label: "Same Day Repairs", href: "/same-day-fridge-repair-sydney/" },
   { label: "Wine Fridge Repairs", href: "/wine-fridge-repairs-sydney/" },
   { label: "Display Fridge Repairs", href: "/display-fridge-repairs-sydney/" },
+  { label: "Ice Maker Repairs", href: "/ice-maker-repairs-sydney/" },
   { label: "Locations", href: "/#locations" },
   { label: "Service Areas", href: "/fridge-repairs/" },
   { label: "Eastern Suburbs", href: "/fridge-repairs/eastern-suburbs/" },
@@ -39,6 +40,7 @@ export const headerNavItems = [
       { label: "Same Day Repairs", href: "/same-day-fridge-repair-sydney/" },
       { label: "Wine Fridge Repairs", href: "/wine-fridge-repairs-sydney/" },
       { label: "Display Fridge Repairs", href: "/display-fridge-repairs-sydney/" },
+      { label: "Ice Maker Repairs", href: "/ice-maker-repairs-sydney/" },
     ],
   },
   {
