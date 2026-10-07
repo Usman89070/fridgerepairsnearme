@@ -50,7 +50,6 @@ const ROUTES = [
   "/domestic-fridge-repairs-sydney/",
   "/same-day-fridge-repair-sydney/",
   "/contact-us/",
-  "/areas-we-service/",
 ];
 
 async function main() {
