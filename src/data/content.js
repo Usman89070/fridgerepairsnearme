@@ -16,6 +16,7 @@ export const navLinks = [
   { label: "Commercial", href: "/#commercial" },
   { label: "Same Day Repairs", href: "/same-day-fridge-repair-sydney/" },
   { label: "Wine Fridge Repairs", href: "/wine-fridge-repairs-sydney/" },
+  { label: "Display Fridge Repairs", href: "/display-fridge-repairs-sydney/" },
   { label: "Locations", href: "/#locations" },
   { label: "Service Areas", href: "/fridge-repairs/" },
   { label: "Eastern Suburbs", href: "/fridge-repairs/eastern-suburbs/" },
@@ -37,6 +38,7 @@ export const headerNavItems = [
       { label: "Commercial", href: "/#commercial" },
       { label: "Same Day Repairs", href: "/same-day-fridge-repair-sydney/" },
       { label: "Wine Fridge Repairs", href: "/wine-fridge-repairs-sydney/" },
+      { label: "Display Fridge Repairs", href: "/display-fridge-repairs-sydney/" },
     ],
   },
   {
