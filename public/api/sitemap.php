@@ -13,6 +13,8 @@ $urls = [
     ['loc' => $baseUrl . '/fridge-repairs/', 'changefreq' => 'weekly', 'priority' => '0.9'],
     ['loc' => $baseUrl . '/domestic-fridge-repairs-sydney/', 'changefreq' => 'weekly', 'priority' => '0.9'],
     ['loc' => $baseUrl . '/same-day-fridge-repair-sydney/', 'changefreq' => 'weekly', 'priority' => '0.9'],
+    ['loc' => $baseUrl . '/wine-fridge-repairs-sydney/', 'changefreq' => 'weekly', 'priority' => '0.8'],
+    ['loc' => $baseUrl . '/fridge-repairs/eastern-suburbs/', 'changefreq' => 'weekly', 'priority' => '0.8'],
     ['loc' => $baseUrl . '/contact-us/', 'changefreq' => 'monthly', 'priority' => '0.7'],
     ['loc' => $baseUrl . '/blog', 'changefreq' => 'weekly', 'priority' => '0.8'],
 ];
