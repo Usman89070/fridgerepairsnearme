@@ -18,6 +18,8 @@ import WineFridgeRepairsPage from "./pages/WineFridgeRepairsPage";
 import DisplayFridgeRepairsPage from "./pages/DisplayFridgeRepairsPage";
 import IceMakerRepairsPage from "./pages/IceMakerRepairsPage";
 import EasternSuburbsPage from "./pages/EasternSuburbsPage";
+import NorthShorePage from "./pages/NorthShorePage";
+import NorthernBeachesPage from "./pages/NorthernBeachesPage";
 import ContactPage from "./pages/ContactPage";
 import BlogIndexPage from "./pages/BlogIndexPage";
 import BlogPostPage from "./pages/BlogPostPage";
@@ -59,6 +61,10 @@ export default function App() {
             <Route path="/ice-maker-repairs-sydney/" element={<IceMakerRepairsPage />} />
             <Route path="/fridge-repairs/eastern-suburbs" element={<EasternSuburbsPage />} />
             <Route path="/fridge-repairs/eastern-suburbs/" element={<EasternSuburbsPage />} />
+            <Route path="/fridge-repairs/north-shore" element={<NorthShorePage />} />
+            <Route path="/fridge-repairs/north-shore/" element={<NorthShorePage />} />
+            <Route path="/fridge-repairs/northern-beaches" element={<NorthernBeachesPage />} />
+            <Route path="/fridge-repairs/northern-beaches/" element={<NorthernBeachesPage />} />
             <Route path="/blog" element={<BlogIndexPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/admin/login" element={<AdminLoginPage />} />

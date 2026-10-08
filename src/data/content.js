@@ -21,6 +21,8 @@ export const navLinks = [
   { label: "Locations", href: "/#locations" },
   { label: "Service Areas", href: "/fridge-repairs/" },
   { label: "Eastern Suburbs", href: "/fridge-repairs/eastern-suburbs/" },
+  { label: "North Shore", href: "/fridge-repairs/north-shore/" },
+  { label: "Northern Beaches", href: "/fridge-repairs/northern-beaches/" },
   { label: "How It Works", href: "/#process" },
   { label: "Gallery", href: "/#gallery" },
   { label: "FAQ", href: "/#faq" },
@@ -48,6 +50,8 @@ export const headerNavItems = [
     items: [
       { label: "All Service Areas", href: "/fridge-repairs/" },
       { label: "Eastern Suburbs", href: "/fridge-repairs/eastern-suburbs/" },
+      { label: "North Shore", href: "/fridge-repairs/north-shore/" },
+      { label: "Northern Beaches", href: "/fridge-repairs/northern-beaches/" },
     ],
   },
   { label: "How It Works", href: "/#process" },
