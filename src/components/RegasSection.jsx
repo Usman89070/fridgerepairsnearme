@@ -3,7 +3,7 @@ import { DropletIcon } from "./Icons";
 
 export default function RegasSection() {
   return (
-    <section className="section regas">
+    <section id="regas" className="section regas">
       <div className="container regas__grid">
         <div className="regas__copy">
           <p className="eyebrow"><DropletIcon /> Sealed System</p>

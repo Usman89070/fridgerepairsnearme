@@ -1,0 +1,11 @@
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+Sitemap: https://fridgerepairsnearme.com.au/sitemap.xml

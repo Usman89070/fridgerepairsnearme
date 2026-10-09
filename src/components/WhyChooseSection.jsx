@@ -11,8 +11,8 @@ export default function WhyChooseSection() {
           <p className="eyebrow" style={{ justifyContent: "center" }}>Why Fridge Repairs Near Me</p>
           <h2>Why Choose Fridge Repair Help Near You?</h2>
           <p>
-            Choosing a repair service is easier when you know what to expect — verified
-            service facts, not generic "best service" claims.
+            Choosing a fridge repair service in Sydney is easier when you know what to expect —
+            verified service facts, not generic "best service" claims.
           </p>
         </div>
 

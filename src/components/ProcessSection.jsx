@@ -27,7 +27,7 @@ export default function ProcessSection() {
         </div>
 
         <div className="process__cta">
-          <a href="#contact" className="btn btn-primary">Book a Fridge Repair</a>
+          <a href="#contact" className="btn btn-primary">Request a Free Quote</a>
         </div>
       </div>
     </section>

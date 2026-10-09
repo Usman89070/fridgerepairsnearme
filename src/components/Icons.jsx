@@ -2,9 +2,10 @@
 
 const base = { fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round" };
 
-export const PhoneIcon = (props) => (
+export const MailIcon = (props) => (
   <svg viewBox="0 0 24 24" width="20" height="20" {...base} {...props}>
-    <path d="M4.5 4h3.2l1.5 4-2 1.4a11 11 0 0 0 6.4 6.4l1.4-2 4 1.5v3.2a1.5 1.5 0 0 1-1.6 1.5A17 17 0 0 1 3 5.6 1.5 1.5 0 0 1 4.5 4Z" />
+    <rect x="3" y="5" width="18" height="14" rx="2.5" />
+    <path d="m4 7 8 6 8-6" />
   </svg>
 );
 
@@ -87,6 +88,19 @@ export const DropletIcon = (props) => (
   </svg>
 );
 
+export const ArticleIcon = (props) => (
+  <svg viewBox="0 0 24 24" width="20" height="20" {...base} {...props}>
+    <rect x="4" y="3" width="16" height="18" rx="2" />
+    <path d="M8 8h8M8 12h8M8 16h5" />
+  </svg>
+);
+
+export const ArrowRightIcon = (props) => (
+  <svg viewBox="0 0 24 24" width="18" height="18" {...base} {...props}>
+    <path d="M5 12h14M13 6l6 6-6 6" />
+  </svg>
+);
+
 export const MenuIcon = (props) => (
   <svg viewBox="0 0 24 24" width="24" height="24" {...base} {...props}>
     <path d="M4 7h16M4 12h16M4 17h16" />
@@ -96,5 +110,11 @@ export const MenuIcon = (props) => (
 export const CloseIcon = (props) => (
   <svg viewBox="0 0 24 24" width="24" height="24" {...base} {...props}>
     <path d="M6 6l12 12M18 6 6 18" />
+  </svg>
+);
+
+export const PlayIcon = (props) => (
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" {...props}>
+    <path d="M8 5.5v13l11-6.5-11-6.5Z" />
   </svg>
 );
