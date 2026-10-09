@@ -20,6 +20,7 @@ import IceMakerRepairsPage from "./pages/IceMakerRepairsPage";
 import EasternSuburbsPage from "./pages/EasternSuburbsPage";
 import NorthShorePage from "./pages/NorthShorePage";
 import NorthernBeachesPage from "./pages/NorthernBeachesPage";
+import StGeorgePage from "./pages/StGeorgePage";
 import ContactPage from "./pages/ContactPage";
 import BlogIndexPage from "./pages/BlogIndexPage";
 import BlogPostPage from "./pages/BlogPostPage";
@@ -65,6 +66,8 @@ export default function App() {
             <Route path="/fridge-repairs/north-shore/" element={<NorthShorePage />} />
             <Route path="/fridge-repairs/northern-beaches" element={<NorthernBeachesPage />} />
             <Route path="/fridge-repairs/northern-beaches/" element={<NorthernBeachesPage />} />
+            <Route path="/fridge-repairs/st-george" element={<StGeorgePage />} />
+            <Route path="/fridge-repairs/st-george/" element={<StGeorgePage />} />
             <Route path="/blog" element={<BlogIndexPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/admin/login" element={<AdminLoginPage />} />

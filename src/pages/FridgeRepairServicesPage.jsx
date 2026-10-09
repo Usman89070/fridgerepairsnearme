@@ -143,11 +143,12 @@ const hubRegions = [
     region: "St George",
     suburbs: [
       "Allawah", "Arncliffe", "Banksia", "Beverley Park", "Beverly Hills", "Bexley",
-      "Blakehurst", "Brighton-Le-Sands", "Connells Point", "Dolls Point", "East Hills",
-      "Hurlstone Park", "Hurstville", "Kingsgrove", "Kogarah", "Kyeemagh", "Kyle Bay", "Lugarno",
-      "Monterey", "Mortdale", "Narwee", "Oatley", "Padstow", "Panania", "Peakhurst", "Penshurst",
-      "Ramsgate", "Revesby", "Riverwood", "Rockdale", "Roselands", "Sandringham", "Sans Souci",
-      "South Hurstville", "Turrella", "Undercliffe", "Wiley Park", "Wolli Creek",
+      "Blakehurst", "Brighton-Le-Sands", "Carlton", "Carss Park", "Connells Point",
+      "Dolls Point", "East Hills", "Hurlstone Park", "Hurstville", "Kingsgrove", "Kogarah",
+      "Kogarah Bay", "Kyeemagh", "Kyle Bay", "Lugarno", "Monterey", "Mortdale", "Narwee",
+      "Oatley", "Padstow", "Panania", "Peakhurst", "Penshurst", "Ramsgate", "Revesby",
+      "Riverwood", "Rockdale", "Roselands", "Sandringham", "Sans Souci", "South Hurstville",
+      "Turrella", "Undercliffe", "Wiley Park", "Wolli Creek",
     ],
   },
   {
