@@ -30,7 +30,7 @@ const regionOverview = [
   { region: "Eastern Suburbs", suburbs: "Bondi, Randwick, Paddington, Maroubra, Double Bay" },
   { region: "Sydney CBD & Inner City", suburbs: "Surry Hills, Pyrmont, Zetland, Redfern, Ultimo" },
   { region: "St George", suburbs: "Hurstville, Kogarah, Rockdale, Bexley, Revesby" },
-  { region: "Sutherland Shire", suburbs: "Cronulla, Miranda, Sylvania, Menai, Illawong" },
+  { region: "Sutherland Shire", suburbs: "Cronulla, Sutherland, Miranda, Caringbah, Menai" },
 ];
 
 const hubServices = [
@@ -154,8 +154,13 @@ const hubRegions = [
   {
     region: "Sutherland Shire",
     suburbs: [
-      "Alfords Point", "Cronulla", "Illawong", "Kangaroo Point", "Kareela", "Menai",
-      "Miranda", "Port Hacking", "Sylvania", "Taren Point",
+      "Alfords Point", "Bangor", "Barden Ridge", "Bonnet Bay", "Bundeena", "Burraneer",
+      "Caringbah", "Caringbah South", "Como", "Cronulla", "Dolans Bay", "Engadine",
+      "Grays Point", "Greenhills Beach", "Gymea", "Gymea Bay", "Heathcote", "Illawong",
+      "Jannali", "Kangaroo Point", "Kareela", "Kirrawee", "Kurnell", "Lilli Pilli", "Loftus",
+      "Lucas Heights", "Maianbar", "Menai", "Miranda", "Oyster Bay", "Port Hacking",
+      "Sutherland", "Sylvania", "Sylvania Waters", "Taren Point", "Waterfall", "Woolooware",
+      "Woronora", "Woronora Heights", "Yarrawarrah", "Yowie Bay",
     ],
   },
 ];
