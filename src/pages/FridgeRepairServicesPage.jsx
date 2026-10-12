@@ -24,7 +24,7 @@ const trustPoints = [
 
 const regionOverview = [
   { region: "Inner West", suburbs: "Marrickville, Burwood, Strathfield, Leichhardt, Newtown" },
-  { region: "Western Sydney", suburbs: "Parramatta, Auburn, Bankstown, Granville, Merrylands" },
+  { region: "Western Sydney", suburbs: "Parramatta, Auburn, Bankstown, Blacktown, Penrith" },
   { region: "North Shore", suburbs: "North Sydney, Mosman, Chatswood, Lane Cove, St Ives" },
   { region: "Northern Beaches", suburbs: "Manly, Dee Why, Mona Vale, Avalon Beach, Frenchs Forest" },
   { region: "Eastern Suburbs", suburbs: "Bondi, Randwick, Paddington, Maroubra, Double Bay" },
@@ -89,8 +89,11 @@ const hubRegions = [
     region: "Western Sydney",
     suburbs: [
       "Auburn", "Bankstown", "Bass Hill", "Baulkham Hills", "Belfield", "Belmore", "Berala",
-      "Birrong", "Granville", "Lakemba", "Merrylands", "Newington", "Parramatta", "Punchbowl",
-      "Regents Park", "Rosehill", "Rydalmere", "Sefton", "Silverwater", "Telopea", "Yagoona",
+      "Birrong", "Blacktown", "Campbelltown", "Castle Hill", "Fairfield", "Granville",
+      "Greystanes", "Guildford", "Harris Park", "Lakemba", "Liverpool", "Merrylands",
+      "Newington", "Parramatta", "Penrith", "Punchbowl", "Regents Park", "Rosehill",
+      "Rydalmere", "Sefton", "Seven Hills", "Silverwater", "Smithfield", "St Marys",
+      "Telopea", "Wentworthville", "Westmead", "Wetherill Park", "Yagoona",
     ],
   },
   {

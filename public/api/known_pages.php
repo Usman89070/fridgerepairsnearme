@@ -18,6 +18,7 @@ function known_pages() {
         ['path' => '/fridge-repairs/northern-beaches/', 'label' => 'Northern Beaches', 'changefreq' => 'weekly', 'priority' => '0.8'],
         ['path' => '/fridge-repairs/st-george/', 'label' => 'St George', 'changefreq' => 'weekly', 'priority' => '0.8'],
         ['path' => '/fridge-repairs/sutherland-shire/', 'label' => 'Sutherland Shire', 'changefreq' => 'weekly', 'priority' => '0.8'],
+        ['path' => '/fridge-repairs/western-sydney/', 'label' => 'Western Sydney', 'changefreq' => 'weekly', 'priority' => '0.8'],
         ['path' => '/contact-us/', 'label' => 'Contact Us', 'changefreq' => 'monthly', 'priority' => '0.7'],
         ['path' => '/blog', 'label' => 'Blog (index)', 'changefreq' => 'weekly', 'priority' => '0.8'],
     ];
