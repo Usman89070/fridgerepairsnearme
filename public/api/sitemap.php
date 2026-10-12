@@ -6,24 +6,17 @@
 
 header('Content-Type: application/xml; charset=utf-8');
 
+require_once __DIR__ . '/known_pages.php';
+
 $baseUrl = 'https://fridgerepairsnearme.com.au';
 
-$urls = [
-    ['loc' => $baseUrl . '/', 'changefreq' => 'weekly', 'priority' => '1.0'],
-    ['loc' => $baseUrl . '/fridge-repairs/', 'changefreq' => 'weekly', 'priority' => '0.9'],
-    ['loc' => $baseUrl . '/domestic-fridge-repairs-sydney/', 'changefreq' => 'weekly', 'priority' => '0.9'],
-    ['loc' => $baseUrl . '/same-day-fridge-repair-sydney/', 'changefreq' => 'weekly', 'priority' => '0.9'],
-    ['loc' => $baseUrl . '/wine-fridge-repairs-sydney/', 'changefreq' => 'weekly', 'priority' => '0.8'],
-    ['loc' => $baseUrl . '/display-fridge-repairs-sydney/', 'changefreq' => 'weekly', 'priority' => '0.8'],
-    ['loc' => $baseUrl . '/ice-maker-repairs-sydney/', 'changefreq' => 'weekly', 'priority' => '0.8'],
-    ['loc' => $baseUrl . '/fridge-repairs/eastern-suburbs/', 'changefreq' => 'weekly', 'priority' => '0.8'],
-    ['loc' => $baseUrl . '/fridge-repairs/north-shore/', 'changefreq' => 'weekly', 'priority' => '0.8'],
-    ['loc' => $baseUrl . '/fridge-repairs/northern-beaches/', 'changefreq' => 'weekly', 'priority' => '0.8'],
-    ['loc' => $baseUrl . '/fridge-repairs/st-george/', 'changefreq' => 'weekly', 'priority' => '0.8'],
-    ['loc' => $baseUrl . '/fridge-repairs/sutherland-shire/', 'changefreq' => 'weekly', 'priority' => '0.8'],
-    ['loc' => $baseUrl . '/contact-us/', 'changefreq' => 'monthly', 'priority' => '0.7'],
-    ['loc' => $baseUrl . '/blog', 'changefreq' => 'weekly', 'priority' => '0.8'],
-];
+$urls = array_map(function ($page) use ($baseUrl) {
+    return [
+        'loc' => $baseUrl . $page['path'],
+        'changefreq' => $page['changefreq'],
+        'priority' => $page['priority'],
+    ];
+}, known_pages());
 
 // Blog posts are optional here on purpose: if the database is
 // unreachable, the sitemap still returns the static pages above

@@ -69,6 +69,19 @@ export default function AdminDashboardPage() {
 
       <div className="admin-panel">
         <div className="admin-panel__head">
+          <h2>SEO Tools</h2>
+        </div>
+        <div className="admin-topbar__actions" style={{ flexWrap: "wrap" }}>
+          <Link to="/admin/seo" className="btn btn-outline btn-sm">Page SEO Manager</Link>
+          <Link to="/admin/redirects" className="btn btn-outline btn-sm">Redirects</Link>
+          <Link to="/admin/image-alt" className="btn btn-outline btn-sm">Image Alt Text</Link>
+          <Link to="/admin/seo-audit" className="btn btn-outline btn-sm">SEO Audit</Link>
+          <a href="/sitemap.xml" target="_blank" rel="noreferrer" className="btn btn-outline btn-sm">View Sitemap</a>
+        </div>
+      </div>
+
+      <div className="admin-panel">
+        <div className="admin-panel__head">
           <h2>Blog Posts</h2>
           <Link to="/admin/posts/new" className="btn btn-primary btn-sm">+ New Post</Link>
         </div>

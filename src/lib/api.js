@@ -69,4 +69,28 @@ export const api = {
     request("/change_password.php", { method: "POST", body: JSON.stringify({ currentPassword, newPassword }) }),
 
   submitEnquiry: (payload) => request("/enquiry.php", { method: "POST", body: JSON.stringify(payload) }),
+
+  // SEO: per-page overrides
+  getPageSeo: (path) => request(`/seo.php?path=${encodeURIComponent(path)}`),
+  listPageSeo: () => request("/seo.php?all=1"),
+  savePageSeo: (payload) => request("/seo.php", { method: "POST", body: JSON.stringify(payload) }),
+  deletePageSeo: (path) => request(`/seo.php?path=${encodeURIComponent(path)}`, { method: "DELETE" }),
+
+  // SEO: redirects
+  listRedirects: () => request("/redirects.php"),
+  createRedirect: (payload) => request("/redirects.php", { method: "POST", body: JSON.stringify(payload) }),
+  updateRedirect: (id, payload) => request(`/redirects.php?id=${encodeURIComponent(id)}`, { method: "PUT", body: JSON.stringify(payload) }),
+  deleteRedirect: (id) => request(`/redirects.php?id=${encodeURIComponent(id)}`, { method: "DELETE" }),
+  redirectsHtaccessUrl: () => `${BASE}/redirects.php?export=htaccess`,
+
+  // SEO: image alt text
+  getImageAltMap: () => request("/image_alt.php"),
+  listImageAlt: () => request("/image_alt.php?admin=1"),
+  saveImageAlt: (payload) => request("/image_alt.php", { method: "POST", body: JSON.stringify(payload) }),
+  deleteImageAlt: (id) => request(`/image_alt.php?id=${encodeURIComponent(id)}`, { method: "DELETE" }),
+
+  // SEO: audit
+  listAuditIssues: () => request("/seo_audit.php"),
+  runAudit: () => request("/seo_audit.php?run=1", { method: "POST" }),
+  resolveAuditIssue: (id) => request(`/seo_audit.php?id=${encodeURIComponent(id)}`, { method: "DELETE" }),
 };

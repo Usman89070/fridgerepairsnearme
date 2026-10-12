@@ -39,12 +39,26 @@ export default function BlogPostPage() {
     };
   }, [slug]);
 
+  const defaultCanonical = post
+    ? `https://fridgerepairsnearme.com.au/blog/${encodeURIComponent(post.slug)}`
+    : undefined;
+
+  let postSchema;
+  if (post?.schema_json) {
+    try {
+      postSchema = JSON.parse(post.schema_json);
+    } catch {
+      // Malformed JSON saved from the post editor — skip rather than crash.
+    }
+  }
+
   usePageSeo({
     title: post
-      ? `${post.title} | Fridge Repairs Near Me`
+      ? `${post.meta_title || post.title} | Fridge Repairs Near Me`
       : "Article Not Found | Fridge Repairs Near Me",
-    description: post ? post.excerpt : undefined,
-    canonical: post ? `https://fridgerepairsnearme.com.au/blog/${encodeURIComponent(post.slug)}` : undefined,
+    description: post ? (post.meta_description || post.excerpt) : undefined,
+    canonical: post ? (post.canonical_url || defaultCanonical) : undefined,
+    schema: postSchema,
     noindex: status === "notfound",
   });
 

@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
 import { galleryItems } from "../data/content";
 import { ArrowRightIcon, CloseIcon, PlayIcon } from "./Icons";
+import useImageAlt from "../hooks/useImageAlt";
 
 export default function GallerySection() {
   const [activeIndex, setActiveIndex] = useState(null);
   const active = activeIndex === null ? null : galleryItems[activeIndex];
   const count = galleryItems.length;
+  const getAlt = useImageAlt();
 
   const showPrev = useCallback(() => {
     setActiveIndex((i) => (i === null ? null : (i - 1 + count) % count));
@@ -57,7 +59,7 @@ export default function GallerySection() {
                   <span className="gallery__play"><PlayIcon /></span>
                 </>
               ) : (
-                <img src={item.src} alt={item.alt} loading="lazy" width="800" height="800" />
+                <img src={item.src} alt={getAlt(item.src, item.alt)} loading="lazy" width="800" height="800" />
               )}
             </button>
           ))}
@@ -91,7 +93,7 @@ export default function GallerySection() {
             {active.type === "video" ? (
               <video key={active.src} src={active.src} controls autoPlay playsInline preload="auto" />
             ) : (
-              <img src={active.src} alt={active.alt} />
+              <img src={active.src} alt={getAlt(active.src, active.alt)} />
             )}
           </div>
 

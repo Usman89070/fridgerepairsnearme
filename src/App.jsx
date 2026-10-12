@@ -33,6 +33,10 @@ import NotFoundPage from "./pages/NotFoundPage";
 const AdminLoginPage = lazy(() => import("./pages/admin/AdminLoginPage"));
 const AdminDashboardPage = lazy(() => import("./pages/admin/AdminDashboardPage"));
 const AdminPostFormPage = lazy(() => import("./pages/admin/AdminPostFormPage"));
+const AdminSeoPage = lazy(() => import("./pages/admin/AdminSeoPage"));
+const AdminRedirectsPage = lazy(() => import("./pages/admin/AdminRedirectsPage"));
+const AdminImageAltPage = lazy(() => import("./pages/admin/AdminImageAltPage"));
+const AdminSeoAuditPage = lazy(() => import("./pages/admin/AdminSeoAuditPage"));
 
 export default function App() {
   const location = useLocation();
@@ -77,6 +81,10 @@ export default function App() {
             <Route path="/admin" element={<AdminDashboardPage />} />
             <Route path="/admin/posts/new" element={<AdminPostFormPage />} />
             <Route path="/admin/posts/:slug/edit" element={<AdminPostFormPage />} />
+            <Route path="/admin/seo" element={<AdminSeoPage />} />
+            <Route path="/admin/redirects" element={<AdminRedirectsPage />} />
+            <Route path="/admin/image-alt" element={<AdminImageAltPage />} />
+            <Route path="/admin/seo-audit" element={<AdminSeoAuditPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>

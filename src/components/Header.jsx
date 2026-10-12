@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { headerNavItems } from "../data/content";
 import { MenuIcon, CloseIcon, ChevronIcon } from "./Icons";
+import useImageAlt from "../hooks/useImageAlt";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const navRef = useRef(null);
+  const getAlt = useImageAlt();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -42,7 +44,7 @@ export default function Header() {
     <header className={`site-header ${scrolled ? "site-header--scrolled" : ""}`}>
       <div className="container site-header__row">
         <a href="/#home" className="brand" onClick={() => setMenuOpen(false)}>
-          <img src="/logo-192.webp" alt="Fridge Repairs Near Me" className="brand__logo" width="56" height="56" fetchpriority="high" />
+          <img src="/logo-192.webp" alt={getAlt("/logo-192.webp", "Fridge Repairs Near Me")} className="brand__logo" width="56" height="56" fetchpriority="high" />
         </a>
 
         <nav className="site-nav" aria-label="Primary" ref={navRef}>

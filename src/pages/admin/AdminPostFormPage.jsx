@@ -26,6 +26,15 @@ export default function AdminPostFormPage() {
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
+  const [showSeo, setShowSeo] = useState(false);
+  const [metaTitle, setMetaTitle] = useState("");
+  const [metaDescription, setMetaDescription] = useState("");
+  const [canonicalUrl, setCanonicalUrl] = useState("");
+  const [primaryKeyword, setPrimaryKeyword] = useState("");
+  const [secondaryKeywords, setSecondaryKeywords] = useState("");
+  const [schemaJson, setSchemaJson] = useState("");
+  const [schemaError, setSchemaError] = useState("");
+
   useEffect(() => {
     document.title = `${isEditing ? "Edit" : "New"} Post | Blog Admin`;
   }, [isEditing]);
@@ -42,6 +51,12 @@ export default function AdminPostFormPage() {
         setContent(post.content);
         setSlugField(post.slug);
         setFeaturedImage(post.featured_image || "");
+        setMetaTitle(post.meta_title || "");
+        setMetaDescription(post.meta_description || "");
+        setCanonicalUrl(post.canonical_url || "");
+        setPrimaryKeyword(post.primary_keyword || "");
+        setSecondaryKeywords(post.secondary_keywords || "");
+        setSchemaJson(post.schema_json || "");
         setLoading(false);
       })
       .catch(() => {
@@ -70,8 +85,21 @@ export default function AdminPostFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+    setSchemaError("");
+    if (schemaJson.trim()) {
+      try {
+        JSON.parse(schemaJson);
+      } catch (err) {
+        setSchemaError(`Schema JSON is not valid: ${err.message}`);
+        return;
+      }
+    }
     setSubmitting(true);
-    const payload = { title, category, excerpt, content, slug: slugField, featured_image: featuredImage };
+    const payload = {
+      title, category, excerpt, content, slug: slugField, featured_image: featuredImage,
+      meta_title: metaTitle, meta_description: metaDescription, canonical_url: canonicalUrl,
+      primary_keyword: primaryKeyword, secondary_keywords: secondaryKeywords, schema_json: schemaJson,
+    };
     try {
       if (isEditing) {
         await api.updatePost(postId, payload);
@@ -154,6 +182,54 @@ export default function AdminPostFormPage() {
             required
           />
         </label>
+
+        <div className="admin-field">
+          <button type="button" className="btn btn-outline btn-sm" onClick={() => setShowSeo((v) => !v)}>
+            {showSeo ? "Hide SEO Settings" : "SEO Settings"}
+          </button>
+        </div>
+
+        {showSeo && (
+          <>
+            <label className="admin-field">
+              <span>Meta Title (leave blank to use the title above)</span>
+              <input value={metaTitle} onChange={(e) => setMetaTitle(e.target.value)} placeholder={title} />
+            </label>
+
+            <label className="admin-field">
+              <span>Meta Description (leave blank to use the excerpt)</span>
+              <textarea value={metaDescription} onChange={(e) => setMetaDescription(e.target.value)} rows={2} placeholder={excerpt} />
+            </label>
+
+            <label className="admin-field">
+              <span>Canonical URL (leave blank for the default /blog/{"<slug>"} URL)</span>
+              <input value={canonicalUrl} onChange={(e) => setCanonicalUrl(e.target.value)} placeholder="https://fridgerepairsnearme.com.au/blog/..." />
+            </label>
+
+            <div className="admin-field-row">
+              <label className="admin-field">
+                <span>Primary Keyword</span>
+                <input value={primaryKeyword} onChange={(e) => setPrimaryKeyword(e.target.value)} placeholder="e.g. fridge not cooling" />
+              </label>
+              <label className="admin-field">
+                <span>Secondary Keywords (comma-separated)</span>
+                <input value={secondaryKeywords} onChange={(e) => setSecondaryKeywords(e.target.value)} placeholder="e.g. fridge warm, fridge repair cost" />
+              </label>
+            </div>
+
+            <label className="admin-field">
+              <span>JSON-LD Schema (optional — paste a full schema.org object or array)</span>
+              <textarea
+                className="admin-content-editor"
+                value={schemaJson}
+                onChange={(e) => setSchemaJson(e.target.value)}
+                rows={6}
+                placeholder='{"@context": "https://schema.org", "@type": "BlogPosting", ...}'
+              />
+              {schemaError && <p className="admin-error">{schemaError}</p>}
+            </label>
+          </>
+        )}
 
         {error && <p className="admin-error">{error}</p>}
 

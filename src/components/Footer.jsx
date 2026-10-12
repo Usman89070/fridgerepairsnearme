@@ -1,5 +1,6 @@
 import { navLinks, enquiryEmail, enquiryEmailHref, businessAddress, businessHours, serviceAreas } from "../data/content";
 import { MailIcon, PinIcon, ClockIcon } from "./Icons";
+import useImageAlt from "../hooks/useImageAlt";
 
 function slugify(text) {
   return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
@@ -7,13 +8,14 @@ function slugify(text) {
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const getAlt = useImageAlt();
 
   return (
     <footer className="footer">
       <div className="container footer__grid">
         <div className="footer__brand">
           <a href="/#home" className="brand brand--footer">
-            <img src="/logo-192.webp" alt="Fridge Repairs Near Me" className="brand__logo brand__logo--footer" width="72" height="72" loading="lazy" />
+            <img src="/logo-192.webp" alt={getAlt("/logo-192.webp", "Fridge Repairs Near Me")} className="brand__logo brand__logo--footer" width="72" height="72" loading="lazy" />
           </a>
           <p>
             Local fridge repair services across supported Sydney suburbs for domestic fridges,
