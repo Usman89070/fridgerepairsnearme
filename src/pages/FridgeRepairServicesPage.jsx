@@ -28,7 +28,7 @@ const regionOverview = [
   { region: "North Shore", suburbs: "North Sydney, Mosman, Chatswood, Lane Cove, St Ives" },
   { region: "Northern Beaches", suburbs: "Manly, Dee Why, Mona Vale, Avalon Beach, Frenchs Forest" },
   { region: "Eastern Suburbs", suburbs: "Bondi, Randwick, Paddington, Maroubra, Double Bay" },
-  { region: "Sydney CBD & Inner City", suburbs: "Surry Hills, Pyrmont, Zetland, Redfern, Ultimo" },
+  { region: "Sydney CBD & Inner City", suburbs: "Sydney CBD, Haymarket, Barangaroo, Surry Hills, Pyrmont" },
   { region: "St George", suburbs: "Hurstville, Kogarah, Rockdale, Bexley, Revesby" },
   { region: "Sutherland Shire", suburbs: "Cronulla, Sutherland, Miranda, Caringbah, Menai" },
 ];
@@ -137,9 +137,11 @@ const hubRegions = [
   {
     region: "Sydney CBD & Inner City",
     suburbs: [
-      "Beaconsfield", "Darlinghurst", "Darlington", "Elizabeth Bay", "Millers Point",
-      "Moore Park", "Potts Point", "Pyrmont", "Redfern", "Rosebery", "Surry Hills", "Ultimo",
-      "Waterloo", "Woolloomooloo", "Zetland",
+      "Alexandria", "Barangaroo", "Beaconsfield", "Chippendale", "Circular Quay",
+      "Darling Harbour", "Darlinghurst", "Darlington", "Dawes Point", "Elizabeth Bay",
+      "Haymarket", "Kings Cross", "Millers Point", "Moore Park", "Potts Point", "Pyrmont",
+      "Redfern", "Rosebery", "Surry Hills", "Sydney CBD", "The Rocks", "Ultimo", "Waterloo",
+      "Woolloomooloo", "Zetland",
     ],
   },
   {
