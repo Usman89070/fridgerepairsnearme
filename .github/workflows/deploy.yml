@@ -1,0 +1,59 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+      - "claude/**"
+
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      # Only the build output (dist/) is uploaded. dist/ already contains the
+      # contents of public/ (including the PHP api/ folder and .htaccess).
+      - name: Deploy via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}       # ftp.fridgerepairsnearme.com.au
+          username: ${{ secrets.FTP_USERNAME }}   # u232649564.kamran7304
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps                          # plain FTP gives ECONNRESET on Hostinger
+          local-dir: ./dist/
+          # The FTP account's root is already
+          # /home/u232649564/domains/fridgerepairsnearme.com.au/public_html
+          # so the target is "./" (do NOT repeat the full path here).
+          server-dir: ./
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/node_modules/**
+            **/README*
+            **/docs/**
+            **/*.sql
+            **/*.md
+            **/uploads/.gitignore
+            # api/config.php in git is only a placeholder (no credentials).
+            # The real one lives on the server and must never be overwritten.
+            api/config.php
