@@ -38,6 +38,9 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}   # u232649564.kamran7304
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps                          # plain FTP gives ECONNRESET on Hostinger
+          security: loose                         # don't strictly verify the FTPS cert/session
+          log-level: verbose
+          timeout: 120000
           local-dir: ./dist/
           # The FTP account's root is already
           # /home/u232649564/domains/fridgerepairsnearme.com.au/public_html
