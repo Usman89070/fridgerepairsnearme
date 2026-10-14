@@ -20,6 +20,7 @@ function known_pages() {
         ['path' => '/fridge-repairs/sutherland-shire/', 'label' => 'Sutherland Shire', 'changefreq' => 'weekly', 'priority' => '0.8'],
         ['path' => '/fridge-repairs/western-sydney/', 'label' => 'Western Sydney', 'changefreq' => 'weekly', 'priority' => '0.8'],
         ['path' => '/fridge-repairs/sydney-cbd/', 'label' => 'Sydney CBD', 'changefreq' => 'weekly', 'priority' => '0.8'],
+        ['path' => '/fridge-repairs/burwood/', 'label' => 'Burwood', 'changefreq' => 'weekly', 'priority' => '0.7'],
         ['path' => '/contact-us/', 'label' => 'Contact Us', 'changefreq' => 'monthly', 'priority' => '0.7'],
         ['path' => '/blog', 'label' => 'Blog (index)', 'changefreq' => 'weekly', 'priority' => '0.8'],
     ];

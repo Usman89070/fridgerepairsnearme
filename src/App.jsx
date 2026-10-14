@@ -24,6 +24,7 @@ import StGeorgePage from "./pages/StGeorgePage";
 import SutherlandShirePage from "./pages/SutherlandShirePage";
 import WesternSydneyPage from "./pages/WesternSydneyPage";
 import SydneyCbdPage from "./pages/SydneyCbdPage";
+import BurwoodPage from "./pages/BurwoodPage";
 import ContactPage from "./pages/ContactPage";
 import BlogIndexPage from "./pages/BlogIndexPage";
 import BlogPostPage from "./pages/BlogPostPage";
@@ -81,6 +82,8 @@ export default function App() {
             <Route path="/fridge-repairs/western-sydney/" element={<WesternSydneyPage />} />
             <Route path="/fridge-repairs/sydney-cbd" element={<SydneyCbdPage />} />
             <Route path="/fridge-repairs/sydney-cbd/" element={<SydneyCbdPage />} />
+            <Route path="/fridge-repairs/burwood" element={<BurwoodPage />} />
+            <Route path="/fridge-repairs/burwood/" element={<BurwoodPage />} />
             <Route path="/blog" element={<BlogIndexPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/admin/login" element={<AdminLoginPage />} />
