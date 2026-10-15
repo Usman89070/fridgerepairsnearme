@@ -22,59 +22,75 @@ const CANONICAL_URL = "https://fridgerepairsnearme.com.au/fridge-repairs/fridge-
 const trustPoints = [
   { icon: ClockIcon, label: "Same-day visits where availability allows" },
   { icon: ShieldIcon, label: "ARCtick licensed technician" },
-  { icon: WrenchIcon, label: `${callOutFee} call-out, fixed quote first` },
+  { icon: WrenchIcon, label: `${callOutFee} call-out, written quote first` },
   { icon: CheckIcon, label: `${warrantyPeriod} warranty on parts and labour` },
 ];
 
 const suburbAreas = [
-  { area: "Parramatta CBD and Church Street", suburbs: "Parramatta, Parramatta CBD, Church Street, Phillip Street, Westfield Parramatta, Parramatta Park" },
-  { area: "Right next door", suburbs: "Harris Park, Granville, Westmead, North Parramatta, Rosehill, Rydalmere, Mays Hill, Wentworthville, Camellia" },
-  { area: "A short drive", suburbs: "Merrylands, Auburn, Silverwater, Newington, Telopea, Dundas, Epping, Carlingford, Baulkham Hills" },
+  { area: "Parramatta city centre", suburbs: "Parramatta, Parramatta CBD, Church Street, Parramatta Square, Westfield Parramatta, Parramatta Park" },
+  { area: "Right next door", suburbs: "Harris Park, Westmead, North Parramatta, Northmead, Rosehill, Granville, Rydalmere, Dundas, Ermington, Oatlands" },
+  { area: "Short drive away", suburbs: "Merrylands, Auburn, Silverwater, Newington, Telopea" },
 ];
 
-const towerSteps = [
-  "Tell us the tower or complex name and the unit number when you book. We check the building's rules before we set a time.",
-  "Book the lift if the building requires it, and ask the building manager about loading dock hours for any large parts.",
-  "Clear the space in front of the fridge. In many apartments the fridge sits in a recess with only a few centimetres at each side.",
-  "If the unit is a rental, forward our written quote to the agent before the visit so approval is ready.",
+const housingRows = [
+  {
+    where: "Apartment towers in the city centre (around Church Street, Parramatta Square and Westfield)",
+    problem: "Lift bookings, loading dock and visitor parking rules, strata approval, and fridges built into small kitchens with little room around them",
+    fix: "Agree a time and access with you and the building first, so we are not waiting at the door",
+  },
+  {
+    where: "Rental apartments and investor units (Parramatta, Harris Park, Westmead)",
+    problem: "The tenant lives with the broken fridge while the landlord or agent decides who arranges and pays for the repair",
+    fix: "We give you a written fault report and quote you can forward to your agent or owner before any work starts",
+  },
+  {
+    where: "Unit blocks and townhouses (Granville, North Parramatta, Rosehill, Rydalmere)",
+    problem: "Shared parking, long walks from the car park and built-in fridges set into cabinetry",
+    fix: "Diagnose carefully and remove as little cabinetry as we can",
+  },
+  {
+    where: "Family homes (Northmead, Oatlands, Dundas, Ermington)",
+    problem: "Bigger and older fridges, plus second fridges in garages that cope badly with hot summer afternoons",
+    fix: "Check the condenser and airflow as well as the cooling parts, and give a straight answer on whether an older fridge is worth fixing",
+  },
+  {
+    where: "Cafes and restaurants along Church Street and around Westfield",
+    problem: "Under-bench, prep and display fridges working all day with little spare room to store stock if one fails",
+    fix: "Fast diagnosis to protect your stock, and repairs outside the lunch and dinner rush where we can",
+  },
 ];
 
-const hotspots = [
+const problemRows = [
+  { problem: "Fridge not cooling", cause: "Failed fan, dirty condenser coil, faulty thermostat or sensor", href: "/domestic-fridge-repairs-sydney/#symptoms", label: "Fridge not cooling" },
+  { problem: "Fridge warm but freezer still cold", cause: "Failed evaporator fan or a frozen-over defrost system", href: "/domestic-fridge-repairs-sydney/#symptoms", label: "Fridge not cooling" },
+  { problem: "Fridge leaking water", cause: "Blocked defrost drain or damaged door seal", href: "/domestic-fridge-repairs-sydney/#symptoms", label: "Fridge leaking water" },
+  { problem: "Freezer iced up or not freezing", cause: "Defrost heater, thermostat or fan fault", href: "/domestic-fridge-repairs-sydney/", label: "Freezer repairs" },
+  { problem: "Ice maker or water dispenser not working", cause: "Blocked water line, faulty inlet valve or frozen tube", href: "/ice-maker-repairs-sydney/", label: "Ice maker repairs" },
+  { problem: "Low refrigerant or a gas leak", cause: "A leak in the sealed system", href: "/#regas", label: "Fridge regas" },
+];
+
+const commercialCards = [
   {
     icon: BuildingIcon,
-    title: "Church Street and the CBD",
-    text: "Cafes, restaurants and bars along Church Street and the streets off it run under-bench fridges, prep fridges and glass-door drink fridges for long hours. When one fails, we diagnose quickly so you know whether to move stock, and book repairs outside the rush where we can.",
+    title: "Cafes and Restaurants",
+    text: "Under-bench, upright and prep fridges and freezers for kitchens along Church Street, around Westfield and across the city centre. When a fridge fails mid-service, we focus on keeping your stock safe.",
     href: "/#commercial",
     label: "See commercial fridge repairs →",
   },
   {
     icon: DropletIcon,
-    title: "Harris Park and Wigram Street",
-    text: "Restaurants, sweet shops and grocers in Harris Park depend on display fridges, upright freezers and cool storage that work all day. Door seals, fans and thermostats cause most breakdowns, and most are quick fixes when the part is on the van.",
+    title: "Display Fridges, Bars and Shops",
+    text: "Glass-door drink fridges, bar fridges and display cabinets for convenience stores, grocers, bottle shops and venues.",
     href: "/display-fridge-repairs-sydney/",
     label: "See display fridge repairs →",
   },
   {
-    icon: ShieldIcon,
-    title: "Westmead clinics and pharmacies",
-    text: "Small medical, pharmacy and breakroom fridges around the Westmead precinct need a steady temperature. Tell us when you book if the fridge holds medicines, and we will prioritise the job and keep the visit tidy.",
+    icon: BuildingIcon,
+    title: "Coolrooms",
+    text: "Walk-in coolrooms and freezer rooms for restaurants, caterers and food suppliers, including condensing units and evaporators.",
     href: "/#commercial",
-    label: "See commercial fridge repairs →",
+    label: "See coolroom repairs →",
   },
-];
-
-const livingRows = [
-  { where: "High-rise apartments in the CBD", job: "Built-in and integrated fridges with little air around them, plus lift and dock bookings", note: "We check airflow as well as the fridge" },
-  { where: "Units and townhouses in Harris Park, Granville and Westmead", job: "Shared parking, rentals, and fridges of mixed age", note: "Written quotes you can forward to your agent" },
-  { where: "Older houses in North Parramatta, Mays Hill, Rydalmere and Wentworthville", job: "Second fridges in garages and granny flats working hard through summer", note: "Repair or replace advice with the age and cost side by side" },
-];
-
-const faultList = [
-  { f: "Fridge warm but the light and fan still run", c: "Often a failed evaporator fan, a defrost problem or a blocked air vent" },
-  { f: "Freezer frosted over", c: "Defrost heater, defrost thermostat or a door that is not sealing" },
-  { f: "Clicking, then silence", c: "Start relay or overload on the compressor, which is cheaper to fix than a new compressor" },
-  { f: "Water on the floor", c: "Blocked defrost drain, a split water line or a perished door seal" },
-  { f: "Ice maker won't make ice", c: "Water inlet valve, frozen line or the ice maker module" },
 ];
 
 const costRows = [
@@ -85,34 +101,46 @@ const costRows = [
   { job: "Compressor or gas leak repair with regas", range: "$700 – $1,500+" },
 ];
 
+const bookingSteps = [
+  "Tell us what's happening: your address or building, the fridge brand and model, and the fault. A photo of the label inside the door or on the back helps.",
+  "We confirm a time and access: same day where availability allows, with any lift booking, loading dock or visitor parking details agreed first.",
+  "Diagnosis on site: we test the fans, sensors, defrost system, door seals and compressor to find the actual cause.",
+  "Written quote: you get the price in writing before we start, and we only go ahead if you say yes. If you rent, you can pass it to your agent or owner.",
+  "Repair and test: most faults are fixed on the same visit when the part is on the van, and we check the fridge is holding temperature before we leave.",
+];
+
 const parramattaFaqs = [
   {
-    q: "How quickly can someone get to me in Parramatta?",
-    a: "Same-day visits may be available depending on the day's bookings. Ring early and mention if the fridge is full of food, and we will try to prioritise it.",
+    q: "Do you offer same-day fridge repairs in Parramatta?",
+    a: "Same-day visits may be available depending on the day's bookings, and they're easier to arrange the earlier you call. If your fridge is full of food, tell us when you book and we'll try to prioritise it.",
   },
   {
-    q: "What does a fridge repair cost in Parramatta?",
-    a: `Our call-out is ${callOutFee}, and you get a fixed quote after diagnosis, before any work starts. As a general Sydney market guide, most repairs cost $150 to $650 and compressor or gas work can reach $700 to $1,500 or more.`,
+    q: "How much does a fridge repair cost in Parramatta?",
+    a: `As a general Sydney market guide, most repairs cost between $150 and $650, and compressor or gas work can reach $700 to $1,500 or more. Our call-out is ${callOutFee} and we give you a written quote after diagnosis, before any work starts.`,
   },
   {
-    q: "My unit is in a tower with a lift booking system. Does that matter?",
-    a: "It does, and it is easy to sort out first. Give us the building name, lift booking rules and loading dock hours when you book, and we will plan around them so the visit is not wasted.",
+    q: "Which suburbs around Parramatta do you cover?",
+    a: "Parramatta and the city centre, plus Harris Park, Westmead, North Parramatta, Northmead, Rosehill, Granville, Rydalmere, Dundas, Ermington and Oatlands, and a short drive further out. If you're not sure, send us your postcode and we'll tell you.",
   },
   {
-    q: "The fridge is clicking but not cooling. What does that mean?",
-    a: "It is often the start relay or overload protector on the compressor, which is a small part. Switch the fridge off and call us rather than leaving it running on repeat, as repeated restarts can damage the compressor.",
+    q: "Can you work in an apartment building with lift and parking rules?",
+    a: "Yes. Most Parramatta jobs are in apartments. Tell us about lift bookings, loading docks, visitor parking and strata approval when you book, and we'll arrange it before we arrive so neither of us wastes a trip.",
   },
   {
-    q: "Do you fix commercial fridges in Harris Park and along Church Street?",
-    a: "Yes. We repair under-bench, upright, prep, display and glass-door fridges, freezers and walk-in coolrooms. Say if stock is at risk and we will treat the job as urgent.",
+    q: "I rent my apartment. Who pays for a fridge repair?",
+    a: "That depends on your lease and on whether the fridge came with the property, so check with your agent or owner first. We can give you a written fault report and quote to send them. This is general information, not legal advice.",
   },
   {
-    q: "Can you look at a fridge that stores medicines?",
-    a: "We can repair clinic, pharmacy and breakroom fridges around Westmead. Tell us what the fridge holds when you book so we can prioritise it, and please move anything temperature-sensitive as advised by your own protocols.",
+    q: "Why is my fridge warm when the freezer is still cold?",
+    a: "Usually the fan that moves cold air from the freezer into the fridge section has stopped, or the defrost system has iced over and is blocking the airflow. A quick check is to see whether the freezer back panel is frosted over. It's a common fault and often fixed on the first visit.",
   },
   {
-    q: "Is it worth fixing an old fridge?",
-    a: "Usually, if it is under about 8 years old and the fault is not the compressor. Over 10 years old with a major fault, replacement is often cheaper, and we will tell you plainly after diagnosis.",
+    q: "Do you repair commercial fridges for cafes and restaurants?",
+    a: "Yes. We repair under-bench, upright, prep and display fridges, bar fridges, freezers and walk-in coolrooms. If stock is at risk, say so on the phone and we'll prioritise the job.",
+  },
+  {
+    q: "Is it worth repairing an older fridge?",
+    a: "Usually, if it's under about 8 years old and the fault isn't the compressor. For fridges over 10 years old with a major fault, replacement can be cheaper, and we'll tell you after diagnosis rather than sell you a repair that won't last.",
   },
 ];
 
@@ -124,7 +152,7 @@ const schema = [
     serviceType: "Fridge repair",
     name: "Fridge Repairs Parramatta",
     description:
-      "On-site fridge, freezer and commercial refrigeration repairs in Parramatta NSW 2150 and nearby Western Sydney suburbs, with a fixed quote before any work starts.",
+      "On-site fridge, freezer and commercial refrigeration repairs in Parramatta NSW 2150 and nearby Western Sydney suburbs, with a written quote before any work starts.",
     url: CANONICAL_URL,
     provider: {
       "@type": "HomeAndConstructionBusiness",
@@ -140,7 +168,7 @@ const schema = [
       },
       ...suburbAreas
         .flatMap((a) => a.suburbs.split(", "))
-        .filter((s) => !["Parramatta", "Parramatta CBD", "Church Street", "Phillip Street", "Westfield Parramatta", "Parramatta Park"].includes(s))
+        .filter((s) => !["Parramatta", "Parramatta CBD", "Church Street", "Parramatta Square", "Westfield Parramatta", "Parramatta Park"].includes(s))
         .map((s) => ({ "@type": "City", name: s })),
     ],
     hasOfferCatalog: {
@@ -179,8 +207,8 @@ const schema = [
 
 export default function ParramattaPage() {
   usePageSeo({
-    title: `Fridge Repairs Parramatta | ${callOutFee} Call-Out, Fixed Quote First`,
-    description: `Fridge not cooling in Parramatta? Local technician, ${callOutFee} call-out, same-day visits where available, fixed quote first and a ${warrantyPeriod} warranty on parts.`,
+    title: `Fridge Repairs Parramatta | ${callOutFee} Call-Out, Written Quote`,
+    description: `Fridge not cooling in a Parramatta apartment? Local technician, ${callOutFee} call-out, same-day visits where available, written quote first, ${warrantyPeriod} warranty.`,
     canonical: CANONICAL_URL,
     schema,
   });
@@ -196,15 +224,15 @@ export default function ParramattaPage() {
         <div className="container">
           <div className="hero__content">
             <p className="eyebrow eyebrow--light">Parramatta NSW 2150</p>
-            <h1>Fridge Repairs in Parramatta: Fixed Quote Before We Start</h1>
+            <h1>Fridge Repairs in Parramatta: Written Quote Before We Start</h1>
             <p className="hero__lede">
-              Fridge gone warm in a tower off Church Street, a unit in Harris Park or the prep
-              fridge at a restaurant near Westfield? We repair fridges, freezers and commercial
+              Fridge gone warm in an apartment near Church Street, a rental in Harris Park or a
+              cafe kitchen around Westfield? We repair fridges, freezers and commercial
               refrigeration across Parramatta and the suburbs around it.
             </p>
             <p className="hero__sub">
-              The price is fixed before we start, and we tell you plainly if a repair is not
-              worth doing.
+              You get the price in writing before any work starts, and we'll tell you
+              straight if a repair isn't worth it.
             </p>
             <div className="hero__actions">
               <a href="/#contact" className="btn btn-primary">Request a Free Quote</a>
@@ -229,127 +257,21 @@ export default function ParramattaPage() {
         <div className="container">
           <div className="section-head section-head--center">
             <p className="eyebrow" style={{ justifyContent: "center" }}>Quick Answer</p>
-            <h2>Fridge Repairs Parramatta in a Nutshell</h2>
+            <h2>Fridge Repair in Parramatta at a Glance</h2>
           </div>
 
           <div className="card highlight-card">
             <p>
-              We repair domestic and commercial fridges, freezers, ice makers and coolrooms in
-              Parramatta, Harris Park, Granville, Westmead and North Parramatta. The call-out is{" "}
-              {callOutFee}, the quote is fixed after diagnosis, and repairs carry a{" "}
-              {warrantyPeriod} warranty on parts and labour. Parramatta is one of the most
-              densely built parts of western Sydney, so apartment access and busy food strips
-              shape a lot of our jobs. In a hurry? See our{" "}
-              <a href="/same-day-fridge-repair-sydney/">same-day fridge repair page</a>.
+              We repair domestic and commercial fridges, freezers, wine fridges, ice makers and
+              coolrooms in Parramatta, Harris Park, Westmead, North Parramatta, Granville and
+              nearby suburbs. The call-out is {callOutFee}, you get a written quote after
+              diagnosis, and every completed repair carries a {warrantyPeriod} warranty on
+              parts and labour. Most faults, such as a failed fan, a worn door seal or a faulty
+              sensor, are fixed on the first visit when the part is on the van. If your fridge
+              is full of food, tell us when you book and we'll try to get to you the same day.
+              See our <a href="/same-day-fridge-repair-sydney/">same-day fridge repair page</a>.
             </p>
           </div>
-        </div>
-      </section>
-
-      <section className="section section--alt" id="local">
-        <div className="container">
-          <div className="section-head section-head--center">
-            <p className="eyebrow" style={{ justifyContent: "center" }}>Living in Parramatta</p>
-            <h2>How Your Building Changes the Repair</h2>
-            <p>
-              At the 2021 Census, Parramatta had about 30,200 residents at roughly 5,800 people
-              per square kilometre, with a median age of 32. That is a dense, young suburb.
-            </p>
-          </div>
-
-          <div className="data-table-wrap">
-            <table className="data-table">
-              <thead>
-                <tr>
-                  <th>Where you are</th>
-                  <th>What the job looks like</th>
-                  <th>How we handle it</th>
-                </tr>
-              </thead>
-              <tbody>
-                {livingRows.map((r) => (
-                  <tr key={r.where}>
-                    <td>{r.where}</td>
-                    <td>{r.job}</td>
-                    <td>{r.note}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section className="section" id="towers">
-        <div className="container">
-          <div className="section-head section-head--center">
-            <p className="eyebrow" style={{ justifyContent: "center" }}>Apartment Checklist</p>
-            <h2>Booking a Repair in a Parramatta Apartment Tower</h2>
-          </div>
-
-          <div className="card highlight-card">
-            <ol className="regas__steps">
-              {towerSteps.map((s) => <li key={s}>{s}</li>)}
-            </ol>
-            <p style={{ marginTop: 14 }}>
-              Tip: a fridge needs a few centimetres of clear space behind and beside it to shed
-              heat. Pushed hard into a recess, it runs hotter and wears its compressor out
-              sooner.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section--alt" id="commercial">
-        <div className="container">
-          <div className="section-head section-head--center">
-            <p className="eyebrow" style={{ justifyContent: "center" }}>Local Businesses</p>
-            <h2>Church Street, Harris Park and Westmead: Where We Work</h2>
-          </div>
-
-          <div className="grid grid-3">
-            {hotspots.map(({ icon: Icon, title, text, href, label }) => (
-              <div className="card domestic__card" key={title}>
-                <span className="icon-badge"><Icon /></span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-                <p style={{ marginTop: 10 }}><a href={href}>{label}</a></p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section" id="problems">
-        <div className="container">
-          <div className="section-head section-head--center">
-            <p className="eyebrow" style={{ justifyContent: "center" }}>Symptoms</p>
-            <h2>What Your Fridge Is Telling You</h2>
-          </div>
-
-          <div className="data-table-wrap">
-            <table className="data-table">
-              <thead>
-                <tr>
-                  <th>If you notice</th>
-                  <th>It is often</th>
-                </tr>
-              </thead>
-              <tbody>
-                {faultList.map((r) => (
-                  <tr key={r.f}>
-                    <td>{r.f}</td>
-                    <td>{r.c}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="hub-suburbs__note">
-            More detail on our <a href="/domestic-fridge-repairs-sydney/#symptoms">fridge fault guide</a>,{" "}
-            <a href="/ice-maker-repairs-sydney/">ice maker repairs</a> and{" "}
-            <a href="/#regas">fridge regas</a>.
-          </p>
         </div>
       </section>
 
@@ -357,10 +279,11 @@ export default function ParramattaPage() {
         <div className="container">
           <div className="section-head section-head--center">
             <p className="eyebrow" style={{ justifyContent: "center" }}>Coverage</p>
-            <h2>Suburbs Around Parramatta We Cover</h2>
+            <h2>Parramatta and the Suburbs Around It</h2>
             <p>
-              Parramatta sits about 23 km west of the Sydney CBD. If your suburb is not listed,
-              send your postcode and we will check.
+              Parramatta is about 24 km west of the Sydney CBD, and we cover the city centre and
+              the suburbs on every side. Don't see yours? Send us your postcode, as nearby areas
+              can usually still be booked.
             </p>
           </div>
 
@@ -384,9 +307,81 @@ export default function ParramattaPage() {
           </div>
 
           <p className="hub-suburbs__note">
-            Further west? See <a href="/fridge-repairs/western-sydney/">Western Sydney fridge repairs</a>{" "}
-            or <a href="/fridge-repairs/">all Sydney areas →</a>
+            Working further out? See{" "}
+            <a href="/fridge-repairs/western-sydney/">fridge repairs across Western Sydney</a>{" "}
+            or <a href="/fridge-repairs/">all Sydney areas we service →</a>
           </p>
+        </div>
+      </section>
+
+      <section className="section" id="local">
+        <div className="container">
+          <div className="section-head section-head--center">
+            <p className="eyebrow" style={{ justifyContent: "center" }}>Local Conditions</p>
+            <h2>What's Different About Fridge Repairs in Parramatta</h2>
+            <p>
+              Parramatta is overwhelmingly apartment country. At the 2021 Census, about 86% of
+              homes were flats or units and only about 8% were separate houses. That means lifts,
+              strata managers and rentals are part of almost every job.
+            </p>
+          </div>
+
+          <div className="data-table-wrap">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>Where you are</th>
+                  <th>Common problem</th>
+                  <th>What we do</th>
+                </tr>
+              </thead>
+              <tbody>
+                {housingRows.map((r) => (
+                  <tr key={r.where}>
+                    <td>{r.where}</td>
+                    <td>{r.problem}</td>
+                    <td>{r.fix}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="hub-suburbs__note">
+            Apartment tip: a fridge needs a few centimetres of clear space behind and beside it
+            to shed heat. Check your manual for the gap. A fridge pushed hard into a tight
+            recess runs hotter, works harder and wears its compressor out sooner.
+          </p>
+        </div>
+      </section>
+
+      <section className="section section--alt" id="problems">
+        <div className="container">
+          <div className="section-head section-head--center">
+            <p className="eyebrow" style={{ justifyContent: "center" }}>Common Faults</p>
+            <h2>Fridge Problems We Fix in Parramatta</h2>
+          </div>
+
+          <div className="data-table-wrap">
+            <table className="data-table">
+              <thead>
+                <tr>
+                  <th>Problem</th>
+                  <th>Usual cause</th>
+                  <th>More info</th>
+                </tr>
+              </thead>
+              <tbody>
+                {problemRows.map((r) => (
+                  <tr key={r.problem}>
+                    <td>{r.problem}</td>
+                    <td>{r.cause}</td>
+                    <td><a href={r.href}>{r.label}</a></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
@@ -396,8 +391,8 @@ export default function ParramattaPage() {
             <p className="eyebrow" style={{ justifyContent: "center" }}>Brands</p>
             <h2>Brands We Repair in Parramatta</h2>
             <p>
-              From apartment-size Samsung, LG and Haier fridges to commercial Bromic, Skope,
-              Williams and True units and Vintec wine fridges.
+              We repair most makes found in Parramatta apartments and kitchens, plus commercial
+              and wine fridge brands such as Bromic, Skope, Williams, True and Vintec.
             </p>
           </div>
 
@@ -407,18 +402,38 @@ export default function ParramattaPage() {
             ))}
           </div>
           <p className="hub-suburbs__note" style={{ textAlign: "center" }}>
-            <a href="/#brands">See all brands →</a> and our{" "}
-            <a href="/wine-fridge-repairs-sydney/">wine fridge repairs →</a>
+            <a href="/#brands">See all fridge brands we repair →</a>{" "}
+            and our <a href="/wine-fridge-repairs-sydney/">wine fridge repairs →</a>
           </p>
         </div>
       </section>
 
-      <section className="section cost section--alt" id="cost">
+      <section className="section section--alt" id="commercial">
+        <div className="container">
+          <div className="section-head section-head--center">
+            <p className="eyebrow" style={{ justifyContent: "center" }}>Businesses</p>
+            <h2>Commercial Fridge and Coolroom Repairs for Parramatta Businesses</h2>
+          </div>
+
+          <div className="grid grid-3">
+            {commercialCards.map(({ icon: Icon, title, text, href, label }) => (
+              <div className="card domestic__card" key={title}>
+                <span className="icon-badge"><Icon /></span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+                <p style={{ marginTop: 10 }}><a href={href}>{label}</a></p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section cost" id="cost">
         <div className="container">
           <div className="section-head section-head--center">
             <p className="eyebrow" style={{ justifyContent: "center" }}>Pricing</p>
-            <h2>Parramatta Fridge Repair Prices</h2>
-            <p>Every fault is different. As a general Sydney market guide:</p>
+            <h2>Fridge Repair Cost in Parramatta</h2>
+            <p>Price depends on the fault and the part. As a general Sydney market guide:</p>
           </div>
 
           <div className="data-table-wrap">
@@ -441,10 +456,45 @@ export default function ParramattaPage() {
           </div>
 
           <p className="hub-suburbs__note">
-            General Sydney market guide, not our prices. Our call-out is {callOutFee} incl. GST
-            and your exact price is quoted after diagnosis.{" "}
-            <a href="/#cost">See our cost guide →</a>
+            Note: general Sydney market guide, not our prices. Prices change over time. Our
+            call-out is {callOutFee} incl. GST and your exact price is quoted after diagnosis.{" "}
+            <a href="/#cost">See our fridge repair cost guide →</a>
           </p>
+        </div>
+      </section>
+
+      <section className="section" id="booking">
+        <div className="container">
+          <div className="section-head section-head--center">
+            <p className="eyebrow" style={{ justifyContent: "center" }}>How It Works</p>
+            <h2>How Booking Works</h2>
+          </div>
+
+          <div className="card highlight-card">
+            <ol className="regas__steps">
+              {bookingSteps.map((s) => <li key={s}>{s}</li>)}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--alt" id="repair-or-replace">
+        <div className="container">
+          <div className="section-head section-head--center">
+            <p className="eyebrow" style={{ justifyContent: "center" }}>Repair or Replace</p>
+            <h2>Repair or Replace Your Fridge?</h2>
+          </div>
+
+          <div className="card highlight-card">
+            <p>
+              If your fridge is under about 8 years old and the fault is a fan, sensor, seal or
+              board, repair is usually worthwhile. That is especially true for built-in
+              apartment fridges, which cost far more to replace once cabinetry is involved. If
+              it's over 10 years old and needs a new compressor, replacement can make more
+              sense. We'll give you a straight answer either way. Read more about whether to{" "}
+              <a href="/blog">repair or replace your fridge</a>.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -452,7 +502,7 @@ export default function ParramattaPage() {
         <div className="container">
           <div className="section-head section-head--center">
             <p className="eyebrow" style={{ justifyContent: "center" }}>FAQ</p>
-            <h2>Parramatta Fridge Repair Questions</h2>
+            <h2>Fridge Repairs Parramatta FAQs</h2>
           </div>
 
           <div className="accordion faq__accordion">
@@ -462,20 +512,16 @@ export default function ParramattaPage() {
               </AccordionItem>
             ))}
           </div>
-          <p className="hub-suburbs__note" style={{ textAlign: "center" }}>
-            Not sure whether to repair or replace? Read our guide on whether to{" "}
-            <a href="/blog">repair or replace your fridge</a>.
-          </p>
         </div>
       </section>
 
       <section className="section--dark section" id="parramatta-cta">
         <div className="container">
           <div className="section-head section-head--center">
-            <h2>Get a Fixed Quote in Parramatta</h2>
+            <h2>Book a Fridge Repair in Parramatta</h2>
             <p>
-              Tell us the tower or street, the brand and model, and what the fridge is doing.
-              We will find the fault and quote before we start.
+              Tell us your address or building, the fridge brand and model, and what it's doing.
+              We'll find the real fault and give you a written quote before any work starts.
             </p>
           </div>
           <div className="hub-cta__actions">
