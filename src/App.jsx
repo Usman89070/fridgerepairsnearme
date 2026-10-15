@@ -27,6 +27,7 @@ import SydneyCbdPage from "./pages/SydneyCbdPage";
 import BurwoodPage from "./pages/BurwoodPage";
 import MarrickvillePage from "./pages/MarrickvillePage";
 import ParramattaPage from "./pages/ParramattaPage";
+import StrathfieldPage from "./pages/StrathfieldPage";
 import ContactPage from "./pages/ContactPage";
 import BlogIndexPage from "./pages/BlogIndexPage";
 import BlogPostPage from "./pages/BlogPostPage";
@@ -90,6 +91,8 @@ export default function App() {
             <Route path="/fridge-repairs/marrickville/" element={<MarrickvillePage />} />
             <Route path="/fridge-repairs/fridge-repairs-parramatta" element={<ParramattaPage />} />
             <Route path="/fridge-repairs/fridge-repairs-parramatta/" element={<ParramattaPage />} />
+            <Route path="/fridge-repairs/strathfield" element={<StrathfieldPage />} />
+            <Route path="/fridge-repairs/strathfield/" element={<StrathfieldPage />} />
             <Route path="/blog" element={<BlogIndexPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/admin/login" element={<AdminLoginPage />} />

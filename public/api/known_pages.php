@@ -23,6 +23,7 @@ function known_pages() {
         ['path' => '/fridge-repairs/burwood/', 'label' => 'Burwood', 'changefreq' => 'weekly', 'priority' => '0.7'],
         ['path' => '/fridge-repairs/marrickville/', 'label' => 'Marrickville', 'changefreq' => 'weekly', 'priority' => '0.7'],
         ['path' => '/fridge-repairs/fridge-repairs-parramatta/', 'label' => 'Parramatta', 'changefreq' => 'weekly', 'priority' => '0.7'],
+        ['path' => '/fridge-repairs/strathfield/', 'label' => 'Strathfield', 'changefreq' => 'weekly', 'priority' => '0.7'],
         ['path' => '/contact-us/', 'label' => 'Contact Us', 'changefreq' => 'monthly', 'priority' => '0.7'],
         ['path' => '/blog', 'label' => 'Blog (index)', 'changefreq' => 'weekly', 'priority' => '0.8'],
     ];
