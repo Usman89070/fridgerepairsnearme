@@ -88,8 +88,8 @@ export default function App() {
             <Route path="/fridge-repairs/burwood/" element={<BurwoodPage />} />
             <Route path="/fridge-repairs/marrickville" element={<MarrickvillePage />} />
             <Route path="/fridge-repairs/marrickville/" element={<MarrickvillePage />} />
-            <Route path="/fridge-repairs/parramatta" element={<ParramattaPage />} />
-            <Route path="/fridge-repairs/parramatta/" element={<ParramattaPage />} />
+            <Route path="/fridge-repairs/fridge-repairs-parramatta" element={<ParramattaPage />} />
+            <Route path="/fridge-repairs/fridge-repairs-parramatta/" element={<ParramattaPage />} />
             <Route path="/blog" element={<BlogIndexPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/admin/login" element={<AdminLoginPage />} />

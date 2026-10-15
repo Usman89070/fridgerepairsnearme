@@ -17,7 +17,7 @@ import {
 } from "../components/Icons";
 import AccordionItem from "../components/Accordion";
 
-const CANONICAL_URL = "https://fridgerepairsnearme.com.au/fridge-repairs/parramatta/";
+const CANONICAL_URL = "https://fridgerepairsnearme.com.au/fridge-repairs/fridge-repairs-parramatta/";
 
 const trustPoints = [
   { icon: ClockIcon, label: "Same-day visits where availability allows" },
