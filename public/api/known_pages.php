@@ -21,6 +21,9 @@ function known_pages() {
         ['path' => '/fridge-repairs/western-sydney/', 'label' => 'Western Sydney', 'changefreq' => 'weekly', 'priority' => '0.8'],
         ['path' => '/fridge-repairs/sydney-cbd/', 'label' => 'Sydney CBD', 'changefreq' => 'weekly', 'priority' => '0.8'],
         ['path' => '/fridge-repairs/burwood/', 'label' => 'Burwood', 'changefreq' => 'weekly', 'priority' => '0.7'],
+        ['path' => '/fridge-repairs/marrickville/', 'label' => 'Marrickville', 'changefreq' => 'weekly', 'priority' => '0.7'],
+        ['path' => '/fridge-repairs/fridge-repairs-parramatta/', 'label' => 'Parramatta', 'changefreq' => 'weekly', 'priority' => '0.7'],
+        ['path' => '/fridge-repairs/strathfield/', 'label' => 'Strathfield', 'changefreq' => 'weekly', 'priority' => '0.7'],
         ['path' => '/contact-us/', 'label' => 'Contact Us', 'changefreq' => 'monthly', 'priority' => '0.7'],
         ['path' => '/blog', 'label' => 'Blog (index)', 'changefreq' => 'weekly', 'priority' => '0.8'],
     ];

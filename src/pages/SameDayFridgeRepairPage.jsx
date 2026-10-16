@@ -30,7 +30,7 @@ const trustPoints = [
 const howToSteps = [
   "Send us your suburb, fridge brand and model number, and what it's doing. A photo of the model label helps us bring the right part.",
   "Tell us if food, stock or medication is at risk, so the job can be prioritised where possible.",
-  "We confirm honestly whether a same-day visit is available for your suburb, or offer the next available slot.",
+  "We confirm plainly whether a same-day visit is available for your suburb, or offer the next available slot.",
   "The technician diagnoses the fault and gives you a fixed price before starting.",
 ];
 
@@ -97,7 +97,7 @@ const homeBizCards = [
 const sameDayFaqs = [
   {
     q: "Can I get my fridge repaired today in Sydney?",
-    a: "Often, yes. Same-day visits may be available depending on your suburb and the day's bookings. Tell us when you enquire and we'll confirm honestly, including if the next available slot is the better option.",
+    a: "Often, yes. Same-day visits may be available depending on your suburb and the day's bookings. Tell us when you enquire and we'll confirm plainly, including if the next available slot is the better option.",
   },
   {
     q: "How do I check if same-day is available for my suburb?",
@@ -173,9 +173,9 @@ const schema = [
 
 export default function SameDayFridgeRepairPage() {
   usePageSeo({
-    title: "Same Day Fridge Repair Sydney | Urgent Fridge Repairs",
+    title: `Same Day Fridge Repair Sydney | ${callOutFee} Call-Out, Fixed Quote`,
     description:
-      "Fridge stopped working? Same day fridge repair across Sydney for homes and businesses where available. Fixed quote first, no surprises.",
+      `Fridge not cooling and food at risk? Same-day and urgent fridge, freezer and coolroom repairs across Sydney where available. ${callOutFee} call-out, fixed quote.`,
     canonical: CANONICAL_URL,
     schema,
   });
@@ -200,7 +200,7 @@ export default function SameDayFridgeRepairPage() {
             <p className="hero__sub">
               You get a fixed quote before any work starts. Same-day availability depends on
               your suburb and the day's bookings — tell us when you enquire and we'll confirm
-              honestly, even if that means the next available slot instead.
+              plainly, even if that means the next available slot instead.
             </p>
             <div className="hero__actions">
               <a href="/#contact" className="btn btn-primary">Request a Free Quote</a>
@@ -339,6 +339,29 @@ export default function SameDayFridgeRepairPage() {
         </div>
       </section>
 
+      <section className="section" id="commercial-breakdown">
+        <div className="container">
+          <div className="section-head section-head--center">
+            <p className="eyebrow" style={{ justifyContent: "center" }}>Commercial Breakdowns</p>
+            <h2>Restaurant, Cafe or Coolroom Down? Tell Us This When You Ring</h2>
+          </div>
+
+          <div className="card highlight-card">
+            <ul className="regas__steps">
+              <li>What failed: an under-bench or prep fridge, a display cabinet, a freezer or a walk-in coolroom.</li>
+              <li>What is inside and how long it has been warm, so we can tell you whether stock needs to move.</li>
+              <li>The brand and model, or a photo of the label. For coolrooms, the make of the condensing unit.</li>
+              <li>Access: loading dock, trading hours, or a back lane. We aim to work outside the lunch and dinner rush where we can.</li>
+            </ul>
+            <p style={{ marginTop: 14 }}>
+              Same-day visits depend on the day's bookings. See our{" "}
+              <a href="/#commercial">commercial fridge repairs</a> and{" "}
+              <a href="/display-fridge-repairs-sydney/">display fridge repairs</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="section section--alt" id="parts-brands">
         <div className="container">
           <div className="section-head section-head--center">
@@ -395,10 +418,21 @@ export default function SameDayFridgeRepairPage() {
             <h2>Same Day Fridge Repair Near You</h2>
             <p>We offer same-day visits across 8 Sydney regions, subject to the day's bookings:</p>
             <p>
-              Inner West · Western Sydney · North Shore · Northern Beaches · Eastern Suburbs ·
-              Sydney CBD · St George · Sutherland Shire
+              Inner West · <a href="/fridge-repairs/western-sydney/">Western Sydney</a> ·{" "}
+              <a href="/fridge-repairs/north-shore/">North Shore</a> ·{" "}
+              <a href="/fridge-repairs/northern-beaches/">Northern Beaches</a> ·{" "}
+              <a href="/fridge-repairs/eastern-suburbs/">Eastern Suburbs</a> ·{" "}
+              <a href="/fridge-repairs/sydney-cbd/">Sydney CBD</a> ·{" "}
+              <a href="/fridge-repairs/st-george/">St George</a> ·{" "}
+              <a href="/fridge-repairs/sutherland-shire/">Sutherland Shire</a>
             </p>
-            <p><a href="/fridge-repairs/">See all suburbs we service →</a></p>
+            <p>
+              Suburb pages: <a href="/fridge-repairs/burwood/">Burwood</a>,{" "}
+              <a href="/fridge-repairs/marrickville/">Marrickville</a>,{" "}
+              <a href="/fridge-repairs/strathfield/">Strathfield</a> and{" "}
+              <a href="/fridge-repairs/fridge-repairs-parramatta/">Parramatta</a>.{" "}
+              <a href="/fridge-repairs/">See all suburbs we service →</a>
+            </p>
           </div>
         </div>
       </section>

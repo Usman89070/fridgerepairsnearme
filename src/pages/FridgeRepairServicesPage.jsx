@@ -24,13 +24,13 @@ const trustPoints = [
 
 const regionOverview = [
   { region: "Inner West", suburbs: "Marrickville, Burwood, Strathfield, Leichhardt, Newtown" },
-  { region: "Western Sydney", suburbs: "Parramatta, Auburn, Bankstown, Blacktown, Penrith" },
-  { region: "North Shore", suburbs: "North Sydney, Mosman, Chatswood, Lane Cove, St Ives" },
-  { region: "Northern Beaches", suburbs: "Manly, Dee Why, Mona Vale, Avalon Beach, Frenchs Forest" },
-  { region: "Eastern Suburbs", suburbs: "Bondi, Randwick, Paddington, Maroubra, Double Bay" },
-  { region: "Sydney CBD & Inner City", suburbs: "Sydney CBD, Haymarket, Barangaroo, Surry Hills, Pyrmont" },
-  { region: "St George", suburbs: "Hurstville, Kogarah, Rockdale, Bexley, Revesby" },
-  { region: "Sutherland Shire", suburbs: "Cronulla, Sutherland, Miranda, Caringbah, Menai" },
+  { region: "Western Sydney", suburbs: "Parramatta, Auburn, Bankstown, Blacktown, Penrith", href: "/fridge-repairs/western-sydney/" },
+  { region: "North Shore", suburbs: "North Sydney, Mosman, Chatswood, Lane Cove, St Ives", href: "/fridge-repairs/north-shore/" },
+  { region: "Northern Beaches", suburbs: "Manly, Dee Why, Mona Vale, Avalon Beach, Frenchs Forest", href: "/fridge-repairs/northern-beaches/" },
+  { region: "Eastern Suburbs", suburbs: "Bondi, Randwick, Paddington, Maroubra, Double Bay", href: "/fridge-repairs/eastern-suburbs/" },
+  { region: "Sydney CBD & Inner City", suburbs: "Sydney CBD, Haymarket, Barangaroo, Surry Hills, Pyrmont", href: "/fridge-repairs/sydney-cbd/" },
+  { region: "St George", suburbs: "Hurstville, Kogarah, Rockdale, Bexley, Revesby", href: "/fridge-repairs/st-george/" },
+  { region: "Sutherland Shire", suburbs: "Cronulla, Sutherland, Miranda, Caringbah, Menai", href: "/fridge-repairs/sutherland-shire/" },
 ];
 
 const hubServices = [
@@ -238,9 +238,9 @@ const schema = [
 
 export default function FridgeRepairServicesPage() {
   usePageSeo({
-    title: "Fridge Repair Services Sydney | Suburbs & Areas We Cover",
+    title: `Fridge Repair Sydney | All 8 Areas, ${callOutFee} Call-Out`,
     description:
-      "Fridge repair services across Sydney: Inner West, North Shore, Eastern Suburbs, St George, Shire & more. Find your suburb and book a local technician.",
+      "Find your Sydney area: Eastern Suburbs, Inner West, North Shore, Northern Beaches, St George, Sutherland Shire, Western Sydney and CBD. Fixed quote first.",
     canonical: CANONICAL_URL,
     schema,
   });
@@ -256,7 +256,7 @@ export default function FridgeRepairServicesPage() {
         <div className="container">
           <div className="hero__content">
             <p className="eyebrow eyebrow--light">Sydney Service Areas</p>
-            <h1>Fridge Repair Services Across Sydney</h1>
+            <h1>Fridge Repair Across Sydney: Areas We Service</h1>
             <p className="hero__lede">
               We repair household and commercial fridges across 8 Sydney regions and more than
               230 suburbs, from Parramatta to Bondi and from Mosman to Cronulla.
@@ -302,12 +302,20 @@ export default function FridgeRepairServicesPage() {
               <div className="card hub-region-card" key={r.region}>
                 <h3>{r.region}</h3>
                 <p>{r.suburbs}</p>
+                {r.href && (
+                  <p style={{ marginTop: 10 }}><a href={r.href}>See {r.region} fridge repairs →</a></p>
+                )}
               </div>
             ))}
           </div>
 
           <p className="hub-suburbs__note">
-            See the full suburb list for every region below.
+            Suburb pages:{" "}
+            <a href="/fridge-repairs/burwood/">Burwood</a>,{" "}
+            <a href="/fridge-repairs/marrickville/">Marrickville</a>,{" "}
+            <a href="/fridge-repairs/strathfield/">Strathfield</a> and{" "}
+            <a href="/fridge-repairs/fridge-repairs-parramatta/">Parramatta</a>. See the full
+            suburb list for every region below.
           </p>
         </div>
       </section>

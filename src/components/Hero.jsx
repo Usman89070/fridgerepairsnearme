@@ -19,7 +19,7 @@ export default function Hero() {
       <div className="container hero__grid">
         <div className="hero__content">
           <p className="eyebrow eyebrow--light">Local Fridge Repair Services Across Sydney</p>
-          <h1>Fridge Repairs Near Me Sydney</h1>
+          <h1>Fridge Repairs Near Me in Sydney: Fixed Quote First</h1>
           <p className="hero__lede">
             Fridge not cooling, leaking, icing up or making unusual noises? Find fridge repair
             services near you across Sydney for domestic fridges, freezers and commercial

@@ -165,7 +165,7 @@ const displayFaqs = [
   },
   {
     q: "Do you offer same-day display fridge repair?",
-    a: "Often, yes. Same-day appointments may be available depending on your suburb and the day's bookings — tell us when you enquire and we'll confirm honestly.",
+    a: "Often, yes. Same-day appointments may be available depending on your suburb and the day's bookings — tell us when you enquire and we'll confirm plainly.",
   },
   {
     q: "Can you replace a cracked fridge door glass?",
@@ -227,9 +227,9 @@ const schema = [
 
 export default function DisplayFridgeRepairsPage() {
   usePageSeo({
-    title: "Display Fridge Repairs Sydney – Fast Glass-Door Fix",
+    title: `Display, Bar & Mini Fridge Repairs Sydney | ${callOutFee} Call-Out`,
     description:
-      "Display fridge repairs in Sydney for cafes, shops and bars. Glass-door, drinks and bar fridges fixed fast. Upfront quotes, same-day help and a warranty.",
+      `Glass-door display fridges, bar fridges and mini fridges repaired across Sydney. Cafes, pubs, retail and home. ${callOutFee} call-out, fixed quote first.`,
     canonical: CANONICAL_URL,
     schema,
   });
@@ -245,7 +245,7 @@ export default function DisplayFridgeRepairsPage() {
         <div className="container">
           <div className="hero__content">
             <p className="eyebrow eyebrow--light">Display & Commercial Fridges</p>
-            <h1>Display Fridge Repairs Sydney: Fast Fixes for Glass-Door, Drinks and Bar Fridges</h1>
+            <h1>Display, Bar &amp; Mini Fridge Repairs in Sydney</h1>
             <p className="hero__lede">
               Your display fridge is a salesperson that never stops working. When the glass fogs
               up, the lights go out or the drinks go warm, customers walk past and stock is at
@@ -356,7 +356,34 @@ export default function DisplayFridgeRepairsPage() {
         </div>
       </section>
 
-      <section className="section section--alt" id="why-prompt">
+      <section className="section section--alt" id="mini-bar">
+        <div className="container">
+          <div className="section-head section-head--center">
+            <p className="eyebrow" style={{ justifyContent: "center" }}>Bar &amp; Mini Fridges</p>
+            <h2>Bar Fridge and Mini Fridge Repairs</h2>
+            <p>
+              Small fridges have different faults from a full-size fridge, and many are worth
+              fixing only if the part is cheap.
+            </p>
+          </div>
+
+          <div className="card highlight-card">
+            <ul className="regas__steps">
+              <li>Bar fridges in pubs, venues and home bars: failed fans and door seals are the usual causes of warm drinks.</li>
+              <li>Glass-door drink fridges: a worn seal or a dirty condenser coil often explains a unit that runs all day and stays warm.</li>
+              <li>Mini fridges and bar-size units at home or in an office: we tell you before quoting whether a repair makes sense against the price of a new one.</li>
+              <li>Absorption-type and thermoelectric minibars: tell us the model when you book so we can check parts first.</li>
+            </ul>
+            <p style={{ marginTop: 14 }}>
+              Got a built-in wine fridge instead? See our{" "}
+              <a href="/wine-fridge-repairs-sydney/">wine fridge repairs</a>. For a household
+              fridge, see <a href="/domestic-fridge-repairs-sydney/">domestic fridge repairs</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="why-prompt">
         <div className="container">
           <div className="section-head section-head--center">
             <p className="eyebrow" style={{ justifyContent: "center" }}>Why It Matters</p>
@@ -488,10 +515,21 @@ export default function DisplayFridgeRepairsPage() {
             <h2>Display Fridge Repairs Across Sydney</h2>
             <p>We provide display fridge repairs across 8 Sydney regions:</p>
             <p>
-              Inner West · Western Sydney · North Shore · Northern Beaches · Eastern Suburbs ·
-              Sydney CBD · St George · Sutherland Shire
+              Inner West · <a href="/fridge-repairs/western-sydney/">Western Sydney</a> ·{" "}
+              <a href="/fridge-repairs/north-shore/">North Shore</a> ·{" "}
+              <a href="/fridge-repairs/northern-beaches/">Northern Beaches</a> ·{" "}
+              <a href="/fridge-repairs/eastern-suburbs/">Eastern Suburbs</a> ·{" "}
+              <a href="/fridge-repairs/sydney-cbd/">Sydney CBD</a> ·{" "}
+              <a href="/fridge-repairs/st-george/">St George</a> ·{" "}
+              <a href="/fridge-repairs/sutherland-shire/">Sutherland Shire</a>
             </p>
-            <p><a href="/fridge-repairs/">See all suburbs we service →</a></p>
+            <p>
+              Suburb pages: <a href="/fridge-repairs/burwood/">Burwood</a>,{" "}
+              <a href="/fridge-repairs/marrickville/">Marrickville</a>,{" "}
+              <a href="/fridge-repairs/strathfield/">Strathfield</a> and{" "}
+              <a href="/fridge-repairs/fridge-repairs-parramatta/">Parramatta</a>.{" "}
+              <a href="/fridge-repairs/">See all suburbs we service →</a>
+            </p>
           </div>
         </div>
       </section>
