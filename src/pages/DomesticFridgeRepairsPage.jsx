@@ -165,9 +165,9 @@ const schema = [
 
 export default function DomesticFridgeRepairsPage() {
   usePageSeo({
-    title: "Domestic Fridge Repairs Sydney | All Brands, Home Visits",
+    title: `Domestic Fridge Repairs Sydney | Home Visits, ${callOutFee} Call-Out`,
     description:
-      "Domestic fridge repairs in Sydney for French door, side-by-side, top-mount and integrated fridges. Not cooling, leaking or noisy? Book a technician.",
+      `Home fridge and freezer repairs across Sydney. Not cooling, leaking, noisy or iced up? ${callOutFee} call-out, fixed quote first, ${warrantyPeriod} warranty on repairs.`,
     canonical: CANONICAL_URL,
     schema,
   });
@@ -192,7 +192,7 @@ export default function DomesticFridgeRepairsPage() {
             </p>
             <p className="hero__sub">
               We find the actual fault, give you a fixed quote before any work, and tell you
-              honestly if the fridge isn't worth fixing. Same-day appointments may be available
+              plainly if the fridge isn't worth fixing. Same-day appointments may be available
               depending on your suburb and technician scheduling.
             </p>
             <div className="hero__actions">
@@ -448,8 +448,19 @@ export default function DomesticFridgeRepairsPage() {
             <h2>Domestic Fridge Repairs Across Sydney</h2>
             <p>We repair household fridges at homes and apartments across 8 Sydney regions:</p>
             <p>
-              Inner West · Western Sydney · North Shore · Northern Beaches · Eastern Suburbs ·
-              Sydney CBD · St George · Sutherland Shire
+              Inner West · <a href="/fridge-repairs/western-sydney/">Western Sydney</a> ·{" "}
+              <a href="/fridge-repairs/north-shore/">North Shore</a> ·{" "}
+              <a href="/fridge-repairs/northern-beaches/">Northern Beaches</a> ·{" "}
+              <a href="/fridge-repairs/eastern-suburbs/">Eastern Suburbs</a> ·{" "}
+              <a href="/fridge-repairs/sydney-cbd/">Sydney CBD</a> ·{" "}
+              <a href="/fridge-repairs/st-george/">St George</a> ·{" "}
+              <a href="/fridge-repairs/sutherland-shire/">Sutherland Shire</a>
+            </p>
+            <p>
+              Suburb pages: <a href="/fridge-repairs/burwood/">Burwood</a>,{" "}
+              <a href="/fridge-repairs/marrickville/">Marrickville</a>,{" "}
+              <a href="/fridge-repairs/strathfield/">Strathfield</a> and{" "}
+              <a href="/fridge-repairs/fridge-repairs-parramatta/">Parramatta</a>.
             </p>
             <p>
               <a href="/fridge-repairs/">See all service areas →</a>{" "}
