@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { ChevronIcon } from "./Icons";
 
-export default function AccordionItem({ title, subtitle, children, defaultOpen = false }) {
+export default function AccordionItem({ title, subtitle, children, defaultOpen = false, id }) {
   const [open, setOpen] = useState(defaultOpen);
 
   return (
-    <div className={`accordion-item ${open ? "accordion-item--open" : ""}`}>
+    <div id={id} className={`accordion-item ${open ? "accordion-item--open" : ""}`}>
       <button
         type="button"
         className="accordion-item__trigger"

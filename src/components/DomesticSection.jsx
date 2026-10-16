@@ -7,12 +7,12 @@ export default function DomesticSection() {
       <div className="container">
         <div className="section-head">
           <p className="eyebrow">Household Appliances</p>
-          <h2>Domestic Fridge Repairs Near Me</h2>
+          <h2>Request a Domestic Fridge Repairs</h2>
           <p>
             Household refrigerators have become increasingly complex, with multiple cooling
             zones, electronic controls, sensors, inverter compressors and automated defrost
-            systems. Fridge repair services may be available for many common domestic
-            refrigerator and freezer types.
+            systems. Fridge repair services may be available across Sydney for many common
+            domestic refrigerator and freezer types.
           </p>
         </div>
 
@@ -25,6 +25,10 @@ export default function DomesticSection() {
             </div>
           ))}
         </div>
+
+        <p className="hub-suburbs__note">
+          <a href="/domestic-fridge-repairs-sydney/">See our full guide to domestic fridge repairs in Sydney →</a>
+        </p>
       </div>
     </section>
   );

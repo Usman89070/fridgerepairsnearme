@@ -1,0 +1,62 @@
+import { enquiryEmail, enquiryEmailHref, businessAddress, businessHours } from "../data/content";
+import { MailIcon, PinIcon, ClockIcon } from "./Icons";
+
+const details = [
+  { icon: MailIcon, label: "Email", value: enquiryEmail, href: enquiryEmailHref },
+  { icon: PinIcon, label: "Address", value: businessAddress },
+  { icon: ClockIcon, label: "Working Hours", value: businessHours },
+];
+
+export default function ContactSection() {
+  return (
+    <section id="contact-us" className="section contact-us">
+      <div className="container">
+        <div className="section-head section-head--center">
+          <p className="eyebrow" style={{ justifyContent: "center" }}>Get In Touch</p>
+          <h2>Contact Us</h2>
+          <p>
+            Questions about fridge repairs near you, service availability or an existing
+            enquiry? Reach out using the details below.
+          </p>
+        </div>
+
+        <div className="grid grid-3 contact-us__grid">
+          {details.map(({ icon: Icon, label, value, href }) => (
+            <div className="card contact-us__card" key={label}>
+              <span className="icon-badge"><Icon /></span>
+              <span className="contact-us__label">{label}</span>
+              {href ? (
+                <a href={href} className="contact-us__value">{value}</a>
+              ) : (
+                <span className="contact-us__value">{value}</span>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="contact-us__map">
+          <iframe
+            title="Satellite map of Sydney"
+            src="https://www.google.com/maps?q=Sydney,+NSW,+Australia&t=k&z=10&output=embed"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+          />
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Sydney,+NSW,+Australia"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-us__map-link"
+          >
+            Open in Google Maps ↗
+          </a>
+        </div>
+
+        <div className="contact-us__cta">
+          <a href="#contact" className="btn btn-primary">Request a Free Quote</a>
+          <a href={enquiryEmailHref} className="btn btn-outline">Email Us</a>
+        </div>
+      </div>
+    </section>
+  );
+}

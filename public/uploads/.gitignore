@@ -1,0 +1,4 @@
+# Uploaded images are runtime content, not part of the source tree.
+*
+!.gitignore
+!.htaccess
